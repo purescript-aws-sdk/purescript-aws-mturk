@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype AcceptQualificationRequestRequest
-  = AcceptQualificationRequestRequest { "QualificationRequestId" :: String, "IntegerValue" :: NullOrUndefined (Int) }
+  = AcceptQualificationRequestRequest { "QualificationRequestId" :: String, "IntegerValue" :: Maybe (Int) }
 ```
 
 ##### Instances
@@ -33,7 +33,7 @@ Constructs AcceptQualificationRequestRequest from required parameters
 #### `newAcceptQualificationRequestRequest'`
 
 ``` purescript
-newAcceptQualificationRequestRequest' :: String -> ({ "QualificationRequestId" :: String, "IntegerValue" :: NullOrUndefined (Int) } -> { "QualificationRequestId" :: String, "IntegerValue" :: NullOrUndefined (Int) }) -> AcceptQualificationRequestRequest
+newAcceptQualificationRequestRequest' :: String -> ({ "QualificationRequestId" :: String, "IntegerValue" :: Maybe (Int) } -> { "QualificationRequestId" :: String, "IntegerValue" :: Maybe (Int) }) -> AcceptQualificationRequestRequest
 ```
 
 Constructs AcceptQualificationRequestRequest's fields from required parameters
@@ -58,7 +58,7 @@ Encode AcceptQualificationRequestResponse
 
 ``` purescript
 newtype ApproveAssignmentRequest
-  = ApproveAssignmentRequest { "AssignmentId" :: EntityId, "RequesterFeedback" :: NullOrUndefined (String), "OverrideRejection" :: NullOrUndefined (Boolean) }
+  = ApproveAssignmentRequest { "AssignmentId" :: EntityId, "RequesterFeedback" :: Maybe (String), "OverrideRejection" :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -81,7 +81,7 @@ Constructs ApproveAssignmentRequest from required parameters
 #### `newApproveAssignmentRequest'`
 
 ``` purescript
-newApproveAssignmentRequest' :: EntityId -> ({ "AssignmentId" :: EntityId, "RequesterFeedback" :: NullOrUndefined (String), "OverrideRejection" :: NullOrUndefined (Boolean) } -> { "AssignmentId" :: EntityId, "RequesterFeedback" :: NullOrUndefined (String), "OverrideRejection" :: NullOrUndefined (Boolean) }) -> ApproveAssignmentRequest
+newApproveAssignmentRequest' :: EntityId -> ({ "AssignmentId" :: EntityId, "RequesterFeedback" :: Maybe (String), "OverrideRejection" :: Maybe (Boolean) } -> { "AssignmentId" :: EntityId, "RequesterFeedback" :: Maybe (String), "OverrideRejection" :: Maybe (Boolean) }) -> ApproveAssignmentRequest
 ```
 
 Constructs ApproveAssignmentRequest's fields from required parameters
@@ -106,7 +106,7 @@ Encode ApproveAssignmentResponse
 
 ``` purescript
 newtype Assignment
-  = Assignment { "AssignmentId" :: NullOrUndefined (EntityId), "WorkerId" :: NullOrUndefined (CustomerId), "HITId" :: NullOrUndefined (EntityId), "AssignmentStatus" :: NullOrUndefined (AssignmentStatus), "AutoApprovalTime" :: NullOrUndefined (Timestamp), "AcceptTime" :: NullOrUndefined (Timestamp), "SubmitTime" :: NullOrUndefined (Timestamp), "ApprovalTime" :: NullOrUndefined (Timestamp), "RejectionTime" :: NullOrUndefined (Timestamp), "Deadline" :: NullOrUndefined (Timestamp), "Answer" :: NullOrUndefined (String), "RequesterFeedback" :: NullOrUndefined (String) }
+  = Assignment { "AssignmentId" :: Maybe (EntityId), "WorkerId" :: Maybe (CustomerId), "HITId" :: Maybe (EntityId), "AssignmentStatus" :: Maybe (AssignmentStatus), "AutoApprovalTime" :: Maybe (Timestamp), "AcceptTime" :: Maybe (Timestamp), "SubmitTime" :: Maybe (Timestamp), "ApprovalTime" :: Maybe (Timestamp), "RejectionTime" :: Maybe (Timestamp), "Deadline" :: Maybe (Timestamp), "Answer" :: Maybe (String), "RequesterFeedback" :: Maybe (String) }
 ```
 
 <p> The Assignment data structure represents a single assignment of a HIT to a Worker. The assignment tracks the Worker's efforts to complete the HIT, and contains the results for later retrieval. </p>
@@ -131,7 +131,7 @@ Constructs Assignment from required parameters
 #### `newAssignment'`
 
 ``` purescript
-newAssignment' :: ({ "AssignmentId" :: NullOrUndefined (EntityId), "WorkerId" :: NullOrUndefined (CustomerId), "HITId" :: NullOrUndefined (EntityId), "AssignmentStatus" :: NullOrUndefined (AssignmentStatus), "AutoApprovalTime" :: NullOrUndefined (Timestamp), "AcceptTime" :: NullOrUndefined (Timestamp), "SubmitTime" :: NullOrUndefined (Timestamp), "ApprovalTime" :: NullOrUndefined (Timestamp), "RejectionTime" :: NullOrUndefined (Timestamp), "Deadline" :: NullOrUndefined (Timestamp), "Answer" :: NullOrUndefined (String), "RequesterFeedback" :: NullOrUndefined (String) } -> { "AssignmentId" :: NullOrUndefined (EntityId), "WorkerId" :: NullOrUndefined (CustomerId), "HITId" :: NullOrUndefined (EntityId), "AssignmentStatus" :: NullOrUndefined (AssignmentStatus), "AutoApprovalTime" :: NullOrUndefined (Timestamp), "AcceptTime" :: NullOrUndefined (Timestamp), "SubmitTime" :: NullOrUndefined (Timestamp), "ApprovalTime" :: NullOrUndefined (Timestamp), "RejectionTime" :: NullOrUndefined (Timestamp), "Deadline" :: NullOrUndefined (Timestamp), "Answer" :: NullOrUndefined (String), "RequesterFeedback" :: NullOrUndefined (String) }) -> Assignment
+newAssignment' :: ({ "AssignmentId" :: Maybe (EntityId), "WorkerId" :: Maybe (CustomerId), "HITId" :: Maybe (EntityId), "AssignmentStatus" :: Maybe (AssignmentStatus), "AutoApprovalTime" :: Maybe (Timestamp), "AcceptTime" :: Maybe (Timestamp), "SubmitTime" :: Maybe (Timestamp), "ApprovalTime" :: Maybe (Timestamp), "RejectionTime" :: Maybe (Timestamp), "Deadline" :: Maybe (Timestamp), "Answer" :: Maybe (String), "RequesterFeedback" :: Maybe (String) } -> { "AssignmentId" :: Maybe (EntityId), "WorkerId" :: Maybe (CustomerId), "HITId" :: Maybe (EntityId), "AssignmentStatus" :: Maybe (AssignmentStatus), "AutoApprovalTime" :: Maybe (Timestamp), "AcceptTime" :: Maybe (Timestamp), "SubmitTime" :: Maybe (Timestamp), "ApprovalTime" :: Maybe (Timestamp), "RejectionTime" :: Maybe (Timestamp), "Deadline" :: Maybe (Timestamp), "Answer" :: Maybe (String), "RequesterFeedback" :: Maybe (String) }) -> Assignment
 ```
 
 Constructs Assignment's fields from required parameters
@@ -188,7 +188,7 @@ Encode AssignmentStatusList
 
 ``` purescript
 newtype AssociateQualificationWithWorkerRequest
-  = AssociateQualificationWithWorkerRequest { "QualificationTypeId" :: EntityId, "WorkerId" :: CustomerId, "IntegerValue" :: NullOrUndefined (Int), "SendNotification" :: NullOrUndefined (Boolean) }
+  = AssociateQualificationWithWorkerRequest { "QualificationTypeId" :: EntityId, "WorkerId" :: CustomerId, "IntegerValue" :: Maybe (Int), "SendNotification" :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -211,7 +211,7 @@ Constructs AssociateQualificationWithWorkerRequest from required parameters
 #### `newAssociateQualificationWithWorkerRequest'`
 
 ``` purescript
-newAssociateQualificationWithWorkerRequest' :: EntityId -> CustomerId -> ({ "QualificationTypeId" :: EntityId, "WorkerId" :: CustomerId, "IntegerValue" :: NullOrUndefined (Int), "SendNotification" :: NullOrUndefined (Boolean) } -> { "QualificationTypeId" :: EntityId, "WorkerId" :: CustomerId, "IntegerValue" :: NullOrUndefined (Int), "SendNotification" :: NullOrUndefined (Boolean) }) -> AssociateQualificationWithWorkerRequest
+newAssociateQualificationWithWorkerRequest' :: EntityId -> CustomerId -> ({ "QualificationTypeId" :: EntityId, "WorkerId" :: CustomerId, "IntegerValue" :: Maybe (Int), "SendNotification" :: Maybe (Boolean) } -> { "QualificationTypeId" :: EntityId, "WorkerId" :: CustomerId, "IntegerValue" :: Maybe (Int), "SendNotification" :: Maybe (Boolean) }) -> AssociateQualificationWithWorkerRequest
 ```
 
 Constructs AssociateQualificationWithWorkerRequest's fields from required parameters
@@ -236,7 +236,7 @@ Encode AssociateQualificationWithWorkerResponse
 
 ``` purescript
 newtype BonusPayment
-  = BonusPayment { "WorkerId" :: NullOrUndefined (CustomerId), "BonusAmount" :: NullOrUndefined (CurrencyAmount), "AssignmentId" :: NullOrUndefined (EntityId), "Reason" :: NullOrUndefined (String), "GrantTime" :: NullOrUndefined (Timestamp) }
+  = BonusPayment { "WorkerId" :: Maybe (CustomerId), "BonusAmount" :: Maybe (CurrencyAmount), "AssignmentId" :: Maybe (EntityId), "Reason" :: Maybe (String), "GrantTime" :: Maybe (Timestamp) }
 ```
 
 <p>An object representing a Bonus payment paid to a Worker.</p>
@@ -261,7 +261,7 @@ Constructs BonusPayment from required parameters
 #### `newBonusPayment'`
 
 ``` purescript
-newBonusPayment' :: ({ "WorkerId" :: NullOrUndefined (CustomerId), "BonusAmount" :: NullOrUndefined (CurrencyAmount), "AssignmentId" :: NullOrUndefined (EntityId), "Reason" :: NullOrUndefined (String), "GrantTime" :: NullOrUndefined (Timestamp) } -> { "WorkerId" :: NullOrUndefined (CustomerId), "BonusAmount" :: NullOrUndefined (CurrencyAmount), "AssignmentId" :: NullOrUndefined (EntityId), "Reason" :: NullOrUndefined (String), "GrantTime" :: NullOrUndefined (Timestamp) }) -> BonusPayment
+newBonusPayment' :: ({ "WorkerId" :: Maybe (CustomerId), "BonusAmount" :: Maybe (CurrencyAmount), "AssignmentId" :: Maybe (EntityId), "Reason" :: Maybe (String), "GrantTime" :: Maybe (Timestamp) } -> { "WorkerId" :: Maybe (CustomerId), "BonusAmount" :: Maybe (CurrencyAmount), "AssignmentId" :: Maybe (EntityId), "Reason" :: Maybe (String), "GrantTime" :: Maybe (Timestamp) }) -> BonusPayment
 ```
 
 Constructs BonusPayment's fields from required parameters
@@ -318,7 +318,7 @@ Encode CountryParameters
 
 ``` purescript
 newtype CreateAdditionalAssignmentsForHITRequest
-  = CreateAdditionalAssignmentsForHITRequest { "HITId" :: EntityId, "NumberOfAdditionalAssignments" :: Int, "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) }
+  = CreateAdditionalAssignmentsForHITRequest { "HITId" :: EntityId, "NumberOfAdditionalAssignments" :: Int, "UniqueRequestToken" :: Maybe (IdempotencyToken) }
 ```
 
 ##### Instances
@@ -341,7 +341,7 @@ Constructs CreateAdditionalAssignmentsForHITRequest from required parameters
 #### `newCreateAdditionalAssignmentsForHITRequest'`
 
 ``` purescript
-newCreateAdditionalAssignmentsForHITRequest' :: EntityId -> Int -> ({ "HITId" :: EntityId, "NumberOfAdditionalAssignments" :: Int, "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) } -> { "HITId" :: EntityId, "NumberOfAdditionalAssignments" :: Int, "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) }) -> CreateAdditionalAssignmentsForHITRequest
+newCreateAdditionalAssignmentsForHITRequest' :: EntityId -> Int -> ({ "HITId" :: EntityId, "NumberOfAdditionalAssignments" :: Int, "UniqueRequestToken" :: Maybe (IdempotencyToken) } -> { "HITId" :: EntityId, "NumberOfAdditionalAssignments" :: Int, "UniqueRequestToken" :: Maybe (IdempotencyToken) }) -> CreateAdditionalAssignmentsForHITRequest
 ```
 
 Constructs CreateAdditionalAssignmentsForHITRequest's fields from required parameters
@@ -366,7 +366,7 @@ Encode CreateAdditionalAssignmentsForHITResponse
 
 ``` purescript
 newtype CreateHITRequest
-  = CreateHITRequest { "MaxAssignments" :: NullOrUndefined (Int), "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number), "LifetimeInSeconds" :: Number, "AssignmentDurationInSeconds" :: Number, "Reward" :: CurrencyAmount, "Title" :: String, "Keywords" :: NullOrUndefined (String), "Description" :: String, "Question" :: NullOrUndefined (String), "RequesterAnnotation" :: NullOrUndefined (String), "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList), "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken), "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITLayoutId" :: NullOrUndefined (EntityId), "HITLayoutParameters" :: NullOrUndefined (HITLayoutParameterList) }
+  = CreateHITRequest { "MaxAssignments" :: Maybe (Int), "AutoApprovalDelayInSeconds" :: Maybe (Number), "LifetimeInSeconds" :: Number, "AssignmentDurationInSeconds" :: Number, "Reward" :: CurrencyAmount, "Title" :: String, "Keywords" :: Maybe (String), "Description" :: String, "Question" :: Maybe (String), "RequesterAnnotation" :: Maybe (String), "QualificationRequirements" :: Maybe (QualificationRequirementList), "UniqueRequestToken" :: Maybe (IdempotencyToken), "AssignmentReviewPolicy" :: Maybe (ReviewPolicy), "HITReviewPolicy" :: Maybe (ReviewPolicy), "HITLayoutId" :: Maybe (EntityId), "HITLayoutParameters" :: Maybe (HITLayoutParameterList) }
 ```
 
 ##### Instances
@@ -389,7 +389,7 @@ Constructs CreateHITRequest from required parameters
 #### `newCreateHITRequest'`
 
 ``` purescript
-newCreateHITRequest' :: Number -> String -> Number -> CurrencyAmount -> String -> ({ "MaxAssignments" :: NullOrUndefined (Int), "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number), "LifetimeInSeconds" :: Number, "AssignmentDurationInSeconds" :: Number, "Reward" :: CurrencyAmount, "Title" :: String, "Keywords" :: NullOrUndefined (String), "Description" :: String, "Question" :: NullOrUndefined (String), "RequesterAnnotation" :: NullOrUndefined (String), "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList), "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken), "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITLayoutId" :: NullOrUndefined (EntityId), "HITLayoutParameters" :: NullOrUndefined (HITLayoutParameterList) } -> { "MaxAssignments" :: NullOrUndefined (Int), "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number), "LifetimeInSeconds" :: Number, "AssignmentDurationInSeconds" :: Number, "Reward" :: CurrencyAmount, "Title" :: String, "Keywords" :: NullOrUndefined (String), "Description" :: String, "Question" :: NullOrUndefined (String), "RequesterAnnotation" :: NullOrUndefined (String), "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList), "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken), "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITLayoutId" :: NullOrUndefined (EntityId), "HITLayoutParameters" :: NullOrUndefined (HITLayoutParameterList) }) -> CreateHITRequest
+newCreateHITRequest' :: Number -> String -> Number -> CurrencyAmount -> String -> ({ "MaxAssignments" :: Maybe (Int), "AutoApprovalDelayInSeconds" :: Maybe (Number), "LifetimeInSeconds" :: Number, "AssignmentDurationInSeconds" :: Number, "Reward" :: CurrencyAmount, "Title" :: String, "Keywords" :: Maybe (String), "Description" :: String, "Question" :: Maybe (String), "RequesterAnnotation" :: Maybe (String), "QualificationRequirements" :: Maybe (QualificationRequirementList), "UniqueRequestToken" :: Maybe (IdempotencyToken), "AssignmentReviewPolicy" :: Maybe (ReviewPolicy), "HITReviewPolicy" :: Maybe (ReviewPolicy), "HITLayoutId" :: Maybe (EntityId), "HITLayoutParameters" :: Maybe (HITLayoutParameterList) } -> { "MaxAssignments" :: Maybe (Int), "AutoApprovalDelayInSeconds" :: Maybe (Number), "LifetimeInSeconds" :: Number, "AssignmentDurationInSeconds" :: Number, "Reward" :: CurrencyAmount, "Title" :: String, "Keywords" :: Maybe (String), "Description" :: String, "Question" :: Maybe (String), "RequesterAnnotation" :: Maybe (String), "QualificationRequirements" :: Maybe (QualificationRequirementList), "UniqueRequestToken" :: Maybe (IdempotencyToken), "AssignmentReviewPolicy" :: Maybe (ReviewPolicy), "HITReviewPolicy" :: Maybe (ReviewPolicy), "HITLayoutId" :: Maybe (EntityId), "HITLayoutParameters" :: Maybe (HITLayoutParameterList) }) -> CreateHITRequest
 ```
 
 Constructs CreateHITRequest's fields from required parameters
@@ -398,7 +398,7 @@ Constructs CreateHITRequest's fields from required parameters
 
 ``` purescript
 newtype CreateHITResponse
-  = CreateHITResponse { "HIT" :: NullOrUndefined (HIT) }
+  = CreateHITResponse { "HIT" :: Maybe (HIT) }
 ```
 
 ##### Instances
@@ -421,7 +421,7 @@ Constructs CreateHITResponse from required parameters
 #### `newCreateHITResponse'`
 
 ``` purescript
-newCreateHITResponse' :: ({ "HIT" :: NullOrUndefined (HIT) } -> { "HIT" :: NullOrUndefined (HIT) }) -> CreateHITResponse
+newCreateHITResponse' :: ({ "HIT" :: Maybe (HIT) } -> { "HIT" :: Maybe (HIT) }) -> CreateHITResponse
 ```
 
 Constructs CreateHITResponse's fields from required parameters
@@ -430,7 +430,7 @@ Constructs CreateHITResponse's fields from required parameters
 
 ``` purescript
 newtype CreateHITTypeRequest
-  = CreateHITTypeRequest { "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number), "AssignmentDurationInSeconds" :: Number, "Reward" :: CurrencyAmount, "Title" :: String, "Keywords" :: NullOrUndefined (String), "Description" :: String, "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList) }
+  = CreateHITTypeRequest { "AutoApprovalDelayInSeconds" :: Maybe (Number), "AssignmentDurationInSeconds" :: Number, "Reward" :: CurrencyAmount, "Title" :: String, "Keywords" :: Maybe (String), "Description" :: String, "QualificationRequirements" :: Maybe (QualificationRequirementList) }
 ```
 
 ##### Instances
@@ -453,7 +453,7 @@ Constructs CreateHITTypeRequest from required parameters
 #### `newCreateHITTypeRequest'`
 
 ``` purescript
-newCreateHITTypeRequest' :: Number -> String -> CurrencyAmount -> String -> ({ "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number), "AssignmentDurationInSeconds" :: Number, "Reward" :: CurrencyAmount, "Title" :: String, "Keywords" :: NullOrUndefined (String), "Description" :: String, "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList) } -> { "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number), "AssignmentDurationInSeconds" :: Number, "Reward" :: CurrencyAmount, "Title" :: String, "Keywords" :: NullOrUndefined (String), "Description" :: String, "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList) }) -> CreateHITTypeRequest
+newCreateHITTypeRequest' :: Number -> String -> CurrencyAmount -> String -> ({ "AutoApprovalDelayInSeconds" :: Maybe (Number), "AssignmentDurationInSeconds" :: Number, "Reward" :: CurrencyAmount, "Title" :: String, "Keywords" :: Maybe (String), "Description" :: String, "QualificationRequirements" :: Maybe (QualificationRequirementList) } -> { "AutoApprovalDelayInSeconds" :: Maybe (Number), "AssignmentDurationInSeconds" :: Number, "Reward" :: CurrencyAmount, "Title" :: String, "Keywords" :: Maybe (String), "Description" :: String, "QualificationRequirements" :: Maybe (QualificationRequirementList) }) -> CreateHITTypeRequest
 ```
 
 Constructs CreateHITTypeRequest's fields from required parameters
@@ -462,7 +462,7 @@ Constructs CreateHITTypeRequest's fields from required parameters
 
 ``` purescript
 newtype CreateHITTypeResponse
-  = CreateHITTypeResponse { "HITTypeId" :: NullOrUndefined (EntityId) }
+  = CreateHITTypeResponse { "HITTypeId" :: Maybe (EntityId) }
 ```
 
 ##### Instances
@@ -485,7 +485,7 @@ Constructs CreateHITTypeResponse from required parameters
 #### `newCreateHITTypeResponse'`
 
 ``` purescript
-newCreateHITTypeResponse' :: ({ "HITTypeId" :: NullOrUndefined (EntityId) } -> { "HITTypeId" :: NullOrUndefined (EntityId) }) -> CreateHITTypeResponse
+newCreateHITTypeResponse' :: ({ "HITTypeId" :: Maybe (EntityId) } -> { "HITTypeId" :: Maybe (EntityId) }) -> CreateHITTypeResponse
 ```
 
 Constructs CreateHITTypeResponse's fields from required parameters
@@ -494,7 +494,7 @@ Constructs CreateHITTypeResponse's fields from required parameters
 
 ``` purescript
 newtype CreateHITWithHITTypeRequest
-  = CreateHITWithHITTypeRequest { "HITTypeId" :: EntityId, "MaxAssignments" :: NullOrUndefined (Int), "LifetimeInSeconds" :: Number, "Question" :: NullOrUndefined (String), "RequesterAnnotation" :: NullOrUndefined (String), "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken), "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITLayoutId" :: NullOrUndefined (EntityId), "HITLayoutParameters" :: NullOrUndefined (HITLayoutParameterList) }
+  = CreateHITWithHITTypeRequest { "HITTypeId" :: EntityId, "MaxAssignments" :: Maybe (Int), "LifetimeInSeconds" :: Number, "Question" :: Maybe (String), "RequesterAnnotation" :: Maybe (String), "UniqueRequestToken" :: Maybe (IdempotencyToken), "AssignmentReviewPolicy" :: Maybe (ReviewPolicy), "HITReviewPolicy" :: Maybe (ReviewPolicy), "HITLayoutId" :: Maybe (EntityId), "HITLayoutParameters" :: Maybe (HITLayoutParameterList) }
 ```
 
 ##### Instances
@@ -517,7 +517,7 @@ Constructs CreateHITWithHITTypeRequest from required parameters
 #### `newCreateHITWithHITTypeRequest'`
 
 ``` purescript
-newCreateHITWithHITTypeRequest' :: EntityId -> Number -> ({ "HITTypeId" :: EntityId, "MaxAssignments" :: NullOrUndefined (Int), "LifetimeInSeconds" :: Number, "Question" :: NullOrUndefined (String), "RequesterAnnotation" :: NullOrUndefined (String), "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken), "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITLayoutId" :: NullOrUndefined (EntityId), "HITLayoutParameters" :: NullOrUndefined (HITLayoutParameterList) } -> { "HITTypeId" :: EntityId, "MaxAssignments" :: NullOrUndefined (Int), "LifetimeInSeconds" :: Number, "Question" :: NullOrUndefined (String), "RequesterAnnotation" :: NullOrUndefined (String), "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken), "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITLayoutId" :: NullOrUndefined (EntityId), "HITLayoutParameters" :: NullOrUndefined (HITLayoutParameterList) }) -> CreateHITWithHITTypeRequest
+newCreateHITWithHITTypeRequest' :: EntityId -> Number -> ({ "HITTypeId" :: EntityId, "MaxAssignments" :: Maybe (Int), "LifetimeInSeconds" :: Number, "Question" :: Maybe (String), "RequesterAnnotation" :: Maybe (String), "UniqueRequestToken" :: Maybe (IdempotencyToken), "AssignmentReviewPolicy" :: Maybe (ReviewPolicy), "HITReviewPolicy" :: Maybe (ReviewPolicy), "HITLayoutId" :: Maybe (EntityId), "HITLayoutParameters" :: Maybe (HITLayoutParameterList) } -> { "HITTypeId" :: EntityId, "MaxAssignments" :: Maybe (Int), "LifetimeInSeconds" :: Number, "Question" :: Maybe (String), "RequesterAnnotation" :: Maybe (String), "UniqueRequestToken" :: Maybe (IdempotencyToken), "AssignmentReviewPolicy" :: Maybe (ReviewPolicy), "HITReviewPolicy" :: Maybe (ReviewPolicy), "HITLayoutId" :: Maybe (EntityId), "HITLayoutParameters" :: Maybe (HITLayoutParameterList) }) -> CreateHITWithHITTypeRequest
 ```
 
 Constructs CreateHITWithHITTypeRequest's fields from required parameters
@@ -526,7 +526,7 @@ Constructs CreateHITWithHITTypeRequest's fields from required parameters
 
 ``` purescript
 newtype CreateHITWithHITTypeResponse
-  = CreateHITWithHITTypeResponse { "HIT" :: NullOrUndefined (HIT) }
+  = CreateHITWithHITTypeResponse { "HIT" :: Maybe (HIT) }
 ```
 
 ##### Instances
@@ -549,7 +549,7 @@ Constructs CreateHITWithHITTypeResponse from required parameters
 #### `newCreateHITWithHITTypeResponse'`
 
 ``` purescript
-newCreateHITWithHITTypeResponse' :: ({ "HIT" :: NullOrUndefined (HIT) } -> { "HIT" :: NullOrUndefined (HIT) }) -> CreateHITWithHITTypeResponse
+newCreateHITWithHITTypeResponse' :: ({ "HIT" :: Maybe (HIT) } -> { "HIT" :: Maybe (HIT) }) -> CreateHITWithHITTypeResponse
 ```
 
 Constructs CreateHITWithHITTypeResponse's fields from required parameters
@@ -558,7 +558,7 @@ Constructs CreateHITWithHITTypeResponse's fields from required parameters
 
 ``` purescript
 newtype CreateQualificationTypeRequest
-  = CreateQualificationTypeRequest { "Name" :: String, "Keywords" :: NullOrUndefined (String), "Description" :: String, "QualificationTypeStatus" :: QualificationTypeStatus, "RetryDelayInSeconds" :: NullOrUndefined (Number), "Test" :: NullOrUndefined (String), "AnswerKey" :: NullOrUndefined (String), "TestDurationInSeconds" :: NullOrUndefined (Number), "AutoGranted" :: NullOrUndefined (Boolean), "AutoGrantedValue" :: NullOrUndefined (Int) }
+  = CreateQualificationTypeRequest { "Name" :: String, "Keywords" :: Maybe (String), "Description" :: String, "QualificationTypeStatus" :: QualificationTypeStatus, "RetryDelayInSeconds" :: Maybe (Number), "Test" :: Maybe (String), "AnswerKey" :: Maybe (String), "TestDurationInSeconds" :: Maybe (Number), "AutoGranted" :: Maybe (Boolean), "AutoGrantedValue" :: Maybe (Int) }
 ```
 
 ##### Instances
@@ -581,7 +581,7 @@ Constructs CreateQualificationTypeRequest from required parameters
 #### `newCreateQualificationTypeRequest'`
 
 ``` purescript
-newCreateQualificationTypeRequest' :: String -> String -> QualificationTypeStatus -> ({ "Name" :: String, "Keywords" :: NullOrUndefined (String), "Description" :: String, "QualificationTypeStatus" :: QualificationTypeStatus, "RetryDelayInSeconds" :: NullOrUndefined (Number), "Test" :: NullOrUndefined (String), "AnswerKey" :: NullOrUndefined (String), "TestDurationInSeconds" :: NullOrUndefined (Number), "AutoGranted" :: NullOrUndefined (Boolean), "AutoGrantedValue" :: NullOrUndefined (Int) } -> { "Name" :: String, "Keywords" :: NullOrUndefined (String), "Description" :: String, "QualificationTypeStatus" :: QualificationTypeStatus, "RetryDelayInSeconds" :: NullOrUndefined (Number), "Test" :: NullOrUndefined (String), "AnswerKey" :: NullOrUndefined (String), "TestDurationInSeconds" :: NullOrUndefined (Number), "AutoGranted" :: NullOrUndefined (Boolean), "AutoGrantedValue" :: NullOrUndefined (Int) }) -> CreateQualificationTypeRequest
+newCreateQualificationTypeRequest' :: String -> String -> QualificationTypeStatus -> ({ "Name" :: String, "Keywords" :: Maybe (String), "Description" :: String, "QualificationTypeStatus" :: QualificationTypeStatus, "RetryDelayInSeconds" :: Maybe (Number), "Test" :: Maybe (String), "AnswerKey" :: Maybe (String), "TestDurationInSeconds" :: Maybe (Number), "AutoGranted" :: Maybe (Boolean), "AutoGrantedValue" :: Maybe (Int) } -> { "Name" :: String, "Keywords" :: Maybe (String), "Description" :: String, "QualificationTypeStatus" :: QualificationTypeStatus, "RetryDelayInSeconds" :: Maybe (Number), "Test" :: Maybe (String), "AnswerKey" :: Maybe (String), "TestDurationInSeconds" :: Maybe (Number), "AutoGranted" :: Maybe (Boolean), "AutoGrantedValue" :: Maybe (Int) }) -> CreateQualificationTypeRequest
 ```
 
 Constructs CreateQualificationTypeRequest's fields from required parameters
@@ -590,7 +590,7 @@ Constructs CreateQualificationTypeRequest's fields from required parameters
 
 ``` purescript
 newtype CreateQualificationTypeResponse
-  = CreateQualificationTypeResponse { "QualificationType" :: NullOrUndefined (QualificationType) }
+  = CreateQualificationTypeResponse { "QualificationType" :: Maybe (QualificationType) }
 ```
 
 ##### Instances
@@ -613,7 +613,7 @@ Constructs CreateQualificationTypeResponse from required parameters
 #### `newCreateQualificationTypeResponse'`
 
 ``` purescript
-newCreateQualificationTypeResponse' :: ({ "QualificationType" :: NullOrUndefined (QualificationType) } -> { "QualificationType" :: NullOrUndefined (QualificationType) }) -> CreateQualificationTypeResponse
+newCreateQualificationTypeResponse' :: ({ "QualificationType" :: Maybe (QualificationType) } -> { "QualificationType" :: Maybe (QualificationType) }) -> CreateQualificationTypeResponse
 ```
 
 Constructs CreateQualificationTypeResponse's fields from required parameters
@@ -816,7 +816,7 @@ Encode DeleteQualificationTypeResponse
 
 ``` purescript
 newtype DeleteWorkerBlockRequest
-  = DeleteWorkerBlockRequest { "WorkerId" :: CustomerId, "Reason" :: NullOrUndefined (String) }
+  = DeleteWorkerBlockRequest { "WorkerId" :: CustomerId, "Reason" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -839,7 +839,7 @@ Constructs DeleteWorkerBlockRequest from required parameters
 #### `newDeleteWorkerBlockRequest'`
 
 ``` purescript
-newDeleteWorkerBlockRequest' :: CustomerId -> ({ "WorkerId" :: CustomerId, "Reason" :: NullOrUndefined (String) } -> { "WorkerId" :: CustomerId, "Reason" :: NullOrUndefined (String) }) -> DeleteWorkerBlockRequest
+newDeleteWorkerBlockRequest' :: CustomerId -> ({ "WorkerId" :: CustomerId, "Reason" :: Maybe (String) } -> { "WorkerId" :: CustomerId, "Reason" :: Maybe (String) }) -> DeleteWorkerBlockRequest
 ```
 
 Constructs DeleteWorkerBlockRequest's fields from required parameters
@@ -864,7 +864,7 @@ Encode DeleteWorkerBlockResponse
 
 ``` purescript
 newtype DisassociateQualificationFromWorkerRequest
-  = DisassociateQualificationFromWorkerRequest { "WorkerId" :: CustomerId, "QualificationTypeId" :: EntityId, "Reason" :: NullOrUndefined (String) }
+  = DisassociateQualificationFromWorkerRequest { "WorkerId" :: CustomerId, "QualificationTypeId" :: EntityId, "Reason" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -887,7 +887,7 @@ Constructs DisassociateQualificationFromWorkerRequest from required parameters
 #### `newDisassociateQualificationFromWorkerRequest'`
 
 ``` purescript
-newDisassociateQualificationFromWorkerRequest' :: EntityId -> CustomerId -> ({ "WorkerId" :: CustomerId, "QualificationTypeId" :: EntityId, "Reason" :: NullOrUndefined (String) } -> { "WorkerId" :: CustomerId, "QualificationTypeId" :: EntityId, "Reason" :: NullOrUndefined (String) }) -> DisassociateQualificationFromWorkerRequest
+newDisassociateQualificationFromWorkerRequest' :: EntityId -> CustomerId -> ({ "WorkerId" :: CustomerId, "QualificationTypeId" :: EntityId, "Reason" :: Maybe (String) } -> { "WorkerId" :: CustomerId, "QualificationTypeId" :: EntityId, "Reason" :: Maybe (String) }) -> DisassociateQualificationFromWorkerRequest
 ```
 
 Constructs DisassociateQualificationFromWorkerRequest's fields from required parameters
@@ -992,7 +992,7 @@ Encode GetAccountBalanceRequest
 
 ``` purescript
 newtype GetAccountBalanceResponse
-  = GetAccountBalanceResponse { "AvailableBalance" :: NullOrUndefined (CurrencyAmount), "OnHoldBalance" :: NullOrUndefined (CurrencyAmount) }
+  = GetAccountBalanceResponse { "AvailableBalance" :: Maybe (CurrencyAmount), "OnHoldBalance" :: Maybe (CurrencyAmount) }
 ```
 
 ##### Instances
@@ -1015,7 +1015,7 @@ Constructs GetAccountBalanceResponse from required parameters
 #### `newGetAccountBalanceResponse'`
 
 ``` purescript
-newGetAccountBalanceResponse' :: ({ "AvailableBalance" :: NullOrUndefined (CurrencyAmount), "OnHoldBalance" :: NullOrUndefined (CurrencyAmount) } -> { "AvailableBalance" :: NullOrUndefined (CurrencyAmount), "OnHoldBalance" :: NullOrUndefined (CurrencyAmount) }) -> GetAccountBalanceResponse
+newGetAccountBalanceResponse' :: ({ "AvailableBalance" :: Maybe (CurrencyAmount), "OnHoldBalance" :: Maybe (CurrencyAmount) } -> { "AvailableBalance" :: Maybe (CurrencyAmount), "OnHoldBalance" :: Maybe (CurrencyAmount) }) -> GetAccountBalanceResponse
 ```
 
 Constructs GetAccountBalanceResponse's fields from required parameters
@@ -1056,7 +1056,7 @@ Constructs GetAssignmentRequest's fields from required parameters
 
 ``` purescript
 newtype GetAssignmentResponse
-  = GetAssignmentResponse { "Assignment" :: NullOrUndefined (Assignment), "HIT" :: NullOrUndefined (HIT) }
+  = GetAssignmentResponse { "Assignment" :: Maybe (Assignment), "HIT" :: Maybe (HIT) }
 ```
 
 ##### Instances
@@ -1079,7 +1079,7 @@ Constructs GetAssignmentResponse from required parameters
 #### `newGetAssignmentResponse'`
 
 ``` purescript
-newGetAssignmentResponse' :: ({ "Assignment" :: NullOrUndefined (Assignment), "HIT" :: NullOrUndefined (HIT) } -> { "Assignment" :: NullOrUndefined (Assignment), "HIT" :: NullOrUndefined (HIT) }) -> GetAssignmentResponse
+newGetAssignmentResponse' :: ({ "Assignment" :: Maybe (Assignment), "HIT" :: Maybe (HIT) } -> { "Assignment" :: Maybe (Assignment), "HIT" :: Maybe (HIT) }) -> GetAssignmentResponse
 ```
 
 Constructs GetAssignmentResponse's fields from required parameters
@@ -1120,7 +1120,7 @@ Constructs GetFileUploadURLRequest's fields from required parameters
 
 ``` purescript
 newtype GetFileUploadURLResponse
-  = GetFileUploadURLResponse { "FileUploadURL" :: NullOrUndefined (String) }
+  = GetFileUploadURLResponse { "FileUploadURL" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1143,7 +1143,7 @@ Constructs GetFileUploadURLResponse from required parameters
 #### `newGetFileUploadURLResponse'`
 
 ``` purescript
-newGetFileUploadURLResponse' :: ({ "FileUploadURL" :: NullOrUndefined (String) } -> { "FileUploadURL" :: NullOrUndefined (String) }) -> GetFileUploadURLResponse
+newGetFileUploadURLResponse' :: ({ "FileUploadURL" :: Maybe (String) } -> { "FileUploadURL" :: Maybe (String) }) -> GetFileUploadURLResponse
 ```
 
 Constructs GetFileUploadURLResponse's fields from required parameters
@@ -1184,7 +1184,7 @@ Constructs GetHITRequest's fields from required parameters
 
 ``` purescript
 newtype GetHITResponse
-  = GetHITResponse { "HIT" :: NullOrUndefined (HIT) }
+  = GetHITResponse { "HIT" :: Maybe (HIT) }
 ```
 
 ##### Instances
@@ -1207,7 +1207,7 @@ Constructs GetHITResponse from required parameters
 #### `newGetHITResponse'`
 
 ``` purescript
-newGetHITResponse' :: ({ "HIT" :: NullOrUndefined (HIT) } -> { "HIT" :: NullOrUndefined (HIT) }) -> GetHITResponse
+newGetHITResponse' :: ({ "HIT" :: Maybe (HIT) } -> { "HIT" :: Maybe (HIT) }) -> GetHITResponse
 ```
 
 Constructs GetHITResponse's fields from required parameters
@@ -1248,7 +1248,7 @@ Constructs GetQualificationScoreRequest's fields from required parameters
 
 ``` purescript
 newtype GetQualificationScoreResponse
-  = GetQualificationScoreResponse { "Qualification" :: NullOrUndefined (Qualification) }
+  = GetQualificationScoreResponse { "Qualification" :: Maybe (Qualification) }
 ```
 
 ##### Instances
@@ -1271,7 +1271,7 @@ Constructs GetQualificationScoreResponse from required parameters
 #### `newGetQualificationScoreResponse'`
 
 ``` purescript
-newGetQualificationScoreResponse' :: ({ "Qualification" :: NullOrUndefined (Qualification) } -> { "Qualification" :: NullOrUndefined (Qualification) }) -> GetQualificationScoreResponse
+newGetQualificationScoreResponse' :: ({ "Qualification" :: Maybe (Qualification) } -> { "Qualification" :: Maybe (Qualification) }) -> GetQualificationScoreResponse
 ```
 
 Constructs GetQualificationScoreResponse's fields from required parameters
@@ -1312,7 +1312,7 @@ Constructs GetQualificationTypeRequest's fields from required parameters
 
 ``` purescript
 newtype GetQualificationTypeResponse
-  = GetQualificationTypeResponse { "QualificationType" :: NullOrUndefined (QualificationType) }
+  = GetQualificationTypeResponse { "QualificationType" :: Maybe (QualificationType) }
 ```
 
 ##### Instances
@@ -1335,7 +1335,7 @@ Constructs GetQualificationTypeResponse from required parameters
 #### `newGetQualificationTypeResponse'`
 
 ``` purescript
-newGetQualificationTypeResponse' :: ({ "QualificationType" :: NullOrUndefined (QualificationType) } -> { "QualificationType" :: NullOrUndefined (QualificationType) }) -> GetQualificationTypeResponse
+newGetQualificationTypeResponse' :: ({ "QualificationType" :: Maybe (QualificationType) } -> { "QualificationType" :: Maybe (QualificationType) }) -> GetQualificationTypeResponse
 ```
 
 Constructs GetQualificationTypeResponse's fields from required parameters
@@ -1344,7 +1344,7 @@ Constructs GetQualificationTypeResponse's fields from required parameters
 
 ``` purescript
 newtype HIT
-  = HIT { "HITId" :: NullOrUndefined (EntityId), "HITTypeId" :: NullOrUndefined (EntityId), "HITGroupId" :: NullOrUndefined (EntityId), "HITLayoutId" :: NullOrUndefined (EntityId), "CreationTime" :: NullOrUndefined (Timestamp), "Title" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "Question" :: NullOrUndefined (String), "Keywords" :: NullOrUndefined (String), "HITStatus" :: NullOrUndefined (HITStatus), "MaxAssignments" :: NullOrUndefined (Int), "Reward" :: NullOrUndefined (CurrencyAmount), "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number), "Expiration" :: NullOrUndefined (Timestamp), "AssignmentDurationInSeconds" :: NullOrUndefined (Number), "RequesterAnnotation" :: NullOrUndefined (String), "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList), "HITReviewStatus" :: NullOrUndefined (HITReviewStatus), "NumberOfAssignmentsPending" :: NullOrUndefined (Int), "NumberOfAssignmentsAvailable" :: NullOrUndefined (Int), "NumberOfAssignmentsCompleted" :: NullOrUndefined (Int) }
+  = HIT { "HITId" :: Maybe (EntityId), "HITTypeId" :: Maybe (EntityId), "HITGroupId" :: Maybe (EntityId), "HITLayoutId" :: Maybe (EntityId), "CreationTime" :: Maybe (Timestamp), "Title" :: Maybe (String), "Description" :: Maybe (String), "Question" :: Maybe (String), "Keywords" :: Maybe (String), "HITStatus" :: Maybe (HITStatus), "MaxAssignments" :: Maybe (Int), "Reward" :: Maybe (CurrencyAmount), "AutoApprovalDelayInSeconds" :: Maybe (Number), "Expiration" :: Maybe (Timestamp), "AssignmentDurationInSeconds" :: Maybe (Number), "RequesterAnnotation" :: Maybe (String), "QualificationRequirements" :: Maybe (QualificationRequirementList), "HITReviewStatus" :: Maybe (HITReviewStatus), "NumberOfAssignmentsPending" :: Maybe (Int), "NumberOfAssignmentsAvailable" :: Maybe (Int), "NumberOfAssignmentsCompleted" :: Maybe (Int) }
 ```
 
 <p> The HIT data structure represents a single HIT, including all the information necessary for a Worker to accept and complete the HIT.</p>
@@ -1369,7 +1369,7 @@ Constructs HIT from required parameters
 #### `newHIT'`
 
 ``` purescript
-newHIT' :: ({ "HITId" :: NullOrUndefined (EntityId), "HITTypeId" :: NullOrUndefined (EntityId), "HITGroupId" :: NullOrUndefined (EntityId), "HITLayoutId" :: NullOrUndefined (EntityId), "CreationTime" :: NullOrUndefined (Timestamp), "Title" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "Question" :: NullOrUndefined (String), "Keywords" :: NullOrUndefined (String), "HITStatus" :: NullOrUndefined (HITStatus), "MaxAssignments" :: NullOrUndefined (Int), "Reward" :: NullOrUndefined (CurrencyAmount), "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number), "Expiration" :: NullOrUndefined (Timestamp), "AssignmentDurationInSeconds" :: NullOrUndefined (Number), "RequesterAnnotation" :: NullOrUndefined (String), "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList), "HITReviewStatus" :: NullOrUndefined (HITReviewStatus), "NumberOfAssignmentsPending" :: NullOrUndefined (Int), "NumberOfAssignmentsAvailable" :: NullOrUndefined (Int), "NumberOfAssignmentsCompleted" :: NullOrUndefined (Int) } -> { "HITId" :: NullOrUndefined (EntityId), "HITTypeId" :: NullOrUndefined (EntityId), "HITGroupId" :: NullOrUndefined (EntityId), "HITLayoutId" :: NullOrUndefined (EntityId), "CreationTime" :: NullOrUndefined (Timestamp), "Title" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "Question" :: NullOrUndefined (String), "Keywords" :: NullOrUndefined (String), "HITStatus" :: NullOrUndefined (HITStatus), "MaxAssignments" :: NullOrUndefined (Int), "Reward" :: NullOrUndefined (CurrencyAmount), "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number), "Expiration" :: NullOrUndefined (Timestamp), "AssignmentDurationInSeconds" :: NullOrUndefined (Number), "RequesterAnnotation" :: NullOrUndefined (String), "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList), "HITReviewStatus" :: NullOrUndefined (HITReviewStatus), "NumberOfAssignmentsPending" :: NullOrUndefined (Int), "NumberOfAssignmentsAvailable" :: NullOrUndefined (Int), "NumberOfAssignmentsCompleted" :: NullOrUndefined (Int) }) -> HIT
+newHIT' :: ({ "HITId" :: Maybe (EntityId), "HITTypeId" :: Maybe (EntityId), "HITGroupId" :: Maybe (EntityId), "HITLayoutId" :: Maybe (EntityId), "CreationTime" :: Maybe (Timestamp), "Title" :: Maybe (String), "Description" :: Maybe (String), "Question" :: Maybe (String), "Keywords" :: Maybe (String), "HITStatus" :: Maybe (HITStatus), "MaxAssignments" :: Maybe (Int), "Reward" :: Maybe (CurrencyAmount), "AutoApprovalDelayInSeconds" :: Maybe (Number), "Expiration" :: Maybe (Timestamp), "AssignmentDurationInSeconds" :: Maybe (Number), "RequesterAnnotation" :: Maybe (String), "QualificationRequirements" :: Maybe (QualificationRequirementList), "HITReviewStatus" :: Maybe (HITReviewStatus), "NumberOfAssignmentsPending" :: Maybe (Int), "NumberOfAssignmentsAvailable" :: Maybe (Int), "NumberOfAssignmentsCompleted" :: Maybe (Int) } -> { "HITId" :: Maybe (EntityId), "HITTypeId" :: Maybe (EntityId), "HITGroupId" :: Maybe (EntityId), "HITLayoutId" :: Maybe (EntityId), "CreationTime" :: Maybe (Timestamp), "Title" :: Maybe (String), "Description" :: Maybe (String), "Question" :: Maybe (String), "Keywords" :: Maybe (String), "HITStatus" :: Maybe (HITStatus), "MaxAssignments" :: Maybe (Int), "Reward" :: Maybe (CurrencyAmount), "AutoApprovalDelayInSeconds" :: Maybe (Number), "Expiration" :: Maybe (Timestamp), "AssignmentDurationInSeconds" :: Maybe (Number), "RequesterAnnotation" :: Maybe (String), "QualificationRequirements" :: Maybe (QualificationRequirementList), "HITReviewStatus" :: Maybe (HITReviewStatus), "NumberOfAssignmentsPending" :: Maybe (Int), "NumberOfAssignmentsAvailable" :: Maybe (Int), "NumberOfAssignmentsCompleted" :: Maybe (Int) }) -> HIT
 ```
 
 Constructs HIT's fields from required parameters
@@ -1508,7 +1508,7 @@ Encode IntegerList
 
 ``` purescript
 newtype ListAssignmentsForHITRequest
-  = ListAssignmentsForHITRequest { "HITId" :: EntityId, "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize), "AssignmentStatuses" :: NullOrUndefined (AssignmentStatusList) }
+  = ListAssignmentsForHITRequest { "HITId" :: EntityId, "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize), "AssignmentStatuses" :: Maybe (AssignmentStatusList) }
 ```
 
 ##### Instances
@@ -1531,7 +1531,7 @@ Constructs ListAssignmentsForHITRequest from required parameters
 #### `newListAssignmentsForHITRequest'`
 
 ``` purescript
-newListAssignmentsForHITRequest' :: EntityId -> ({ "HITId" :: EntityId, "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize), "AssignmentStatuses" :: NullOrUndefined (AssignmentStatusList) } -> { "HITId" :: EntityId, "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize), "AssignmentStatuses" :: NullOrUndefined (AssignmentStatusList) }) -> ListAssignmentsForHITRequest
+newListAssignmentsForHITRequest' :: EntityId -> ({ "HITId" :: EntityId, "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize), "AssignmentStatuses" :: Maybe (AssignmentStatusList) } -> { "HITId" :: EntityId, "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize), "AssignmentStatuses" :: Maybe (AssignmentStatusList) }) -> ListAssignmentsForHITRequest
 ```
 
 Constructs ListAssignmentsForHITRequest's fields from required parameters
@@ -1540,7 +1540,7 @@ Constructs ListAssignmentsForHITRequest's fields from required parameters
 
 ``` purescript
 newtype ListAssignmentsForHITResponse
-  = ListAssignmentsForHITResponse { "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "Assignments" :: NullOrUndefined (AssignmentList) }
+  = ListAssignmentsForHITResponse { "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "Assignments" :: Maybe (AssignmentList) }
 ```
 
 ##### Instances
@@ -1563,7 +1563,7 @@ Constructs ListAssignmentsForHITResponse from required parameters
 #### `newListAssignmentsForHITResponse'`
 
 ``` purescript
-newListAssignmentsForHITResponse' :: ({ "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "Assignments" :: NullOrUndefined (AssignmentList) } -> { "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "Assignments" :: NullOrUndefined (AssignmentList) }) -> ListAssignmentsForHITResponse
+newListAssignmentsForHITResponse' :: ({ "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "Assignments" :: Maybe (AssignmentList) } -> { "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "Assignments" :: Maybe (AssignmentList) }) -> ListAssignmentsForHITResponse
 ```
 
 Constructs ListAssignmentsForHITResponse's fields from required parameters
@@ -1572,7 +1572,7 @@ Constructs ListAssignmentsForHITResponse's fields from required parameters
 
 ``` purescript
 newtype ListBonusPaymentsRequest
-  = ListBonusPaymentsRequest { "HITId" :: NullOrUndefined (EntityId), "AssignmentId" :: NullOrUndefined (EntityId), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }
+  = ListBonusPaymentsRequest { "HITId" :: Maybe (EntityId), "AssignmentId" :: Maybe (EntityId), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }
 ```
 
 ##### Instances
@@ -1595,7 +1595,7 @@ Constructs ListBonusPaymentsRequest from required parameters
 #### `newListBonusPaymentsRequest'`
 
 ``` purescript
-newListBonusPaymentsRequest' :: ({ "HITId" :: NullOrUndefined (EntityId), "AssignmentId" :: NullOrUndefined (EntityId), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) } -> { "HITId" :: NullOrUndefined (EntityId), "AssignmentId" :: NullOrUndefined (EntityId), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }) -> ListBonusPaymentsRequest
+newListBonusPaymentsRequest' :: ({ "HITId" :: Maybe (EntityId), "AssignmentId" :: Maybe (EntityId), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) } -> { "HITId" :: Maybe (EntityId), "AssignmentId" :: Maybe (EntityId), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }) -> ListBonusPaymentsRequest
 ```
 
 Constructs ListBonusPaymentsRequest's fields from required parameters
@@ -1604,7 +1604,7 @@ Constructs ListBonusPaymentsRequest's fields from required parameters
 
 ``` purescript
 newtype ListBonusPaymentsResponse
-  = ListBonusPaymentsResponse { "NumResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (PaginationToken), "BonusPayments" :: NullOrUndefined (BonusPaymentList) }
+  = ListBonusPaymentsResponse { "NumResults" :: Maybe (Int), "NextToken" :: Maybe (PaginationToken), "BonusPayments" :: Maybe (BonusPaymentList) }
 ```
 
 ##### Instances
@@ -1627,7 +1627,7 @@ Constructs ListBonusPaymentsResponse from required parameters
 #### `newListBonusPaymentsResponse'`
 
 ``` purescript
-newListBonusPaymentsResponse' :: ({ "NumResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (PaginationToken), "BonusPayments" :: NullOrUndefined (BonusPaymentList) } -> { "NumResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (PaginationToken), "BonusPayments" :: NullOrUndefined (BonusPaymentList) }) -> ListBonusPaymentsResponse
+newListBonusPaymentsResponse' :: ({ "NumResults" :: Maybe (Int), "NextToken" :: Maybe (PaginationToken), "BonusPayments" :: Maybe (BonusPaymentList) } -> { "NumResults" :: Maybe (Int), "NextToken" :: Maybe (PaginationToken), "BonusPayments" :: Maybe (BonusPaymentList) }) -> ListBonusPaymentsResponse
 ```
 
 Constructs ListBonusPaymentsResponse's fields from required parameters
@@ -1636,7 +1636,7 @@ Constructs ListBonusPaymentsResponse's fields from required parameters
 
 ``` purescript
 newtype ListHITsForQualificationTypeRequest
-  = ListHITsForQualificationTypeRequest { "QualificationTypeId" :: EntityId, "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }
+  = ListHITsForQualificationTypeRequest { "QualificationTypeId" :: EntityId, "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }
 ```
 
 ##### Instances
@@ -1659,7 +1659,7 @@ Constructs ListHITsForQualificationTypeRequest from required parameters
 #### `newListHITsForQualificationTypeRequest'`
 
 ``` purescript
-newListHITsForQualificationTypeRequest' :: EntityId -> ({ "QualificationTypeId" :: EntityId, "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) } -> { "QualificationTypeId" :: EntityId, "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }) -> ListHITsForQualificationTypeRequest
+newListHITsForQualificationTypeRequest' :: EntityId -> ({ "QualificationTypeId" :: EntityId, "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) } -> { "QualificationTypeId" :: EntityId, "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }) -> ListHITsForQualificationTypeRequest
 ```
 
 Constructs ListHITsForQualificationTypeRequest's fields from required parameters
@@ -1668,7 +1668,7 @@ Constructs ListHITsForQualificationTypeRequest's fields from required parameters
 
 ``` purescript
 newtype ListHITsForQualificationTypeResponse
-  = ListHITsForQualificationTypeResponse { "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "HITs" :: NullOrUndefined (HITList) }
+  = ListHITsForQualificationTypeResponse { "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "HITs" :: Maybe (HITList) }
 ```
 
 ##### Instances
@@ -1691,7 +1691,7 @@ Constructs ListHITsForQualificationTypeResponse from required parameters
 #### `newListHITsForQualificationTypeResponse'`
 
 ``` purescript
-newListHITsForQualificationTypeResponse' :: ({ "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "HITs" :: NullOrUndefined (HITList) } -> { "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "HITs" :: NullOrUndefined (HITList) }) -> ListHITsForQualificationTypeResponse
+newListHITsForQualificationTypeResponse' :: ({ "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "HITs" :: Maybe (HITList) } -> { "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "HITs" :: Maybe (HITList) }) -> ListHITsForQualificationTypeResponse
 ```
 
 Constructs ListHITsForQualificationTypeResponse's fields from required parameters
@@ -1700,7 +1700,7 @@ Constructs ListHITsForQualificationTypeResponse's fields from required parameter
 
 ``` purescript
 newtype ListHITsRequest
-  = ListHITsRequest { "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }
+  = ListHITsRequest { "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }
 ```
 
 ##### Instances
@@ -1723,7 +1723,7 @@ Constructs ListHITsRequest from required parameters
 #### `newListHITsRequest'`
 
 ``` purescript
-newListHITsRequest' :: ({ "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) } -> { "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }) -> ListHITsRequest
+newListHITsRequest' :: ({ "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) } -> { "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }) -> ListHITsRequest
 ```
 
 Constructs ListHITsRequest's fields from required parameters
@@ -1732,7 +1732,7 @@ Constructs ListHITsRequest's fields from required parameters
 
 ``` purescript
 newtype ListHITsResponse
-  = ListHITsResponse { "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "HITs" :: NullOrUndefined (HITList) }
+  = ListHITsResponse { "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "HITs" :: Maybe (HITList) }
 ```
 
 ##### Instances
@@ -1755,7 +1755,7 @@ Constructs ListHITsResponse from required parameters
 #### `newListHITsResponse'`
 
 ``` purescript
-newListHITsResponse' :: ({ "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "HITs" :: NullOrUndefined (HITList) } -> { "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "HITs" :: NullOrUndefined (HITList) }) -> ListHITsResponse
+newListHITsResponse' :: ({ "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "HITs" :: Maybe (HITList) } -> { "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "HITs" :: Maybe (HITList) }) -> ListHITsResponse
 ```
 
 Constructs ListHITsResponse's fields from required parameters
@@ -1764,7 +1764,7 @@ Constructs ListHITsResponse's fields from required parameters
 
 ``` purescript
 newtype ListQualificationRequestsRequest
-  = ListQualificationRequestsRequest { "QualificationTypeId" :: NullOrUndefined (EntityId), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }
+  = ListQualificationRequestsRequest { "QualificationTypeId" :: Maybe (EntityId), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }
 ```
 
 ##### Instances
@@ -1787,7 +1787,7 @@ Constructs ListQualificationRequestsRequest from required parameters
 #### `newListQualificationRequestsRequest'`
 
 ``` purescript
-newListQualificationRequestsRequest' :: ({ "QualificationTypeId" :: NullOrUndefined (EntityId), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) } -> { "QualificationTypeId" :: NullOrUndefined (EntityId), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }) -> ListQualificationRequestsRequest
+newListQualificationRequestsRequest' :: ({ "QualificationTypeId" :: Maybe (EntityId), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) } -> { "QualificationTypeId" :: Maybe (EntityId), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }) -> ListQualificationRequestsRequest
 ```
 
 Constructs ListQualificationRequestsRequest's fields from required parameters
@@ -1796,7 +1796,7 @@ Constructs ListQualificationRequestsRequest's fields from required parameters
 
 ``` purescript
 newtype ListQualificationRequestsResponse
-  = ListQualificationRequestsResponse { "NumResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (PaginationToken), "QualificationRequests" :: NullOrUndefined (QualificationRequestList) }
+  = ListQualificationRequestsResponse { "NumResults" :: Maybe (Int), "NextToken" :: Maybe (PaginationToken), "QualificationRequests" :: Maybe (QualificationRequestList) }
 ```
 
 ##### Instances
@@ -1819,7 +1819,7 @@ Constructs ListQualificationRequestsResponse from required parameters
 #### `newListQualificationRequestsResponse'`
 
 ``` purescript
-newListQualificationRequestsResponse' :: ({ "NumResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (PaginationToken), "QualificationRequests" :: NullOrUndefined (QualificationRequestList) } -> { "NumResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (PaginationToken), "QualificationRequests" :: NullOrUndefined (QualificationRequestList) }) -> ListQualificationRequestsResponse
+newListQualificationRequestsResponse' :: ({ "NumResults" :: Maybe (Int), "NextToken" :: Maybe (PaginationToken), "QualificationRequests" :: Maybe (QualificationRequestList) } -> { "NumResults" :: Maybe (Int), "NextToken" :: Maybe (PaginationToken), "QualificationRequests" :: Maybe (QualificationRequestList) }) -> ListQualificationRequestsResponse
 ```
 
 Constructs ListQualificationRequestsResponse's fields from required parameters
@@ -1828,7 +1828,7 @@ Constructs ListQualificationRequestsResponse's fields from required parameters
 
 ``` purescript
 newtype ListQualificationTypesRequest
-  = ListQualificationTypesRequest { "Query" :: NullOrUndefined (String), "MustBeRequestable" :: Boolean, "MustBeOwnedByCaller" :: NullOrUndefined (Boolean), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }
+  = ListQualificationTypesRequest { "Query" :: Maybe (String), "MustBeRequestable" :: Boolean, "MustBeOwnedByCaller" :: Maybe (Boolean), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }
 ```
 
 ##### Instances
@@ -1851,7 +1851,7 @@ Constructs ListQualificationTypesRequest from required parameters
 #### `newListQualificationTypesRequest'`
 
 ``` purescript
-newListQualificationTypesRequest' :: Boolean -> ({ "Query" :: NullOrUndefined (String), "MustBeRequestable" :: Boolean, "MustBeOwnedByCaller" :: NullOrUndefined (Boolean), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) } -> { "Query" :: NullOrUndefined (String), "MustBeRequestable" :: Boolean, "MustBeOwnedByCaller" :: NullOrUndefined (Boolean), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }) -> ListQualificationTypesRequest
+newListQualificationTypesRequest' :: Boolean -> ({ "Query" :: Maybe (String), "MustBeRequestable" :: Boolean, "MustBeOwnedByCaller" :: Maybe (Boolean), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) } -> { "Query" :: Maybe (String), "MustBeRequestable" :: Boolean, "MustBeOwnedByCaller" :: Maybe (Boolean), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }) -> ListQualificationTypesRequest
 ```
 
 Constructs ListQualificationTypesRequest's fields from required parameters
@@ -1860,7 +1860,7 @@ Constructs ListQualificationTypesRequest's fields from required parameters
 
 ``` purescript
 newtype ListQualificationTypesResponse
-  = ListQualificationTypesResponse { "NumResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (PaginationToken), "QualificationTypes" :: NullOrUndefined (QualificationTypeList) }
+  = ListQualificationTypesResponse { "NumResults" :: Maybe (Int), "NextToken" :: Maybe (PaginationToken), "QualificationTypes" :: Maybe (QualificationTypeList) }
 ```
 
 ##### Instances
@@ -1883,7 +1883,7 @@ Constructs ListQualificationTypesResponse from required parameters
 #### `newListQualificationTypesResponse'`
 
 ``` purescript
-newListQualificationTypesResponse' :: ({ "NumResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (PaginationToken), "QualificationTypes" :: NullOrUndefined (QualificationTypeList) } -> { "NumResults" :: NullOrUndefined (Int), "NextToken" :: NullOrUndefined (PaginationToken), "QualificationTypes" :: NullOrUndefined (QualificationTypeList) }) -> ListQualificationTypesResponse
+newListQualificationTypesResponse' :: ({ "NumResults" :: Maybe (Int), "NextToken" :: Maybe (PaginationToken), "QualificationTypes" :: Maybe (QualificationTypeList) } -> { "NumResults" :: Maybe (Int), "NextToken" :: Maybe (PaginationToken), "QualificationTypes" :: Maybe (QualificationTypeList) }) -> ListQualificationTypesResponse
 ```
 
 Constructs ListQualificationTypesResponse's fields from required parameters
@@ -1892,7 +1892,7 @@ Constructs ListQualificationTypesResponse's fields from required parameters
 
 ``` purescript
 newtype ListReviewPolicyResultsForHITRequest
-  = ListReviewPolicyResultsForHITRequest { "HITId" :: EntityId, "PolicyLevels" :: NullOrUndefined (ReviewPolicyLevelList), "RetrieveActions" :: NullOrUndefined (Boolean), "RetrieveResults" :: NullOrUndefined (Boolean), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }
+  = ListReviewPolicyResultsForHITRequest { "HITId" :: EntityId, "PolicyLevels" :: Maybe (ReviewPolicyLevelList), "RetrieveActions" :: Maybe (Boolean), "RetrieveResults" :: Maybe (Boolean), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }
 ```
 
 ##### Instances
@@ -1915,7 +1915,7 @@ Constructs ListReviewPolicyResultsForHITRequest from required parameters
 #### `newListReviewPolicyResultsForHITRequest'`
 
 ``` purescript
-newListReviewPolicyResultsForHITRequest' :: EntityId -> ({ "HITId" :: EntityId, "PolicyLevels" :: NullOrUndefined (ReviewPolicyLevelList), "RetrieveActions" :: NullOrUndefined (Boolean), "RetrieveResults" :: NullOrUndefined (Boolean), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) } -> { "HITId" :: EntityId, "PolicyLevels" :: NullOrUndefined (ReviewPolicyLevelList), "RetrieveActions" :: NullOrUndefined (Boolean), "RetrieveResults" :: NullOrUndefined (Boolean), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }) -> ListReviewPolicyResultsForHITRequest
+newListReviewPolicyResultsForHITRequest' :: EntityId -> ({ "HITId" :: EntityId, "PolicyLevels" :: Maybe (ReviewPolicyLevelList), "RetrieveActions" :: Maybe (Boolean), "RetrieveResults" :: Maybe (Boolean), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) } -> { "HITId" :: EntityId, "PolicyLevels" :: Maybe (ReviewPolicyLevelList), "RetrieveActions" :: Maybe (Boolean), "RetrieveResults" :: Maybe (Boolean), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }) -> ListReviewPolicyResultsForHITRequest
 ```
 
 Constructs ListReviewPolicyResultsForHITRequest's fields from required parameters
@@ -1924,7 +1924,7 @@ Constructs ListReviewPolicyResultsForHITRequest's fields from required parameter
 
 ``` purescript
 newtype ListReviewPolicyResultsForHITResponse
-  = ListReviewPolicyResultsForHITResponse { "HITId" :: NullOrUndefined (EntityId), "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy), "AssignmentReviewReport" :: NullOrUndefined (ReviewReport), "HITReviewReport" :: NullOrUndefined (ReviewReport), "NextToken" :: NullOrUndefined (PaginationToken) }
+  = ListReviewPolicyResultsForHITResponse { "HITId" :: Maybe (EntityId), "AssignmentReviewPolicy" :: Maybe (ReviewPolicy), "HITReviewPolicy" :: Maybe (ReviewPolicy), "AssignmentReviewReport" :: Maybe (ReviewReport), "HITReviewReport" :: Maybe (ReviewReport), "NextToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -1947,7 +1947,7 @@ Constructs ListReviewPolicyResultsForHITResponse from required parameters
 #### `newListReviewPolicyResultsForHITResponse'`
 
 ``` purescript
-newListReviewPolicyResultsForHITResponse' :: ({ "HITId" :: NullOrUndefined (EntityId), "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy), "AssignmentReviewReport" :: NullOrUndefined (ReviewReport), "HITReviewReport" :: NullOrUndefined (ReviewReport), "NextToken" :: NullOrUndefined (PaginationToken) } -> { "HITId" :: NullOrUndefined (EntityId), "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy), "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy), "AssignmentReviewReport" :: NullOrUndefined (ReviewReport), "HITReviewReport" :: NullOrUndefined (ReviewReport), "NextToken" :: NullOrUndefined (PaginationToken) }) -> ListReviewPolicyResultsForHITResponse
+newListReviewPolicyResultsForHITResponse' :: ({ "HITId" :: Maybe (EntityId), "AssignmentReviewPolicy" :: Maybe (ReviewPolicy), "HITReviewPolicy" :: Maybe (ReviewPolicy), "AssignmentReviewReport" :: Maybe (ReviewReport), "HITReviewReport" :: Maybe (ReviewReport), "NextToken" :: Maybe (PaginationToken) } -> { "HITId" :: Maybe (EntityId), "AssignmentReviewPolicy" :: Maybe (ReviewPolicy), "HITReviewPolicy" :: Maybe (ReviewPolicy), "AssignmentReviewReport" :: Maybe (ReviewReport), "HITReviewReport" :: Maybe (ReviewReport), "NextToken" :: Maybe (PaginationToken) }) -> ListReviewPolicyResultsForHITResponse
 ```
 
 Constructs ListReviewPolicyResultsForHITResponse's fields from required parameters
@@ -1956,7 +1956,7 @@ Constructs ListReviewPolicyResultsForHITResponse's fields from required paramete
 
 ``` purescript
 newtype ListReviewableHITsRequest
-  = ListReviewableHITsRequest { "HITTypeId" :: NullOrUndefined (EntityId), "Status" :: NullOrUndefined (ReviewableHITStatus), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }
+  = ListReviewableHITsRequest { "HITTypeId" :: Maybe (EntityId), "Status" :: Maybe (ReviewableHITStatus), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }
 ```
 
 ##### Instances
@@ -1979,7 +1979,7 @@ Constructs ListReviewableHITsRequest from required parameters
 #### `newListReviewableHITsRequest'`
 
 ``` purescript
-newListReviewableHITsRequest' :: ({ "HITTypeId" :: NullOrUndefined (EntityId), "Status" :: NullOrUndefined (ReviewableHITStatus), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) } -> { "HITTypeId" :: NullOrUndefined (EntityId), "Status" :: NullOrUndefined (ReviewableHITStatus), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }) -> ListReviewableHITsRequest
+newListReviewableHITsRequest' :: ({ "HITTypeId" :: Maybe (EntityId), "Status" :: Maybe (ReviewableHITStatus), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) } -> { "HITTypeId" :: Maybe (EntityId), "Status" :: Maybe (ReviewableHITStatus), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }) -> ListReviewableHITsRequest
 ```
 
 Constructs ListReviewableHITsRequest's fields from required parameters
@@ -1988,7 +1988,7 @@ Constructs ListReviewableHITsRequest's fields from required parameters
 
 ``` purescript
 newtype ListReviewableHITsResponse
-  = ListReviewableHITsResponse { "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "HITs" :: NullOrUndefined (HITList) }
+  = ListReviewableHITsResponse { "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "HITs" :: Maybe (HITList) }
 ```
 
 ##### Instances
@@ -2011,7 +2011,7 @@ Constructs ListReviewableHITsResponse from required parameters
 #### `newListReviewableHITsResponse'`
 
 ``` purescript
-newListReviewableHITsResponse' :: ({ "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "HITs" :: NullOrUndefined (HITList) } -> { "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "HITs" :: NullOrUndefined (HITList) }) -> ListReviewableHITsResponse
+newListReviewableHITsResponse' :: ({ "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "HITs" :: Maybe (HITList) } -> { "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "HITs" :: Maybe (HITList) }) -> ListReviewableHITsResponse
 ```
 
 Constructs ListReviewableHITsResponse's fields from required parameters
@@ -2020,7 +2020,7 @@ Constructs ListReviewableHITsResponse's fields from required parameters
 
 ``` purescript
 newtype ListWorkerBlocksRequest
-  = ListWorkerBlocksRequest { "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }
+  = ListWorkerBlocksRequest { "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }
 ```
 
 ##### Instances
@@ -2043,7 +2043,7 @@ Constructs ListWorkerBlocksRequest from required parameters
 #### `newListWorkerBlocksRequest'`
 
 ``` purescript
-newListWorkerBlocksRequest' :: ({ "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) } -> { "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }) -> ListWorkerBlocksRequest
+newListWorkerBlocksRequest' :: ({ "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) } -> { "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }) -> ListWorkerBlocksRequest
 ```
 
 Constructs ListWorkerBlocksRequest's fields from required parameters
@@ -2052,7 +2052,7 @@ Constructs ListWorkerBlocksRequest's fields from required parameters
 
 ``` purescript
 newtype ListWorkerBlocksResponse
-  = ListWorkerBlocksResponse { "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "WorkerBlocks" :: NullOrUndefined (WorkerBlockList) }
+  = ListWorkerBlocksResponse { "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "WorkerBlocks" :: Maybe (WorkerBlockList) }
 ```
 
 ##### Instances
@@ -2075,7 +2075,7 @@ Constructs ListWorkerBlocksResponse from required parameters
 #### `newListWorkerBlocksResponse'`
 
 ``` purescript
-newListWorkerBlocksResponse' :: ({ "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "WorkerBlocks" :: NullOrUndefined (WorkerBlockList) } -> { "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "WorkerBlocks" :: NullOrUndefined (WorkerBlockList) }) -> ListWorkerBlocksResponse
+newListWorkerBlocksResponse' :: ({ "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "WorkerBlocks" :: Maybe (WorkerBlockList) } -> { "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "WorkerBlocks" :: Maybe (WorkerBlockList) }) -> ListWorkerBlocksResponse
 ```
 
 Constructs ListWorkerBlocksResponse's fields from required parameters
@@ -2084,7 +2084,7 @@ Constructs ListWorkerBlocksResponse's fields from required parameters
 
 ``` purescript
 newtype ListWorkersWithQualificationTypeRequest
-  = ListWorkersWithQualificationTypeRequest { "QualificationTypeId" :: EntityId, "Status" :: NullOrUndefined (QualificationStatus), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }
+  = ListWorkersWithQualificationTypeRequest { "QualificationTypeId" :: EntityId, "Status" :: Maybe (QualificationStatus), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }
 ```
 
 ##### Instances
@@ -2107,7 +2107,7 @@ Constructs ListWorkersWithQualificationTypeRequest from required parameters
 #### `newListWorkersWithQualificationTypeRequest'`
 
 ``` purescript
-newListWorkersWithQualificationTypeRequest' :: EntityId -> ({ "QualificationTypeId" :: EntityId, "Status" :: NullOrUndefined (QualificationStatus), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) } -> { "QualificationTypeId" :: EntityId, "Status" :: NullOrUndefined (QualificationStatus), "NextToken" :: NullOrUndefined (PaginationToken), "MaxResults" :: NullOrUndefined (ResultSize) }) -> ListWorkersWithQualificationTypeRequest
+newListWorkersWithQualificationTypeRequest' :: EntityId -> ({ "QualificationTypeId" :: EntityId, "Status" :: Maybe (QualificationStatus), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) } -> { "QualificationTypeId" :: EntityId, "Status" :: Maybe (QualificationStatus), "NextToken" :: Maybe (PaginationToken), "MaxResults" :: Maybe (ResultSize) }) -> ListWorkersWithQualificationTypeRequest
 ```
 
 Constructs ListWorkersWithQualificationTypeRequest's fields from required parameters
@@ -2116,7 +2116,7 @@ Constructs ListWorkersWithQualificationTypeRequest's fields from required parame
 
 ``` purescript
 newtype ListWorkersWithQualificationTypeResponse
-  = ListWorkersWithQualificationTypeResponse { "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "Qualifications" :: NullOrUndefined (QualificationList) }
+  = ListWorkersWithQualificationTypeResponse { "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "Qualifications" :: Maybe (QualificationList) }
 ```
 
 ##### Instances
@@ -2139,7 +2139,7 @@ Constructs ListWorkersWithQualificationTypeResponse from required parameters
 #### `newListWorkersWithQualificationTypeResponse'`
 
 ``` purescript
-newListWorkersWithQualificationTypeResponse' :: ({ "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "Qualifications" :: NullOrUndefined (QualificationList) } -> { "NextToken" :: NullOrUndefined (PaginationToken), "NumResults" :: NullOrUndefined (Int), "Qualifications" :: NullOrUndefined (QualificationList) }) -> ListWorkersWithQualificationTypeResponse
+newListWorkersWithQualificationTypeResponse' :: ({ "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "Qualifications" :: Maybe (QualificationList) } -> { "NextToken" :: Maybe (PaginationToken), "NumResults" :: Maybe (Int), "Qualifications" :: Maybe (QualificationList) }) -> ListWorkersWithQualificationTypeResponse
 ```
 
 Constructs ListWorkersWithQualificationTypeResponse's fields from required parameters
@@ -2148,7 +2148,7 @@ Constructs ListWorkersWithQualificationTypeResponse's fields from required param
 
 ``` purescript
 newtype Locale
-  = Locale { "Country" :: CountryParameters, "Subdivision" :: NullOrUndefined (CountryParameters) }
+  = Locale { "Country" :: CountryParameters, "Subdivision" :: Maybe (CountryParameters) }
 ```
 
 <p>The Locale data structure represents a geographical region or location.</p>
@@ -2173,7 +2173,7 @@ Constructs Locale from required parameters
 #### `newLocale'`
 
 ``` purescript
-newLocale' :: CountryParameters -> ({ "Country" :: CountryParameters, "Subdivision" :: NullOrUndefined (CountryParameters) } -> { "Country" :: CountryParameters, "Subdivision" :: NullOrUndefined (CountryParameters) }) -> Locale
+newLocale' :: CountryParameters -> ({ "Country" :: CountryParameters, "Subdivision" :: Maybe (CountryParameters) } -> { "Country" :: CountryParameters, "Subdivision" :: Maybe (CountryParameters) }) -> Locale
 ```
 
 Constructs Locale's fields from required parameters
@@ -2264,7 +2264,7 @@ Encode NotifyWorkersFailureCode
 
 ``` purescript
 newtype NotifyWorkersFailureStatus
-  = NotifyWorkersFailureStatus { "NotifyWorkersFailureCode" :: NullOrUndefined (NotifyWorkersFailureCode), "NotifyWorkersFailureMessage" :: NullOrUndefined (String), "WorkerId" :: NullOrUndefined (CustomerId) }
+  = NotifyWorkersFailureStatus { "NotifyWorkersFailureCode" :: Maybe (NotifyWorkersFailureCode), "NotifyWorkersFailureMessage" :: Maybe (String), "WorkerId" :: Maybe (CustomerId) }
 ```
 
 <p> When MTurk encounters an issue with notifying the Workers you specified, it returns back this object with failure details. </p>
@@ -2289,7 +2289,7 @@ Constructs NotifyWorkersFailureStatus from required parameters
 #### `newNotifyWorkersFailureStatus'`
 
 ``` purescript
-newNotifyWorkersFailureStatus' :: ({ "NotifyWorkersFailureCode" :: NullOrUndefined (NotifyWorkersFailureCode), "NotifyWorkersFailureMessage" :: NullOrUndefined (String), "WorkerId" :: NullOrUndefined (CustomerId) } -> { "NotifyWorkersFailureCode" :: NullOrUndefined (NotifyWorkersFailureCode), "NotifyWorkersFailureMessage" :: NullOrUndefined (String), "WorkerId" :: NullOrUndefined (CustomerId) }) -> NotifyWorkersFailureStatus
+newNotifyWorkersFailureStatus' :: ({ "NotifyWorkersFailureCode" :: Maybe (NotifyWorkersFailureCode), "NotifyWorkersFailureMessage" :: Maybe (String), "WorkerId" :: Maybe (CustomerId) } -> { "NotifyWorkersFailureCode" :: Maybe (NotifyWorkersFailureCode), "NotifyWorkersFailureMessage" :: Maybe (String), "WorkerId" :: Maybe (CustomerId) }) -> NotifyWorkersFailureStatus
 ```
 
 Constructs NotifyWorkersFailureStatus's fields from required parameters
@@ -2346,7 +2346,7 @@ Constructs NotifyWorkersRequest's fields from required parameters
 
 ``` purescript
 newtype NotifyWorkersResponse
-  = NotifyWorkersResponse { "NotifyWorkersFailureStatuses" :: NullOrUndefined (NotifyWorkersFailureStatusList) }
+  = NotifyWorkersResponse { "NotifyWorkersFailureStatuses" :: Maybe (NotifyWorkersFailureStatusList) }
 ```
 
 ##### Instances
@@ -2369,7 +2369,7 @@ Constructs NotifyWorkersResponse from required parameters
 #### `newNotifyWorkersResponse'`
 
 ``` purescript
-newNotifyWorkersResponse' :: ({ "NotifyWorkersFailureStatuses" :: NullOrUndefined (NotifyWorkersFailureStatusList) } -> { "NotifyWorkersFailureStatuses" :: NullOrUndefined (NotifyWorkersFailureStatusList) }) -> NotifyWorkersResponse
+newNotifyWorkersResponse' :: ({ "NotifyWorkersFailureStatuses" :: Maybe (NotifyWorkersFailureStatusList) } -> { "NotifyWorkersFailureStatuses" :: Maybe (NotifyWorkersFailureStatusList) }) -> NotifyWorkersResponse
 ```
 
 Constructs NotifyWorkersResponse's fields from required parameters
@@ -2396,7 +2396,7 @@ Encode PaginationToken
 
 ``` purescript
 newtype ParameterMapEntry
-  = ParameterMapEntry { "Key" :: NullOrUndefined (String), "Values" :: NullOrUndefined (StringList) }
+  = ParameterMapEntry { "Key" :: Maybe (String), "Values" :: Maybe (StringList) }
 ```
 
 <p> This data structure is the data type for the AnswerKey parameter of the ScoreMyKnownAnswers/2011-09-01 Review Policy. </p>
@@ -2421,7 +2421,7 @@ Constructs ParameterMapEntry from required parameters
 #### `newParameterMapEntry'`
 
 ``` purescript
-newParameterMapEntry' :: ({ "Key" :: NullOrUndefined (String), "Values" :: NullOrUndefined (StringList) } -> { "Key" :: NullOrUndefined (String), "Values" :: NullOrUndefined (StringList) }) -> ParameterMapEntry
+newParameterMapEntry' :: ({ "Key" :: Maybe (String), "Values" :: Maybe (StringList) } -> { "Key" :: Maybe (String), "Values" :: Maybe (StringList) }) -> ParameterMapEntry
 ```
 
 Constructs ParameterMapEntry's fields from required parameters
@@ -2446,7 +2446,7 @@ Encode ParameterMapEntryList
 
 ``` purescript
 newtype PolicyParameter
-  = PolicyParameter { "Key" :: NullOrUndefined (String), "Values" :: NullOrUndefined (StringList), "MapEntries" :: NullOrUndefined (ParameterMapEntryList) }
+  = PolicyParameter { "Key" :: Maybe (String), "Values" :: Maybe (StringList), "MapEntries" :: Maybe (ParameterMapEntryList) }
 ```
 
 <p> Name of the parameter from the Review policy. </p>
@@ -2471,7 +2471,7 @@ Constructs PolicyParameter from required parameters
 #### `newPolicyParameter'`
 
 ``` purescript
-newPolicyParameter' :: ({ "Key" :: NullOrUndefined (String), "Values" :: NullOrUndefined (StringList), "MapEntries" :: NullOrUndefined (ParameterMapEntryList) } -> { "Key" :: NullOrUndefined (String), "Values" :: NullOrUndefined (StringList), "MapEntries" :: NullOrUndefined (ParameterMapEntryList) }) -> PolicyParameter
+newPolicyParameter' :: ({ "Key" :: Maybe (String), "Values" :: Maybe (StringList), "MapEntries" :: Maybe (ParameterMapEntryList) } -> { "Key" :: Maybe (String), "Values" :: Maybe (StringList), "MapEntries" :: Maybe (ParameterMapEntryList) }) -> PolicyParameter
 ```
 
 Constructs PolicyParameter's fields from required parameters
@@ -2496,7 +2496,7 @@ Encode PolicyParameterList
 
 ``` purescript
 newtype Qualification
-  = Qualification { "QualificationTypeId" :: NullOrUndefined (EntityId), "WorkerId" :: NullOrUndefined (CustomerId), "GrantTime" :: NullOrUndefined (Timestamp), "IntegerValue" :: NullOrUndefined (Int), "LocaleValue" :: NullOrUndefined (Locale), "Status" :: NullOrUndefined (QualificationStatus) }
+  = Qualification { "QualificationTypeId" :: Maybe (EntityId), "WorkerId" :: Maybe (CustomerId), "GrantTime" :: Maybe (Timestamp), "IntegerValue" :: Maybe (Int), "LocaleValue" :: Maybe (Locale), "Status" :: Maybe (QualificationStatus) }
 ```
 
 <p>The Qualification data structure represents a Qualification assigned to a user, including the Qualification type and the value (score).</p>
@@ -2521,7 +2521,7 @@ Constructs Qualification from required parameters
 #### `newQualification'`
 
 ``` purescript
-newQualification' :: ({ "QualificationTypeId" :: NullOrUndefined (EntityId), "WorkerId" :: NullOrUndefined (CustomerId), "GrantTime" :: NullOrUndefined (Timestamp), "IntegerValue" :: NullOrUndefined (Int), "LocaleValue" :: NullOrUndefined (Locale), "Status" :: NullOrUndefined (QualificationStatus) } -> { "QualificationTypeId" :: NullOrUndefined (EntityId), "WorkerId" :: NullOrUndefined (CustomerId), "GrantTime" :: NullOrUndefined (Timestamp), "IntegerValue" :: NullOrUndefined (Int), "LocaleValue" :: NullOrUndefined (Locale), "Status" :: NullOrUndefined (QualificationStatus) }) -> Qualification
+newQualification' :: ({ "QualificationTypeId" :: Maybe (EntityId), "WorkerId" :: Maybe (CustomerId), "GrantTime" :: Maybe (Timestamp), "IntegerValue" :: Maybe (Int), "LocaleValue" :: Maybe (Locale), "Status" :: Maybe (QualificationStatus) } -> { "QualificationTypeId" :: Maybe (EntityId), "WorkerId" :: Maybe (CustomerId), "GrantTime" :: Maybe (Timestamp), "IntegerValue" :: Maybe (Int), "LocaleValue" :: Maybe (Locale), "Status" :: Maybe (QualificationStatus) }) -> Qualification
 ```
 
 Constructs Qualification's fields from required parameters
@@ -2546,7 +2546,7 @@ Encode QualificationList
 
 ``` purescript
 newtype QualificationRequest
-  = QualificationRequest { "QualificationRequestId" :: NullOrUndefined (String), "QualificationTypeId" :: NullOrUndefined (EntityId), "WorkerId" :: NullOrUndefined (CustomerId), "Test" :: NullOrUndefined (String), "Answer" :: NullOrUndefined (String), "SubmitTime" :: NullOrUndefined (Timestamp) }
+  = QualificationRequest { "QualificationRequestId" :: Maybe (String), "QualificationTypeId" :: Maybe (EntityId), "WorkerId" :: Maybe (CustomerId), "Test" :: Maybe (String), "Answer" :: Maybe (String), "SubmitTime" :: Maybe (Timestamp) }
 ```
 
 <p> The QualificationRequest data structure represents a request a Worker has made for a Qualification. </p>
@@ -2571,7 +2571,7 @@ Constructs QualificationRequest from required parameters
 #### `newQualificationRequest'`
 
 ``` purescript
-newQualificationRequest' :: ({ "QualificationRequestId" :: NullOrUndefined (String), "QualificationTypeId" :: NullOrUndefined (EntityId), "WorkerId" :: NullOrUndefined (CustomerId), "Test" :: NullOrUndefined (String), "Answer" :: NullOrUndefined (String), "SubmitTime" :: NullOrUndefined (Timestamp) } -> { "QualificationRequestId" :: NullOrUndefined (String), "QualificationTypeId" :: NullOrUndefined (EntityId), "WorkerId" :: NullOrUndefined (CustomerId), "Test" :: NullOrUndefined (String), "Answer" :: NullOrUndefined (String), "SubmitTime" :: NullOrUndefined (Timestamp) }) -> QualificationRequest
+newQualificationRequest' :: ({ "QualificationRequestId" :: Maybe (String), "QualificationTypeId" :: Maybe (EntityId), "WorkerId" :: Maybe (CustomerId), "Test" :: Maybe (String), "Answer" :: Maybe (String), "SubmitTime" :: Maybe (Timestamp) } -> { "QualificationRequestId" :: Maybe (String), "QualificationTypeId" :: Maybe (EntityId), "WorkerId" :: Maybe (CustomerId), "Test" :: Maybe (String), "Answer" :: Maybe (String), "SubmitTime" :: Maybe (Timestamp) }) -> QualificationRequest
 ```
 
 Constructs QualificationRequest's fields from required parameters
@@ -2596,7 +2596,7 @@ Encode QualificationRequestList
 
 ``` purescript
 newtype QualificationRequirement
-  = QualificationRequirement { "QualificationTypeId" :: String, "Comparator" :: Comparator, "IntegerValues" :: NullOrUndefined (IntegerList), "LocaleValues" :: NullOrUndefined (LocaleList), "RequiredToPreview" :: NullOrUndefined (Boolean) }
+  = QualificationRequirement { "QualificationTypeId" :: String, "Comparator" :: Comparator, "IntegerValues" :: Maybe (IntegerList), "LocaleValues" :: Maybe (LocaleList), "RequiredToPreview" :: Maybe (Boolean) }
 ```
 
 <p> The QualificationRequirement data structure describes a Qualification that a Worker must have before the Worker is allowed to accept a HIT. A requirement may optionally state that a Worker must have the Qualification in order to preview the HIT. </p>
@@ -2621,7 +2621,7 @@ Constructs QualificationRequirement from required parameters
 #### `newQualificationRequirement'`
 
 ``` purescript
-newQualificationRequirement' :: Comparator -> String -> ({ "QualificationTypeId" :: String, "Comparator" :: Comparator, "IntegerValues" :: NullOrUndefined (IntegerList), "LocaleValues" :: NullOrUndefined (LocaleList), "RequiredToPreview" :: NullOrUndefined (Boolean) } -> { "QualificationTypeId" :: String, "Comparator" :: Comparator, "IntegerValues" :: NullOrUndefined (IntegerList), "LocaleValues" :: NullOrUndefined (LocaleList), "RequiredToPreview" :: NullOrUndefined (Boolean) }) -> QualificationRequirement
+newQualificationRequirement' :: Comparator -> String -> ({ "QualificationTypeId" :: String, "Comparator" :: Comparator, "IntegerValues" :: Maybe (IntegerList), "LocaleValues" :: Maybe (LocaleList), "RequiredToPreview" :: Maybe (Boolean) } -> { "QualificationTypeId" :: String, "Comparator" :: Comparator, "IntegerValues" :: Maybe (IntegerList), "LocaleValues" :: Maybe (LocaleList), "RequiredToPreview" :: Maybe (Boolean) }) -> QualificationRequirement
 ```
 
 Constructs QualificationRequirement's fields from required parameters
@@ -2662,7 +2662,7 @@ Encode QualificationStatus
 
 ``` purescript
 newtype QualificationType
-  = QualificationType { "QualificationTypeId" :: NullOrUndefined (EntityId), "CreationTime" :: NullOrUndefined (Timestamp), "Name" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "Keywords" :: NullOrUndefined (String), "QualificationTypeStatus" :: NullOrUndefined (QualificationTypeStatus), "Test" :: NullOrUndefined (String), "TestDurationInSeconds" :: NullOrUndefined (Number), "AnswerKey" :: NullOrUndefined (String), "RetryDelayInSeconds" :: NullOrUndefined (Number), "IsRequestable" :: NullOrUndefined (Boolean), "AutoGranted" :: NullOrUndefined (Boolean), "AutoGrantedValue" :: NullOrUndefined (Int) }
+  = QualificationType { "QualificationTypeId" :: Maybe (EntityId), "CreationTime" :: Maybe (Timestamp), "Name" :: Maybe (String), "Description" :: Maybe (String), "Keywords" :: Maybe (String), "QualificationTypeStatus" :: Maybe (QualificationTypeStatus), "Test" :: Maybe (String), "TestDurationInSeconds" :: Maybe (Number), "AnswerKey" :: Maybe (String), "RetryDelayInSeconds" :: Maybe (Number), "IsRequestable" :: Maybe (Boolean), "AutoGranted" :: Maybe (Boolean), "AutoGrantedValue" :: Maybe (Int) }
 ```
 
 <p> The QualificationType data structure represents a Qualification type, a description of a property of a Worker that must match the requirements of a HIT for the Worker to be able to accept the HIT. The type also describes how a Worker can obtain a Qualification of that type, such as through a Qualification test. </p>
@@ -2687,7 +2687,7 @@ Constructs QualificationType from required parameters
 #### `newQualificationType'`
 
 ``` purescript
-newQualificationType' :: ({ "QualificationTypeId" :: NullOrUndefined (EntityId), "CreationTime" :: NullOrUndefined (Timestamp), "Name" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "Keywords" :: NullOrUndefined (String), "QualificationTypeStatus" :: NullOrUndefined (QualificationTypeStatus), "Test" :: NullOrUndefined (String), "TestDurationInSeconds" :: NullOrUndefined (Number), "AnswerKey" :: NullOrUndefined (String), "RetryDelayInSeconds" :: NullOrUndefined (Number), "IsRequestable" :: NullOrUndefined (Boolean), "AutoGranted" :: NullOrUndefined (Boolean), "AutoGrantedValue" :: NullOrUndefined (Int) } -> { "QualificationTypeId" :: NullOrUndefined (EntityId), "CreationTime" :: NullOrUndefined (Timestamp), "Name" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "Keywords" :: NullOrUndefined (String), "QualificationTypeStatus" :: NullOrUndefined (QualificationTypeStatus), "Test" :: NullOrUndefined (String), "TestDurationInSeconds" :: NullOrUndefined (Number), "AnswerKey" :: NullOrUndefined (String), "RetryDelayInSeconds" :: NullOrUndefined (Number), "IsRequestable" :: NullOrUndefined (Boolean), "AutoGranted" :: NullOrUndefined (Boolean), "AutoGrantedValue" :: NullOrUndefined (Int) }) -> QualificationType
+newQualificationType' :: ({ "QualificationTypeId" :: Maybe (EntityId), "CreationTime" :: Maybe (Timestamp), "Name" :: Maybe (String), "Description" :: Maybe (String), "Keywords" :: Maybe (String), "QualificationTypeStatus" :: Maybe (QualificationTypeStatus), "Test" :: Maybe (String), "TestDurationInSeconds" :: Maybe (Number), "AnswerKey" :: Maybe (String), "RetryDelayInSeconds" :: Maybe (Number), "IsRequestable" :: Maybe (Boolean), "AutoGranted" :: Maybe (Boolean), "AutoGrantedValue" :: Maybe (Int) } -> { "QualificationTypeId" :: Maybe (EntityId), "CreationTime" :: Maybe (Timestamp), "Name" :: Maybe (String), "Description" :: Maybe (String), "Keywords" :: Maybe (String), "QualificationTypeStatus" :: Maybe (QualificationTypeStatus), "Test" :: Maybe (String), "TestDurationInSeconds" :: Maybe (Number), "AnswerKey" :: Maybe (String), "RetryDelayInSeconds" :: Maybe (Number), "IsRequestable" :: Maybe (Boolean), "AutoGranted" :: Maybe (Boolean), "AutoGrantedValue" :: Maybe (Int) }) -> QualificationType
 ```
 
 Constructs QualificationType's fields from required parameters
@@ -2776,7 +2776,7 @@ Encode RejectAssignmentResponse
 
 ``` purescript
 newtype RejectQualificationRequestRequest
-  = RejectQualificationRequestRequest { "QualificationRequestId" :: String, "Reason" :: NullOrUndefined (String) }
+  = RejectQualificationRequestRequest { "QualificationRequestId" :: String, "Reason" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2799,7 +2799,7 @@ Constructs RejectQualificationRequestRequest from required parameters
 #### `newRejectQualificationRequestRequest'`
 
 ``` purescript
-newRejectQualificationRequestRequest' :: String -> ({ "QualificationRequestId" :: String, "Reason" :: NullOrUndefined (String) } -> { "QualificationRequestId" :: String, "Reason" :: NullOrUndefined (String) }) -> RejectQualificationRequestRequest
+newRejectQualificationRequestRequest' :: String -> ({ "QualificationRequestId" :: String, "Reason" :: Maybe (String) } -> { "QualificationRequestId" :: String, "Reason" :: Maybe (String) }) -> RejectQualificationRequestRequest
 ```
 
 Constructs RejectQualificationRequestRequest's fields from required parameters
@@ -2824,7 +2824,7 @@ Encode RejectQualificationRequestResponse
 
 ``` purescript
 newtype RequestError
-  = RequestError { "Message" :: NullOrUndefined (ExceptionMessage), "TurkErrorCode" :: NullOrUndefined (TurkErrorCode) }
+  = RequestError { "Message" :: Maybe (ExceptionMessage), "TurkErrorCode" :: Maybe (TurkErrorCode) }
 ```
 
 <p>Your request is invalid.</p>
@@ -2849,7 +2849,7 @@ Constructs RequestError from required parameters
 #### `newRequestError'`
 
 ``` purescript
-newRequestError' :: ({ "Message" :: NullOrUndefined (ExceptionMessage), "TurkErrorCode" :: NullOrUndefined (TurkErrorCode) } -> { "Message" :: NullOrUndefined (ExceptionMessage), "TurkErrorCode" :: NullOrUndefined (TurkErrorCode) }) -> RequestError
+newRequestError' :: ({ "Message" :: Maybe (ExceptionMessage), "TurkErrorCode" :: Maybe (TurkErrorCode) } -> { "Message" :: Maybe (ExceptionMessage), "TurkErrorCode" :: Maybe (TurkErrorCode) }) -> RequestError
 ```
 
 Constructs RequestError's fields from required parameters
@@ -2874,7 +2874,7 @@ Encode ResultSize
 
 ``` purescript
 newtype ReviewActionDetail
-  = ReviewActionDetail { "ActionId" :: NullOrUndefined (EntityId), "ActionName" :: NullOrUndefined (String), "TargetId" :: NullOrUndefined (EntityId), "TargetType" :: NullOrUndefined (String), "Status" :: NullOrUndefined (ReviewActionStatus), "CompleteTime" :: NullOrUndefined (Timestamp), "Result" :: NullOrUndefined (String), "ErrorCode" :: NullOrUndefined (String) }
+  = ReviewActionDetail { "ActionId" :: Maybe (EntityId), "ActionName" :: Maybe (String), "TargetId" :: Maybe (EntityId), "TargetType" :: Maybe (String), "Status" :: Maybe (ReviewActionStatus), "CompleteTime" :: Maybe (Timestamp), "Result" :: Maybe (String), "ErrorCode" :: Maybe (String) }
 ```
 
 <p> Both the AssignmentReviewReport and the HITReviewReport elements contains the ReviewActionDetail data structure. This structure is returned multiple times for each action specified in the Review Policy. </p>
@@ -2899,7 +2899,7 @@ Constructs ReviewActionDetail from required parameters
 #### `newReviewActionDetail'`
 
 ``` purescript
-newReviewActionDetail' :: ({ "ActionId" :: NullOrUndefined (EntityId), "ActionName" :: NullOrUndefined (String), "TargetId" :: NullOrUndefined (EntityId), "TargetType" :: NullOrUndefined (String), "Status" :: NullOrUndefined (ReviewActionStatus), "CompleteTime" :: NullOrUndefined (Timestamp), "Result" :: NullOrUndefined (String), "ErrorCode" :: NullOrUndefined (String) } -> { "ActionId" :: NullOrUndefined (EntityId), "ActionName" :: NullOrUndefined (String), "TargetId" :: NullOrUndefined (EntityId), "TargetType" :: NullOrUndefined (String), "Status" :: NullOrUndefined (ReviewActionStatus), "CompleteTime" :: NullOrUndefined (Timestamp), "Result" :: NullOrUndefined (String), "ErrorCode" :: NullOrUndefined (String) }) -> ReviewActionDetail
+newReviewActionDetail' :: ({ "ActionId" :: Maybe (EntityId), "ActionName" :: Maybe (String), "TargetId" :: Maybe (EntityId), "TargetType" :: Maybe (String), "Status" :: Maybe (ReviewActionStatus), "CompleteTime" :: Maybe (Timestamp), "Result" :: Maybe (String), "ErrorCode" :: Maybe (String) } -> { "ActionId" :: Maybe (EntityId), "ActionName" :: Maybe (String), "TargetId" :: Maybe (EntityId), "TargetType" :: Maybe (String), "Status" :: Maybe (ReviewActionStatus), "CompleteTime" :: Maybe (Timestamp), "Result" :: Maybe (String), "ErrorCode" :: Maybe (String) }) -> ReviewActionDetail
 ```
 
 Constructs ReviewActionDetail's fields from required parameters
@@ -2940,7 +2940,7 @@ Encode ReviewActionStatus
 
 ``` purescript
 newtype ReviewPolicy
-  = ReviewPolicy { "PolicyName" :: String, "Parameters" :: NullOrUndefined (PolicyParameterList) }
+  = ReviewPolicy { "PolicyName" :: String, "Parameters" :: Maybe (PolicyParameterList) }
 ```
 
 <p> HIT Review Policy data structures represent HIT review policies, which you specify when you create a HIT. </p>
@@ -2965,7 +2965,7 @@ Constructs ReviewPolicy from required parameters
 #### `newReviewPolicy'`
 
 ``` purescript
-newReviewPolicy' :: String -> ({ "PolicyName" :: String, "Parameters" :: NullOrUndefined (PolicyParameterList) } -> { "PolicyName" :: String, "Parameters" :: NullOrUndefined (PolicyParameterList) }) -> ReviewPolicy
+newReviewPolicy' :: String -> ({ "PolicyName" :: String, "Parameters" :: Maybe (PolicyParameterList) } -> { "PolicyName" :: String, "Parameters" :: Maybe (PolicyParameterList) }) -> ReviewPolicy
 ```
 
 Constructs ReviewPolicy's fields from required parameters
@@ -3006,7 +3006,7 @@ Encode ReviewPolicyLevelList
 
 ``` purescript
 newtype ReviewReport
-  = ReviewReport { "ReviewResults" :: NullOrUndefined (ReviewResultDetailList), "ReviewActions" :: NullOrUndefined (ReviewActionDetailList) }
+  = ReviewReport { "ReviewResults" :: Maybe (ReviewResultDetailList), "ReviewActions" :: Maybe (ReviewActionDetailList) }
 ```
 
 <p> Contains both ReviewResult and ReviewAction elements for a particular HIT. </p>
@@ -3031,7 +3031,7 @@ Constructs ReviewReport from required parameters
 #### `newReviewReport'`
 
 ``` purescript
-newReviewReport' :: ({ "ReviewResults" :: NullOrUndefined (ReviewResultDetailList), "ReviewActions" :: NullOrUndefined (ReviewActionDetailList) } -> { "ReviewResults" :: NullOrUndefined (ReviewResultDetailList), "ReviewActions" :: NullOrUndefined (ReviewActionDetailList) }) -> ReviewReport
+newReviewReport' :: ({ "ReviewResults" :: Maybe (ReviewResultDetailList), "ReviewActions" :: Maybe (ReviewActionDetailList) } -> { "ReviewResults" :: Maybe (ReviewResultDetailList), "ReviewActions" :: Maybe (ReviewActionDetailList) }) -> ReviewReport
 ```
 
 Constructs ReviewReport's fields from required parameters
@@ -3040,7 +3040,7 @@ Constructs ReviewReport's fields from required parameters
 
 ``` purescript
 newtype ReviewResultDetail
-  = ReviewResultDetail { "ActionId" :: NullOrUndefined (EntityId), "SubjectId" :: NullOrUndefined (EntityId), "SubjectType" :: NullOrUndefined (String), "QuestionId" :: NullOrUndefined (EntityId), "Key" :: NullOrUndefined (String), "Value" :: NullOrUndefined (String) }
+  = ReviewResultDetail { "ActionId" :: Maybe (EntityId), "SubjectId" :: Maybe (EntityId), "SubjectType" :: Maybe (String), "QuestionId" :: Maybe (EntityId), "Key" :: Maybe (String), "Value" :: Maybe (String) }
 ```
 
 <p> This data structure is returned multiple times for each result specified in the Review Policy. </p>
@@ -3065,7 +3065,7 @@ Constructs ReviewResultDetail from required parameters
 #### `newReviewResultDetail'`
 
 ``` purescript
-newReviewResultDetail' :: ({ "ActionId" :: NullOrUndefined (EntityId), "SubjectId" :: NullOrUndefined (EntityId), "SubjectType" :: NullOrUndefined (String), "QuestionId" :: NullOrUndefined (EntityId), "Key" :: NullOrUndefined (String), "Value" :: NullOrUndefined (String) } -> { "ActionId" :: NullOrUndefined (EntityId), "SubjectId" :: NullOrUndefined (EntityId), "SubjectType" :: NullOrUndefined (String), "QuestionId" :: NullOrUndefined (EntityId), "Key" :: NullOrUndefined (String), "Value" :: NullOrUndefined (String) }) -> ReviewResultDetail
+newReviewResultDetail' :: ({ "ActionId" :: Maybe (EntityId), "SubjectId" :: Maybe (EntityId), "SubjectType" :: Maybe (String), "QuestionId" :: Maybe (EntityId), "Key" :: Maybe (String), "Value" :: Maybe (String) } -> { "ActionId" :: Maybe (EntityId), "SubjectId" :: Maybe (EntityId), "SubjectType" :: Maybe (String), "QuestionId" :: Maybe (EntityId), "Key" :: Maybe (String), "Value" :: Maybe (String) }) -> ReviewResultDetail
 ```
 
 Constructs ReviewResultDetail's fields from required parameters
@@ -3106,7 +3106,7 @@ Encode ReviewableHITStatus
 
 ``` purescript
 newtype SendBonusRequest
-  = SendBonusRequest { "WorkerId" :: CustomerId, "BonusAmount" :: CurrencyAmount, "AssignmentId" :: EntityId, "Reason" :: String, "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) }
+  = SendBonusRequest { "WorkerId" :: CustomerId, "BonusAmount" :: CurrencyAmount, "AssignmentId" :: EntityId, "Reason" :: String, "UniqueRequestToken" :: Maybe (IdempotencyToken) }
 ```
 
 ##### Instances
@@ -3129,7 +3129,7 @@ Constructs SendBonusRequest from required parameters
 #### `newSendBonusRequest'`
 
 ``` purescript
-newSendBonusRequest' :: EntityId -> CurrencyAmount -> String -> CustomerId -> ({ "WorkerId" :: CustomerId, "BonusAmount" :: CurrencyAmount, "AssignmentId" :: EntityId, "Reason" :: String, "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) } -> { "WorkerId" :: CustomerId, "BonusAmount" :: CurrencyAmount, "AssignmentId" :: EntityId, "Reason" :: String, "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) }) -> SendBonusRequest
+newSendBonusRequest' :: EntityId -> CurrencyAmount -> String -> CustomerId -> ({ "WorkerId" :: CustomerId, "BonusAmount" :: CurrencyAmount, "AssignmentId" :: EntityId, "Reason" :: String, "UniqueRequestToken" :: Maybe (IdempotencyToken) } -> { "WorkerId" :: CustomerId, "BonusAmount" :: CurrencyAmount, "AssignmentId" :: EntityId, "Reason" :: String, "UniqueRequestToken" :: Maybe (IdempotencyToken) }) -> SendBonusRequest
 ```
 
 Constructs SendBonusRequest's fields from required parameters
@@ -3202,7 +3202,7 @@ Encode SendTestEventNotificationResponse
 
 ``` purescript
 newtype ServiceFault
-  = ServiceFault { "Message" :: NullOrUndefined (ExceptionMessage), "TurkErrorCode" :: NullOrUndefined (TurkErrorCode) }
+  = ServiceFault { "Message" :: Maybe (ExceptionMessage), "TurkErrorCode" :: Maybe (TurkErrorCode) }
 ```
 
 <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
@@ -3227,7 +3227,7 @@ Constructs ServiceFault from required parameters
 #### `newServiceFault'`
 
 ``` purescript
-newServiceFault' :: ({ "Message" :: NullOrUndefined (ExceptionMessage), "TurkErrorCode" :: NullOrUndefined (TurkErrorCode) } -> { "Message" :: NullOrUndefined (ExceptionMessage), "TurkErrorCode" :: NullOrUndefined (TurkErrorCode) }) -> ServiceFault
+newServiceFault' :: ({ "Message" :: Maybe (ExceptionMessage), "TurkErrorCode" :: Maybe (TurkErrorCode) } -> { "Message" :: Maybe (ExceptionMessage), "TurkErrorCode" :: Maybe (TurkErrorCode) }) -> ServiceFault
 ```
 
 Constructs ServiceFault's fields from required parameters
@@ -3316,7 +3316,7 @@ Encode UpdateExpirationForHITResponse
 
 ``` purescript
 newtype UpdateHITReviewStatusRequest
-  = UpdateHITReviewStatusRequest { "HITId" :: EntityId, "Revert" :: NullOrUndefined (Boolean) }
+  = UpdateHITReviewStatusRequest { "HITId" :: EntityId, "Revert" :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -3339,7 +3339,7 @@ Constructs UpdateHITReviewStatusRequest from required parameters
 #### `newUpdateHITReviewStatusRequest'`
 
 ``` purescript
-newUpdateHITReviewStatusRequest' :: EntityId -> ({ "HITId" :: EntityId, "Revert" :: NullOrUndefined (Boolean) } -> { "HITId" :: EntityId, "Revert" :: NullOrUndefined (Boolean) }) -> UpdateHITReviewStatusRequest
+newUpdateHITReviewStatusRequest' :: EntityId -> ({ "HITId" :: EntityId, "Revert" :: Maybe (Boolean) } -> { "HITId" :: EntityId, "Revert" :: Maybe (Boolean) }) -> UpdateHITReviewStatusRequest
 ```
 
 Constructs UpdateHITReviewStatusRequest's fields from required parameters
@@ -3412,7 +3412,7 @@ Encode UpdateHITTypeOfHITResponse
 
 ``` purescript
 newtype UpdateNotificationSettingsRequest
-  = UpdateNotificationSettingsRequest { "HITTypeId" :: EntityId, "Notification" :: NullOrUndefined (NotificationSpecification), "Active" :: NullOrUndefined (Boolean) }
+  = UpdateNotificationSettingsRequest { "HITTypeId" :: EntityId, "Notification" :: Maybe (NotificationSpecification), "Active" :: Maybe (Boolean) }
 ```
 
 ##### Instances
@@ -3435,7 +3435,7 @@ Constructs UpdateNotificationSettingsRequest from required parameters
 #### `newUpdateNotificationSettingsRequest'`
 
 ``` purescript
-newUpdateNotificationSettingsRequest' :: EntityId -> ({ "HITTypeId" :: EntityId, "Notification" :: NullOrUndefined (NotificationSpecification), "Active" :: NullOrUndefined (Boolean) } -> { "HITTypeId" :: EntityId, "Notification" :: NullOrUndefined (NotificationSpecification), "Active" :: NullOrUndefined (Boolean) }) -> UpdateNotificationSettingsRequest
+newUpdateNotificationSettingsRequest' :: EntityId -> ({ "HITTypeId" :: EntityId, "Notification" :: Maybe (NotificationSpecification), "Active" :: Maybe (Boolean) } -> { "HITTypeId" :: EntityId, "Notification" :: Maybe (NotificationSpecification), "Active" :: Maybe (Boolean) }) -> UpdateNotificationSettingsRequest
 ```
 
 Constructs UpdateNotificationSettingsRequest's fields from required parameters
@@ -3460,7 +3460,7 @@ Encode UpdateNotificationSettingsResponse
 
 ``` purescript
 newtype UpdateQualificationTypeRequest
-  = UpdateQualificationTypeRequest { "QualificationTypeId" :: EntityId, "Description" :: NullOrUndefined (String), "QualificationTypeStatus" :: NullOrUndefined (QualificationTypeStatus), "Test" :: NullOrUndefined (String), "AnswerKey" :: NullOrUndefined (String), "TestDurationInSeconds" :: NullOrUndefined (Number), "RetryDelayInSeconds" :: NullOrUndefined (Number), "AutoGranted" :: NullOrUndefined (Boolean), "AutoGrantedValue" :: NullOrUndefined (Int) }
+  = UpdateQualificationTypeRequest { "QualificationTypeId" :: EntityId, "Description" :: Maybe (String), "QualificationTypeStatus" :: Maybe (QualificationTypeStatus), "Test" :: Maybe (String), "AnswerKey" :: Maybe (String), "TestDurationInSeconds" :: Maybe (Number), "RetryDelayInSeconds" :: Maybe (Number), "AutoGranted" :: Maybe (Boolean), "AutoGrantedValue" :: Maybe (Int) }
 ```
 
 ##### Instances
@@ -3483,7 +3483,7 @@ Constructs UpdateQualificationTypeRequest from required parameters
 #### `newUpdateQualificationTypeRequest'`
 
 ``` purescript
-newUpdateQualificationTypeRequest' :: EntityId -> ({ "QualificationTypeId" :: EntityId, "Description" :: NullOrUndefined (String), "QualificationTypeStatus" :: NullOrUndefined (QualificationTypeStatus), "Test" :: NullOrUndefined (String), "AnswerKey" :: NullOrUndefined (String), "TestDurationInSeconds" :: NullOrUndefined (Number), "RetryDelayInSeconds" :: NullOrUndefined (Number), "AutoGranted" :: NullOrUndefined (Boolean), "AutoGrantedValue" :: NullOrUndefined (Int) } -> { "QualificationTypeId" :: EntityId, "Description" :: NullOrUndefined (String), "QualificationTypeStatus" :: NullOrUndefined (QualificationTypeStatus), "Test" :: NullOrUndefined (String), "AnswerKey" :: NullOrUndefined (String), "TestDurationInSeconds" :: NullOrUndefined (Number), "RetryDelayInSeconds" :: NullOrUndefined (Number), "AutoGranted" :: NullOrUndefined (Boolean), "AutoGrantedValue" :: NullOrUndefined (Int) }) -> UpdateQualificationTypeRequest
+newUpdateQualificationTypeRequest' :: EntityId -> ({ "QualificationTypeId" :: EntityId, "Description" :: Maybe (String), "QualificationTypeStatus" :: Maybe (QualificationTypeStatus), "Test" :: Maybe (String), "AnswerKey" :: Maybe (String), "TestDurationInSeconds" :: Maybe (Number), "RetryDelayInSeconds" :: Maybe (Number), "AutoGranted" :: Maybe (Boolean), "AutoGrantedValue" :: Maybe (Int) } -> { "QualificationTypeId" :: EntityId, "Description" :: Maybe (String), "QualificationTypeStatus" :: Maybe (QualificationTypeStatus), "Test" :: Maybe (String), "AnswerKey" :: Maybe (String), "TestDurationInSeconds" :: Maybe (Number), "RetryDelayInSeconds" :: Maybe (Number), "AutoGranted" :: Maybe (Boolean), "AutoGrantedValue" :: Maybe (Int) }) -> UpdateQualificationTypeRequest
 ```
 
 Constructs UpdateQualificationTypeRequest's fields from required parameters
@@ -3492,7 +3492,7 @@ Constructs UpdateQualificationTypeRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateQualificationTypeResponse
-  = UpdateQualificationTypeResponse { "QualificationType" :: NullOrUndefined (QualificationType) }
+  = UpdateQualificationTypeResponse { "QualificationType" :: Maybe (QualificationType) }
 ```
 
 ##### Instances
@@ -3515,7 +3515,7 @@ Constructs UpdateQualificationTypeResponse from required parameters
 #### `newUpdateQualificationTypeResponse'`
 
 ``` purescript
-newUpdateQualificationTypeResponse' :: ({ "QualificationType" :: NullOrUndefined (QualificationType) } -> { "QualificationType" :: NullOrUndefined (QualificationType) }) -> UpdateQualificationTypeResponse
+newUpdateQualificationTypeResponse' :: ({ "QualificationType" :: Maybe (QualificationType) } -> { "QualificationType" :: Maybe (QualificationType) }) -> UpdateQualificationTypeResponse
 ```
 
 Constructs UpdateQualificationTypeResponse's fields from required parameters
@@ -3524,7 +3524,7 @@ Constructs UpdateQualificationTypeResponse's fields from required parameters
 
 ``` purescript
 newtype WorkerBlock
-  = WorkerBlock { "WorkerId" :: NullOrUndefined (CustomerId), "Reason" :: NullOrUndefined (String) }
+  = WorkerBlock { "WorkerId" :: Maybe (CustomerId), "Reason" :: Maybe (String) }
 ```
 
 <p> The WorkerBlock data structure represents a Worker who has been blocked. It has two elements: the WorkerId and the Reason for the block. </p>
@@ -3549,7 +3549,7 @@ Constructs WorkerBlock from required parameters
 #### `newWorkerBlock'`
 
 ``` purescript
-newWorkerBlock' :: ({ "WorkerId" :: NullOrUndefined (CustomerId), "Reason" :: NullOrUndefined (String) } -> { "WorkerId" :: NullOrUndefined (CustomerId), "Reason" :: NullOrUndefined (String) }) -> WorkerBlock
+newWorkerBlock' :: ({ "WorkerId" :: Maybe (CustomerId), "Reason" :: Maybe (String) } -> { "WorkerId" :: Maybe (CustomerId), "Reason" :: Maybe (String) }) -> WorkerBlock
 ```
 
 Constructs WorkerBlock's fields from required parameters

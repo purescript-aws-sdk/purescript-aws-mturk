@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -20,7 +19,7 @@ options = defaultOptions { unwrapSingleConstructors = true }
 
 newtype AcceptQualificationRequestRequest = AcceptQualificationRequestRequest 
   { "QualificationRequestId" :: (String)
-  , "IntegerValue" :: NullOrUndefined (Int)
+  , "IntegerValue" :: Maybe (Int)
   }
 derive instance newtypeAcceptQualificationRequestRequest :: Newtype AcceptQualificationRequestRequest _
 derive instance repGenericAcceptQualificationRequestRequest :: Generic AcceptQualificationRequestRequest _
@@ -30,12 +29,12 @@ instance encodeAcceptQualificationRequestRequest :: Encode AcceptQualificationRe
 
 -- | Constructs AcceptQualificationRequestRequest from required parameters
 newAcceptQualificationRequestRequest :: String -> AcceptQualificationRequestRequest
-newAcceptQualificationRequestRequest _QualificationRequestId = AcceptQualificationRequestRequest { "QualificationRequestId": _QualificationRequestId, "IntegerValue": (NullOrUndefined Nothing) }
+newAcceptQualificationRequestRequest _QualificationRequestId = AcceptQualificationRequestRequest { "QualificationRequestId": _QualificationRequestId, "IntegerValue": Nothing }
 
 -- | Constructs AcceptQualificationRequestRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAcceptQualificationRequestRequest' :: String -> ( { "QualificationRequestId" :: (String) , "IntegerValue" :: NullOrUndefined (Int) } -> {"QualificationRequestId" :: (String) , "IntegerValue" :: NullOrUndefined (Int) } ) -> AcceptQualificationRequestRequest
-newAcceptQualificationRequestRequest' _QualificationRequestId customize = (AcceptQualificationRequestRequest <<< customize) { "QualificationRequestId": _QualificationRequestId, "IntegerValue": (NullOrUndefined Nothing) }
+newAcceptQualificationRequestRequest' :: String -> ( { "QualificationRequestId" :: (String) , "IntegerValue" :: Maybe (Int) } -> {"QualificationRequestId" :: (String) , "IntegerValue" :: Maybe (Int) } ) -> AcceptQualificationRequestRequest
+newAcceptQualificationRequestRequest' _QualificationRequestId customize = (AcceptQualificationRequestRequest <<< customize) { "QualificationRequestId": _QualificationRequestId, "IntegerValue": Nothing }
 
 
 
@@ -50,8 +49,8 @@ instance encodeAcceptQualificationRequestResponse :: Encode AcceptQualificationR
 
 newtype ApproveAssignmentRequest = ApproveAssignmentRequest 
   { "AssignmentId" :: (EntityId)
-  , "RequesterFeedback" :: NullOrUndefined (String)
-  , "OverrideRejection" :: NullOrUndefined (Boolean)
+  , "RequesterFeedback" :: Maybe (String)
+  , "OverrideRejection" :: Maybe (Boolean)
   }
 derive instance newtypeApproveAssignmentRequest :: Newtype ApproveAssignmentRequest _
 derive instance repGenericApproveAssignmentRequest :: Generic ApproveAssignmentRequest _
@@ -61,12 +60,12 @@ instance encodeApproveAssignmentRequest :: Encode ApproveAssignmentRequest where
 
 -- | Constructs ApproveAssignmentRequest from required parameters
 newApproveAssignmentRequest :: EntityId -> ApproveAssignmentRequest
-newApproveAssignmentRequest _AssignmentId = ApproveAssignmentRequest { "AssignmentId": _AssignmentId, "OverrideRejection": (NullOrUndefined Nothing), "RequesterFeedback": (NullOrUndefined Nothing) }
+newApproveAssignmentRequest _AssignmentId = ApproveAssignmentRequest { "AssignmentId": _AssignmentId, "OverrideRejection": Nothing, "RequesterFeedback": Nothing }
 
 -- | Constructs ApproveAssignmentRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApproveAssignmentRequest' :: EntityId -> ( { "AssignmentId" :: (EntityId) , "RequesterFeedback" :: NullOrUndefined (String) , "OverrideRejection" :: NullOrUndefined (Boolean) } -> {"AssignmentId" :: (EntityId) , "RequesterFeedback" :: NullOrUndefined (String) , "OverrideRejection" :: NullOrUndefined (Boolean) } ) -> ApproveAssignmentRequest
-newApproveAssignmentRequest' _AssignmentId customize = (ApproveAssignmentRequest <<< customize) { "AssignmentId": _AssignmentId, "OverrideRejection": (NullOrUndefined Nothing), "RequesterFeedback": (NullOrUndefined Nothing) }
+newApproveAssignmentRequest' :: EntityId -> ( { "AssignmentId" :: (EntityId) , "RequesterFeedback" :: Maybe (String) , "OverrideRejection" :: Maybe (Boolean) } -> {"AssignmentId" :: (EntityId) , "RequesterFeedback" :: Maybe (String) , "OverrideRejection" :: Maybe (Boolean) } ) -> ApproveAssignmentRequest
+newApproveAssignmentRequest' _AssignmentId customize = (ApproveAssignmentRequest <<< customize) { "AssignmentId": _AssignmentId, "OverrideRejection": Nothing, "RequesterFeedback": Nothing }
 
 
 
@@ -81,18 +80,18 @@ instance encodeApproveAssignmentResponse :: Encode ApproveAssignmentResponse whe
 
 -- | <p> The Assignment data structure represents a single assignment of a HIT to a Worker. The assignment tracks the Worker's efforts to complete the HIT, and contains the results for later retrieval. </p>
 newtype Assignment = Assignment 
-  { "AssignmentId" :: NullOrUndefined (EntityId)
-  , "WorkerId" :: NullOrUndefined (CustomerId)
-  , "HITId" :: NullOrUndefined (EntityId)
-  , "AssignmentStatus" :: NullOrUndefined (AssignmentStatus)
-  , "AutoApprovalTime" :: NullOrUndefined (Types.Timestamp)
-  , "AcceptTime" :: NullOrUndefined (Types.Timestamp)
-  , "SubmitTime" :: NullOrUndefined (Types.Timestamp)
-  , "ApprovalTime" :: NullOrUndefined (Types.Timestamp)
-  , "RejectionTime" :: NullOrUndefined (Types.Timestamp)
-  , "Deadline" :: NullOrUndefined (Types.Timestamp)
-  , "Answer" :: NullOrUndefined (String)
-  , "RequesterFeedback" :: NullOrUndefined (String)
+  { "AssignmentId" :: Maybe (EntityId)
+  , "WorkerId" :: Maybe (CustomerId)
+  , "HITId" :: Maybe (EntityId)
+  , "AssignmentStatus" :: Maybe (AssignmentStatus)
+  , "AutoApprovalTime" :: Maybe (Types.Timestamp)
+  , "AcceptTime" :: Maybe (Types.Timestamp)
+  , "SubmitTime" :: Maybe (Types.Timestamp)
+  , "ApprovalTime" :: Maybe (Types.Timestamp)
+  , "RejectionTime" :: Maybe (Types.Timestamp)
+  , "Deadline" :: Maybe (Types.Timestamp)
+  , "Answer" :: Maybe (String)
+  , "RequesterFeedback" :: Maybe (String)
   }
 derive instance newtypeAssignment :: Newtype Assignment _
 derive instance repGenericAssignment :: Generic Assignment _
@@ -102,12 +101,12 @@ instance encodeAssignment :: Encode Assignment where encode = genericEncode opti
 
 -- | Constructs Assignment from required parameters
 newAssignment :: Assignment
-newAssignment  = Assignment { "AcceptTime": (NullOrUndefined Nothing), "Answer": (NullOrUndefined Nothing), "ApprovalTime": (NullOrUndefined Nothing), "AssignmentId": (NullOrUndefined Nothing), "AssignmentStatus": (NullOrUndefined Nothing), "AutoApprovalTime": (NullOrUndefined Nothing), "Deadline": (NullOrUndefined Nothing), "HITId": (NullOrUndefined Nothing), "RejectionTime": (NullOrUndefined Nothing), "RequesterFeedback": (NullOrUndefined Nothing), "SubmitTime": (NullOrUndefined Nothing), "WorkerId": (NullOrUndefined Nothing) }
+newAssignment  = Assignment { "AcceptTime": Nothing, "Answer": Nothing, "ApprovalTime": Nothing, "AssignmentId": Nothing, "AssignmentStatus": Nothing, "AutoApprovalTime": Nothing, "Deadline": Nothing, "HITId": Nothing, "RejectionTime": Nothing, "RequesterFeedback": Nothing, "SubmitTime": Nothing, "WorkerId": Nothing }
 
 -- | Constructs Assignment's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssignment' :: ( { "AssignmentId" :: NullOrUndefined (EntityId) , "WorkerId" :: NullOrUndefined (CustomerId) , "HITId" :: NullOrUndefined (EntityId) , "AssignmentStatus" :: NullOrUndefined (AssignmentStatus) , "AutoApprovalTime" :: NullOrUndefined (Types.Timestamp) , "AcceptTime" :: NullOrUndefined (Types.Timestamp) , "SubmitTime" :: NullOrUndefined (Types.Timestamp) , "ApprovalTime" :: NullOrUndefined (Types.Timestamp) , "RejectionTime" :: NullOrUndefined (Types.Timestamp) , "Deadline" :: NullOrUndefined (Types.Timestamp) , "Answer" :: NullOrUndefined (String) , "RequesterFeedback" :: NullOrUndefined (String) } -> {"AssignmentId" :: NullOrUndefined (EntityId) , "WorkerId" :: NullOrUndefined (CustomerId) , "HITId" :: NullOrUndefined (EntityId) , "AssignmentStatus" :: NullOrUndefined (AssignmentStatus) , "AutoApprovalTime" :: NullOrUndefined (Types.Timestamp) , "AcceptTime" :: NullOrUndefined (Types.Timestamp) , "SubmitTime" :: NullOrUndefined (Types.Timestamp) , "ApprovalTime" :: NullOrUndefined (Types.Timestamp) , "RejectionTime" :: NullOrUndefined (Types.Timestamp) , "Deadline" :: NullOrUndefined (Types.Timestamp) , "Answer" :: NullOrUndefined (String) , "RequesterFeedback" :: NullOrUndefined (String) } ) -> Assignment
-newAssignment'  customize = (Assignment <<< customize) { "AcceptTime": (NullOrUndefined Nothing), "Answer": (NullOrUndefined Nothing), "ApprovalTime": (NullOrUndefined Nothing), "AssignmentId": (NullOrUndefined Nothing), "AssignmentStatus": (NullOrUndefined Nothing), "AutoApprovalTime": (NullOrUndefined Nothing), "Deadline": (NullOrUndefined Nothing), "HITId": (NullOrUndefined Nothing), "RejectionTime": (NullOrUndefined Nothing), "RequesterFeedback": (NullOrUndefined Nothing), "SubmitTime": (NullOrUndefined Nothing), "WorkerId": (NullOrUndefined Nothing) }
+newAssignment' :: ( { "AssignmentId" :: Maybe (EntityId) , "WorkerId" :: Maybe (CustomerId) , "HITId" :: Maybe (EntityId) , "AssignmentStatus" :: Maybe (AssignmentStatus) , "AutoApprovalTime" :: Maybe (Types.Timestamp) , "AcceptTime" :: Maybe (Types.Timestamp) , "SubmitTime" :: Maybe (Types.Timestamp) , "ApprovalTime" :: Maybe (Types.Timestamp) , "RejectionTime" :: Maybe (Types.Timestamp) , "Deadline" :: Maybe (Types.Timestamp) , "Answer" :: Maybe (String) , "RequesterFeedback" :: Maybe (String) } -> {"AssignmentId" :: Maybe (EntityId) , "WorkerId" :: Maybe (CustomerId) , "HITId" :: Maybe (EntityId) , "AssignmentStatus" :: Maybe (AssignmentStatus) , "AutoApprovalTime" :: Maybe (Types.Timestamp) , "AcceptTime" :: Maybe (Types.Timestamp) , "SubmitTime" :: Maybe (Types.Timestamp) , "ApprovalTime" :: Maybe (Types.Timestamp) , "RejectionTime" :: Maybe (Types.Timestamp) , "Deadline" :: Maybe (Types.Timestamp) , "Answer" :: Maybe (String) , "RequesterFeedback" :: Maybe (String) } ) -> Assignment
+newAssignment'  customize = (Assignment <<< customize) { "AcceptTime": Nothing, "Answer": Nothing, "ApprovalTime": Nothing, "AssignmentId": Nothing, "AssignmentStatus": Nothing, "AutoApprovalTime": Nothing, "Deadline": Nothing, "HITId": Nothing, "RejectionTime": Nothing, "RequesterFeedback": Nothing, "SubmitTime": Nothing, "WorkerId": Nothing }
 
 
 
@@ -141,8 +140,8 @@ instance encodeAssignmentStatusList :: Encode AssignmentStatusList where encode 
 newtype AssociateQualificationWithWorkerRequest = AssociateQualificationWithWorkerRequest 
   { "QualificationTypeId" :: (EntityId)
   , "WorkerId" :: (CustomerId)
-  , "IntegerValue" :: NullOrUndefined (Int)
-  , "SendNotification" :: NullOrUndefined (Boolean)
+  , "IntegerValue" :: Maybe (Int)
+  , "SendNotification" :: Maybe (Boolean)
   }
 derive instance newtypeAssociateQualificationWithWorkerRequest :: Newtype AssociateQualificationWithWorkerRequest _
 derive instance repGenericAssociateQualificationWithWorkerRequest :: Generic AssociateQualificationWithWorkerRequest _
@@ -152,12 +151,12 @@ instance encodeAssociateQualificationWithWorkerRequest :: Encode AssociateQualif
 
 -- | Constructs AssociateQualificationWithWorkerRequest from required parameters
 newAssociateQualificationWithWorkerRequest :: EntityId -> CustomerId -> AssociateQualificationWithWorkerRequest
-newAssociateQualificationWithWorkerRequest _QualificationTypeId _WorkerId = AssociateQualificationWithWorkerRequest { "QualificationTypeId": _QualificationTypeId, "WorkerId": _WorkerId, "IntegerValue": (NullOrUndefined Nothing), "SendNotification": (NullOrUndefined Nothing) }
+newAssociateQualificationWithWorkerRequest _QualificationTypeId _WorkerId = AssociateQualificationWithWorkerRequest { "QualificationTypeId": _QualificationTypeId, "WorkerId": _WorkerId, "IntegerValue": Nothing, "SendNotification": Nothing }
 
 -- | Constructs AssociateQualificationWithWorkerRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssociateQualificationWithWorkerRequest' :: EntityId -> CustomerId -> ( { "QualificationTypeId" :: (EntityId) , "WorkerId" :: (CustomerId) , "IntegerValue" :: NullOrUndefined (Int) , "SendNotification" :: NullOrUndefined (Boolean) } -> {"QualificationTypeId" :: (EntityId) , "WorkerId" :: (CustomerId) , "IntegerValue" :: NullOrUndefined (Int) , "SendNotification" :: NullOrUndefined (Boolean) } ) -> AssociateQualificationWithWorkerRequest
-newAssociateQualificationWithWorkerRequest' _QualificationTypeId _WorkerId customize = (AssociateQualificationWithWorkerRequest <<< customize) { "QualificationTypeId": _QualificationTypeId, "WorkerId": _WorkerId, "IntegerValue": (NullOrUndefined Nothing), "SendNotification": (NullOrUndefined Nothing) }
+newAssociateQualificationWithWorkerRequest' :: EntityId -> CustomerId -> ( { "QualificationTypeId" :: (EntityId) , "WorkerId" :: (CustomerId) , "IntegerValue" :: Maybe (Int) , "SendNotification" :: Maybe (Boolean) } -> {"QualificationTypeId" :: (EntityId) , "WorkerId" :: (CustomerId) , "IntegerValue" :: Maybe (Int) , "SendNotification" :: Maybe (Boolean) } ) -> AssociateQualificationWithWorkerRequest
+newAssociateQualificationWithWorkerRequest' _QualificationTypeId _WorkerId customize = (AssociateQualificationWithWorkerRequest <<< customize) { "QualificationTypeId": _QualificationTypeId, "WorkerId": _WorkerId, "IntegerValue": Nothing, "SendNotification": Nothing }
 
 
 
@@ -172,11 +171,11 @@ instance encodeAssociateQualificationWithWorkerResponse :: Encode AssociateQuali
 
 -- | <p>An object representing a Bonus payment paid to a Worker.</p>
 newtype BonusPayment = BonusPayment 
-  { "WorkerId" :: NullOrUndefined (CustomerId)
-  , "BonusAmount" :: NullOrUndefined (CurrencyAmount)
-  , "AssignmentId" :: NullOrUndefined (EntityId)
-  , "Reason" :: NullOrUndefined (String)
-  , "GrantTime" :: NullOrUndefined (Types.Timestamp)
+  { "WorkerId" :: Maybe (CustomerId)
+  , "BonusAmount" :: Maybe (CurrencyAmount)
+  , "AssignmentId" :: Maybe (EntityId)
+  , "Reason" :: Maybe (String)
+  , "GrantTime" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeBonusPayment :: Newtype BonusPayment _
 derive instance repGenericBonusPayment :: Generic BonusPayment _
@@ -186,12 +185,12 @@ instance encodeBonusPayment :: Encode BonusPayment where encode = genericEncode 
 
 -- | Constructs BonusPayment from required parameters
 newBonusPayment :: BonusPayment
-newBonusPayment  = BonusPayment { "AssignmentId": (NullOrUndefined Nothing), "BonusAmount": (NullOrUndefined Nothing), "GrantTime": (NullOrUndefined Nothing), "Reason": (NullOrUndefined Nothing), "WorkerId": (NullOrUndefined Nothing) }
+newBonusPayment  = BonusPayment { "AssignmentId": Nothing, "BonusAmount": Nothing, "GrantTime": Nothing, "Reason": Nothing, "WorkerId": Nothing }
 
 -- | Constructs BonusPayment's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBonusPayment' :: ( { "WorkerId" :: NullOrUndefined (CustomerId) , "BonusAmount" :: NullOrUndefined (CurrencyAmount) , "AssignmentId" :: NullOrUndefined (EntityId) , "Reason" :: NullOrUndefined (String) , "GrantTime" :: NullOrUndefined (Types.Timestamp) } -> {"WorkerId" :: NullOrUndefined (CustomerId) , "BonusAmount" :: NullOrUndefined (CurrencyAmount) , "AssignmentId" :: NullOrUndefined (EntityId) , "Reason" :: NullOrUndefined (String) , "GrantTime" :: NullOrUndefined (Types.Timestamp) } ) -> BonusPayment
-newBonusPayment'  customize = (BonusPayment <<< customize) { "AssignmentId": (NullOrUndefined Nothing), "BonusAmount": (NullOrUndefined Nothing), "GrantTime": (NullOrUndefined Nothing), "Reason": (NullOrUndefined Nothing), "WorkerId": (NullOrUndefined Nothing) }
+newBonusPayment' :: ( { "WorkerId" :: Maybe (CustomerId) , "BonusAmount" :: Maybe (CurrencyAmount) , "AssignmentId" :: Maybe (EntityId) , "Reason" :: Maybe (String) , "GrantTime" :: Maybe (Types.Timestamp) } -> {"WorkerId" :: Maybe (CustomerId) , "BonusAmount" :: Maybe (CurrencyAmount) , "AssignmentId" :: Maybe (EntityId) , "Reason" :: Maybe (String) , "GrantTime" :: Maybe (Types.Timestamp) } ) -> BonusPayment
+newBonusPayment'  customize = (BonusPayment <<< customize) { "AssignmentId": Nothing, "BonusAmount": Nothing, "GrantTime": Nothing, "Reason": Nothing, "WorkerId": Nothing }
 
 
 
@@ -225,7 +224,7 @@ instance encodeCountryParameters :: Encode CountryParameters where encode = gene
 newtype CreateAdditionalAssignmentsForHITRequest = CreateAdditionalAssignmentsForHITRequest 
   { "HITId" :: (EntityId)
   , "NumberOfAdditionalAssignments" :: (Int)
-  , "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken)
+  , "UniqueRequestToken" :: Maybe (IdempotencyToken)
   }
 derive instance newtypeCreateAdditionalAssignmentsForHITRequest :: Newtype CreateAdditionalAssignmentsForHITRequest _
 derive instance repGenericCreateAdditionalAssignmentsForHITRequest :: Generic CreateAdditionalAssignmentsForHITRequest _
@@ -235,12 +234,12 @@ instance encodeCreateAdditionalAssignmentsForHITRequest :: Encode CreateAddition
 
 -- | Constructs CreateAdditionalAssignmentsForHITRequest from required parameters
 newCreateAdditionalAssignmentsForHITRequest :: EntityId -> Int -> CreateAdditionalAssignmentsForHITRequest
-newCreateAdditionalAssignmentsForHITRequest _HITId _NumberOfAdditionalAssignments = CreateAdditionalAssignmentsForHITRequest { "HITId": _HITId, "NumberOfAdditionalAssignments": _NumberOfAdditionalAssignments, "UniqueRequestToken": (NullOrUndefined Nothing) }
+newCreateAdditionalAssignmentsForHITRequest _HITId _NumberOfAdditionalAssignments = CreateAdditionalAssignmentsForHITRequest { "HITId": _HITId, "NumberOfAdditionalAssignments": _NumberOfAdditionalAssignments, "UniqueRequestToken": Nothing }
 
 -- | Constructs CreateAdditionalAssignmentsForHITRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateAdditionalAssignmentsForHITRequest' :: EntityId -> Int -> ( { "HITId" :: (EntityId) , "NumberOfAdditionalAssignments" :: (Int) , "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) } -> {"HITId" :: (EntityId) , "NumberOfAdditionalAssignments" :: (Int) , "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) } ) -> CreateAdditionalAssignmentsForHITRequest
-newCreateAdditionalAssignmentsForHITRequest' _HITId _NumberOfAdditionalAssignments customize = (CreateAdditionalAssignmentsForHITRequest <<< customize) { "HITId": _HITId, "NumberOfAdditionalAssignments": _NumberOfAdditionalAssignments, "UniqueRequestToken": (NullOrUndefined Nothing) }
+newCreateAdditionalAssignmentsForHITRequest' :: EntityId -> Int -> ( { "HITId" :: (EntityId) , "NumberOfAdditionalAssignments" :: (Int) , "UniqueRequestToken" :: Maybe (IdempotencyToken) } -> {"HITId" :: (EntityId) , "NumberOfAdditionalAssignments" :: (Int) , "UniqueRequestToken" :: Maybe (IdempotencyToken) } ) -> CreateAdditionalAssignmentsForHITRequest
+newCreateAdditionalAssignmentsForHITRequest' _HITId _NumberOfAdditionalAssignments customize = (CreateAdditionalAssignmentsForHITRequest <<< customize) { "HITId": _HITId, "NumberOfAdditionalAssignments": _NumberOfAdditionalAssignments, "UniqueRequestToken": Nothing }
 
 
 
@@ -254,22 +253,22 @@ instance encodeCreateAdditionalAssignmentsForHITResponse :: Encode CreateAdditio
 
 
 newtype CreateHITRequest = CreateHITRequest 
-  { "MaxAssignments" :: NullOrUndefined (Int)
-  , "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number)
+  { "MaxAssignments" :: Maybe (Int)
+  , "AutoApprovalDelayInSeconds" :: Maybe (Number)
   , "LifetimeInSeconds" :: (Number)
   , "AssignmentDurationInSeconds" :: (Number)
   , "Reward" :: (CurrencyAmount)
   , "Title" :: (String)
-  , "Keywords" :: NullOrUndefined (String)
+  , "Keywords" :: Maybe (String)
   , "Description" :: (String)
-  , "Question" :: NullOrUndefined (String)
-  , "RequesterAnnotation" :: NullOrUndefined (String)
-  , "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList)
-  , "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken)
-  , "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy)
-  , "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy)
-  , "HITLayoutId" :: NullOrUndefined (EntityId)
-  , "HITLayoutParameters" :: NullOrUndefined (HITLayoutParameterList)
+  , "Question" :: Maybe (String)
+  , "RequesterAnnotation" :: Maybe (String)
+  , "QualificationRequirements" :: Maybe (QualificationRequirementList)
+  , "UniqueRequestToken" :: Maybe (IdempotencyToken)
+  , "AssignmentReviewPolicy" :: Maybe (ReviewPolicy)
+  , "HITReviewPolicy" :: Maybe (ReviewPolicy)
+  , "HITLayoutId" :: Maybe (EntityId)
+  , "HITLayoutParameters" :: Maybe (HITLayoutParameterList)
   }
 derive instance newtypeCreateHITRequest :: Newtype CreateHITRequest _
 derive instance repGenericCreateHITRequest :: Generic CreateHITRequest _
@@ -279,17 +278,17 @@ instance encodeCreateHITRequest :: Encode CreateHITRequest where encode = generi
 
 -- | Constructs CreateHITRequest from required parameters
 newCreateHITRequest :: Number -> String -> Number -> CurrencyAmount -> String -> CreateHITRequest
-newCreateHITRequest _AssignmentDurationInSeconds _Description _LifetimeInSeconds _Reward _Title = CreateHITRequest { "AssignmentDurationInSeconds": _AssignmentDurationInSeconds, "Description": _Description, "LifetimeInSeconds": _LifetimeInSeconds, "Reward": _Reward, "Title": _Title, "AssignmentReviewPolicy": (NullOrUndefined Nothing), "AutoApprovalDelayInSeconds": (NullOrUndefined Nothing), "HITLayoutId": (NullOrUndefined Nothing), "HITLayoutParameters": (NullOrUndefined Nothing), "HITReviewPolicy": (NullOrUndefined Nothing), "Keywords": (NullOrUndefined Nothing), "MaxAssignments": (NullOrUndefined Nothing), "QualificationRequirements": (NullOrUndefined Nothing), "Question": (NullOrUndefined Nothing), "RequesterAnnotation": (NullOrUndefined Nothing), "UniqueRequestToken": (NullOrUndefined Nothing) }
+newCreateHITRequest _AssignmentDurationInSeconds _Description _LifetimeInSeconds _Reward _Title = CreateHITRequest { "AssignmentDurationInSeconds": _AssignmentDurationInSeconds, "Description": _Description, "LifetimeInSeconds": _LifetimeInSeconds, "Reward": _Reward, "Title": _Title, "AssignmentReviewPolicy": Nothing, "AutoApprovalDelayInSeconds": Nothing, "HITLayoutId": Nothing, "HITLayoutParameters": Nothing, "HITReviewPolicy": Nothing, "Keywords": Nothing, "MaxAssignments": Nothing, "QualificationRequirements": Nothing, "Question": Nothing, "RequesterAnnotation": Nothing, "UniqueRequestToken": Nothing }
 
 -- | Constructs CreateHITRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateHITRequest' :: Number -> String -> Number -> CurrencyAmount -> String -> ( { "MaxAssignments" :: NullOrUndefined (Int) , "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number) , "LifetimeInSeconds" :: (Number) , "AssignmentDurationInSeconds" :: (Number) , "Reward" :: (CurrencyAmount) , "Title" :: (String) , "Keywords" :: NullOrUndefined (String) , "Description" :: (String) , "Question" :: NullOrUndefined (String) , "RequesterAnnotation" :: NullOrUndefined (String) , "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList) , "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) , "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy) , "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy) , "HITLayoutId" :: NullOrUndefined (EntityId) , "HITLayoutParameters" :: NullOrUndefined (HITLayoutParameterList) } -> {"MaxAssignments" :: NullOrUndefined (Int) , "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number) , "LifetimeInSeconds" :: (Number) , "AssignmentDurationInSeconds" :: (Number) , "Reward" :: (CurrencyAmount) , "Title" :: (String) , "Keywords" :: NullOrUndefined (String) , "Description" :: (String) , "Question" :: NullOrUndefined (String) , "RequesterAnnotation" :: NullOrUndefined (String) , "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList) , "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) , "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy) , "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy) , "HITLayoutId" :: NullOrUndefined (EntityId) , "HITLayoutParameters" :: NullOrUndefined (HITLayoutParameterList) } ) -> CreateHITRequest
-newCreateHITRequest' _AssignmentDurationInSeconds _Description _LifetimeInSeconds _Reward _Title customize = (CreateHITRequest <<< customize) { "AssignmentDurationInSeconds": _AssignmentDurationInSeconds, "Description": _Description, "LifetimeInSeconds": _LifetimeInSeconds, "Reward": _Reward, "Title": _Title, "AssignmentReviewPolicy": (NullOrUndefined Nothing), "AutoApprovalDelayInSeconds": (NullOrUndefined Nothing), "HITLayoutId": (NullOrUndefined Nothing), "HITLayoutParameters": (NullOrUndefined Nothing), "HITReviewPolicy": (NullOrUndefined Nothing), "Keywords": (NullOrUndefined Nothing), "MaxAssignments": (NullOrUndefined Nothing), "QualificationRequirements": (NullOrUndefined Nothing), "Question": (NullOrUndefined Nothing), "RequesterAnnotation": (NullOrUndefined Nothing), "UniqueRequestToken": (NullOrUndefined Nothing) }
+newCreateHITRequest' :: Number -> String -> Number -> CurrencyAmount -> String -> ( { "MaxAssignments" :: Maybe (Int) , "AutoApprovalDelayInSeconds" :: Maybe (Number) , "LifetimeInSeconds" :: (Number) , "AssignmentDurationInSeconds" :: (Number) , "Reward" :: (CurrencyAmount) , "Title" :: (String) , "Keywords" :: Maybe (String) , "Description" :: (String) , "Question" :: Maybe (String) , "RequesterAnnotation" :: Maybe (String) , "QualificationRequirements" :: Maybe (QualificationRequirementList) , "UniqueRequestToken" :: Maybe (IdempotencyToken) , "AssignmentReviewPolicy" :: Maybe (ReviewPolicy) , "HITReviewPolicy" :: Maybe (ReviewPolicy) , "HITLayoutId" :: Maybe (EntityId) , "HITLayoutParameters" :: Maybe (HITLayoutParameterList) } -> {"MaxAssignments" :: Maybe (Int) , "AutoApprovalDelayInSeconds" :: Maybe (Number) , "LifetimeInSeconds" :: (Number) , "AssignmentDurationInSeconds" :: (Number) , "Reward" :: (CurrencyAmount) , "Title" :: (String) , "Keywords" :: Maybe (String) , "Description" :: (String) , "Question" :: Maybe (String) , "RequesterAnnotation" :: Maybe (String) , "QualificationRequirements" :: Maybe (QualificationRequirementList) , "UniqueRequestToken" :: Maybe (IdempotencyToken) , "AssignmentReviewPolicy" :: Maybe (ReviewPolicy) , "HITReviewPolicy" :: Maybe (ReviewPolicy) , "HITLayoutId" :: Maybe (EntityId) , "HITLayoutParameters" :: Maybe (HITLayoutParameterList) } ) -> CreateHITRequest
+newCreateHITRequest' _AssignmentDurationInSeconds _Description _LifetimeInSeconds _Reward _Title customize = (CreateHITRequest <<< customize) { "AssignmentDurationInSeconds": _AssignmentDurationInSeconds, "Description": _Description, "LifetimeInSeconds": _LifetimeInSeconds, "Reward": _Reward, "Title": _Title, "AssignmentReviewPolicy": Nothing, "AutoApprovalDelayInSeconds": Nothing, "HITLayoutId": Nothing, "HITLayoutParameters": Nothing, "HITReviewPolicy": Nothing, "Keywords": Nothing, "MaxAssignments": Nothing, "QualificationRequirements": Nothing, "Question": Nothing, "RequesterAnnotation": Nothing, "UniqueRequestToken": Nothing }
 
 
 
 newtype CreateHITResponse = CreateHITResponse 
-  { "HIT" :: NullOrUndefined (HIT)
+  { "HIT" :: Maybe (HIT)
   }
 derive instance newtypeCreateHITResponse :: Newtype CreateHITResponse _
 derive instance repGenericCreateHITResponse :: Generic CreateHITResponse _
@@ -299,23 +298,23 @@ instance encodeCreateHITResponse :: Encode CreateHITResponse where encode = gene
 
 -- | Constructs CreateHITResponse from required parameters
 newCreateHITResponse :: CreateHITResponse
-newCreateHITResponse  = CreateHITResponse { "HIT": (NullOrUndefined Nothing) }
+newCreateHITResponse  = CreateHITResponse { "HIT": Nothing }
 
 -- | Constructs CreateHITResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateHITResponse' :: ( { "HIT" :: NullOrUndefined (HIT) } -> {"HIT" :: NullOrUndefined (HIT) } ) -> CreateHITResponse
-newCreateHITResponse'  customize = (CreateHITResponse <<< customize) { "HIT": (NullOrUndefined Nothing) }
+newCreateHITResponse' :: ( { "HIT" :: Maybe (HIT) } -> {"HIT" :: Maybe (HIT) } ) -> CreateHITResponse
+newCreateHITResponse'  customize = (CreateHITResponse <<< customize) { "HIT": Nothing }
 
 
 
 newtype CreateHITTypeRequest = CreateHITTypeRequest 
-  { "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number)
+  { "AutoApprovalDelayInSeconds" :: Maybe (Number)
   , "AssignmentDurationInSeconds" :: (Number)
   , "Reward" :: (CurrencyAmount)
   , "Title" :: (String)
-  , "Keywords" :: NullOrUndefined (String)
+  , "Keywords" :: Maybe (String)
   , "Description" :: (String)
-  , "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList)
+  , "QualificationRequirements" :: Maybe (QualificationRequirementList)
   }
 derive instance newtypeCreateHITTypeRequest :: Newtype CreateHITTypeRequest _
 derive instance repGenericCreateHITTypeRequest :: Generic CreateHITTypeRequest _
@@ -325,17 +324,17 @@ instance encodeCreateHITTypeRequest :: Encode CreateHITTypeRequest where encode 
 
 -- | Constructs CreateHITTypeRequest from required parameters
 newCreateHITTypeRequest :: Number -> String -> CurrencyAmount -> String -> CreateHITTypeRequest
-newCreateHITTypeRequest _AssignmentDurationInSeconds _Description _Reward _Title = CreateHITTypeRequest { "AssignmentDurationInSeconds": _AssignmentDurationInSeconds, "Description": _Description, "Reward": _Reward, "Title": _Title, "AutoApprovalDelayInSeconds": (NullOrUndefined Nothing), "Keywords": (NullOrUndefined Nothing), "QualificationRequirements": (NullOrUndefined Nothing) }
+newCreateHITTypeRequest _AssignmentDurationInSeconds _Description _Reward _Title = CreateHITTypeRequest { "AssignmentDurationInSeconds": _AssignmentDurationInSeconds, "Description": _Description, "Reward": _Reward, "Title": _Title, "AutoApprovalDelayInSeconds": Nothing, "Keywords": Nothing, "QualificationRequirements": Nothing }
 
 -- | Constructs CreateHITTypeRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateHITTypeRequest' :: Number -> String -> CurrencyAmount -> String -> ( { "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number) , "AssignmentDurationInSeconds" :: (Number) , "Reward" :: (CurrencyAmount) , "Title" :: (String) , "Keywords" :: NullOrUndefined (String) , "Description" :: (String) , "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList) } -> {"AutoApprovalDelayInSeconds" :: NullOrUndefined (Number) , "AssignmentDurationInSeconds" :: (Number) , "Reward" :: (CurrencyAmount) , "Title" :: (String) , "Keywords" :: NullOrUndefined (String) , "Description" :: (String) , "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList) } ) -> CreateHITTypeRequest
-newCreateHITTypeRequest' _AssignmentDurationInSeconds _Description _Reward _Title customize = (CreateHITTypeRequest <<< customize) { "AssignmentDurationInSeconds": _AssignmentDurationInSeconds, "Description": _Description, "Reward": _Reward, "Title": _Title, "AutoApprovalDelayInSeconds": (NullOrUndefined Nothing), "Keywords": (NullOrUndefined Nothing), "QualificationRequirements": (NullOrUndefined Nothing) }
+newCreateHITTypeRequest' :: Number -> String -> CurrencyAmount -> String -> ( { "AutoApprovalDelayInSeconds" :: Maybe (Number) , "AssignmentDurationInSeconds" :: (Number) , "Reward" :: (CurrencyAmount) , "Title" :: (String) , "Keywords" :: Maybe (String) , "Description" :: (String) , "QualificationRequirements" :: Maybe (QualificationRequirementList) } -> {"AutoApprovalDelayInSeconds" :: Maybe (Number) , "AssignmentDurationInSeconds" :: (Number) , "Reward" :: (CurrencyAmount) , "Title" :: (String) , "Keywords" :: Maybe (String) , "Description" :: (String) , "QualificationRequirements" :: Maybe (QualificationRequirementList) } ) -> CreateHITTypeRequest
+newCreateHITTypeRequest' _AssignmentDurationInSeconds _Description _Reward _Title customize = (CreateHITTypeRequest <<< customize) { "AssignmentDurationInSeconds": _AssignmentDurationInSeconds, "Description": _Description, "Reward": _Reward, "Title": _Title, "AutoApprovalDelayInSeconds": Nothing, "Keywords": Nothing, "QualificationRequirements": Nothing }
 
 
 
 newtype CreateHITTypeResponse = CreateHITTypeResponse 
-  { "HITTypeId" :: NullOrUndefined (EntityId)
+  { "HITTypeId" :: Maybe (EntityId)
   }
 derive instance newtypeCreateHITTypeResponse :: Newtype CreateHITTypeResponse _
 derive instance repGenericCreateHITTypeResponse :: Generic CreateHITTypeResponse _
@@ -345,26 +344,26 @@ instance encodeCreateHITTypeResponse :: Encode CreateHITTypeResponse where encod
 
 -- | Constructs CreateHITTypeResponse from required parameters
 newCreateHITTypeResponse :: CreateHITTypeResponse
-newCreateHITTypeResponse  = CreateHITTypeResponse { "HITTypeId": (NullOrUndefined Nothing) }
+newCreateHITTypeResponse  = CreateHITTypeResponse { "HITTypeId": Nothing }
 
 -- | Constructs CreateHITTypeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateHITTypeResponse' :: ( { "HITTypeId" :: NullOrUndefined (EntityId) } -> {"HITTypeId" :: NullOrUndefined (EntityId) } ) -> CreateHITTypeResponse
-newCreateHITTypeResponse'  customize = (CreateHITTypeResponse <<< customize) { "HITTypeId": (NullOrUndefined Nothing) }
+newCreateHITTypeResponse' :: ( { "HITTypeId" :: Maybe (EntityId) } -> {"HITTypeId" :: Maybe (EntityId) } ) -> CreateHITTypeResponse
+newCreateHITTypeResponse'  customize = (CreateHITTypeResponse <<< customize) { "HITTypeId": Nothing }
 
 
 
 newtype CreateHITWithHITTypeRequest = CreateHITWithHITTypeRequest 
   { "HITTypeId" :: (EntityId)
-  , "MaxAssignments" :: NullOrUndefined (Int)
+  , "MaxAssignments" :: Maybe (Int)
   , "LifetimeInSeconds" :: (Number)
-  , "Question" :: NullOrUndefined (String)
-  , "RequesterAnnotation" :: NullOrUndefined (String)
-  , "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken)
-  , "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy)
-  , "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy)
-  , "HITLayoutId" :: NullOrUndefined (EntityId)
-  , "HITLayoutParameters" :: NullOrUndefined (HITLayoutParameterList)
+  , "Question" :: Maybe (String)
+  , "RequesterAnnotation" :: Maybe (String)
+  , "UniqueRequestToken" :: Maybe (IdempotencyToken)
+  , "AssignmentReviewPolicy" :: Maybe (ReviewPolicy)
+  , "HITReviewPolicy" :: Maybe (ReviewPolicy)
+  , "HITLayoutId" :: Maybe (EntityId)
+  , "HITLayoutParameters" :: Maybe (HITLayoutParameterList)
   }
 derive instance newtypeCreateHITWithHITTypeRequest :: Newtype CreateHITWithHITTypeRequest _
 derive instance repGenericCreateHITWithHITTypeRequest :: Generic CreateHITWithHITTypeRequest _
@@ -374,17 +373,17 @@ instance encodeCreateHITWithHITTypeRequest :: Encode CreateHITWithHITTypeRequest
 
 -- | Constructs CreateHITWithHITTypeRequest from required parameters
 newCreateHITWithHITTypeRequest :: EntityId -> Number -> CreateHITWithHITTypeRequest
-newCreateHITWithHITTypeRequest _HITTypeId _LifetimeInSeconds = CreateHITWithHITTypeRequest { "HITTypeId": _HITTypeId, "LifetimeInSeconds": _LifetimeInSeconds, "AssignmentReviewPolicy": (NullOrUndefined Nothing), "HITLayoutId": (NullOrUndefined Nothing), "HITLayoutParameters": (NullOrUndefined Nothing), "HITReviewPolicy": (NullOrUndefined Nothing), "MaxAssignments": (NullOrUndefined Nothing), "Question": (NullOrUndefined Nothing), "RequesterAnnotation": (NullOrUndefined Nothing), "UniqueRequestToken": (NullOrUndefined Nothing) }
+newCreateHITWithHITTypeRequest _HITTypeId _LifetimeInSeconds = CreateHITWithHITTypeRequest { "HITTypeId": _HITTypeId, "LifetimeInSeconds": _LifetimeInSeconds, "AssignmentReviewPolicy": Nothing, "HITLayoutId": Nothing, "HITLayoutParameters": Nothing, "HITReviewPolicy": Nothing, "MaxAssignments": Nothing, "Question": Nothing, "RequesterAnnotation": Nothing, "UniqueRequestToken": Nothing }
 
 -- | Constructs CreateHITWithHITTypeRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateHITWithHITTypeRequest' :: EntityId -> Number -> ( { "HITTypeId" :: (EntityId) , "MaxAssignments" :: NullOrUndefined (Int) , "LifetimeInSeconds" :: (Number) , "Question" :: NullOrUndefined (String) , "RequesterAnnotation" :: NullOrUndefined (String) , "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) , "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy) , "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy) , "HITLayoutId" :: NullOrUndefined (EntityId) , "HITLayoutParameters" :: NullOrUndefined (HITLayoutParameterList) } -> {"HITTypeId" :: (EntityId) , "MaxAssignments" :: NullOrUndefined (Int) , "LifetimeInSeconds" :: (Number) , "Question" :: NullOrUndefined (String) , "RequesterAnnotation" :: NullOrUndefined (String) , "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) , "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy) , "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy) , "HITLayoutId" :: NullOrUndefined (EntityId) , "HITLayoutParameters" :: NullOrUndefined (HITLayoutParameterList) } ) -> CreateHITWithHITTypeRequest
-newCreateHITWithHITTypeRequest' _HITTypeId _LifetimeInSeconds customize = (CreateHITWithHITTypeRequest <<< customize) { "HITTypeId": _HITTypeId, "LifetimeInSeconds": _LifetimeInSeconds, "AssignmentReviewPolicy": (NullOrUndefined Nothing), "HITLayoutId": (NullOrUndefined Nothing), "HITLayoutParameters": (NullOrUndefined Nothing), "HITReviewPolicy": (NullOrUndefined Nothing), "MaxAssignments": (NullOrUndefined Nothing), "Question": (NullOrUndefined Nothing), "RequesterAnnotation": (NullOrUndefined Nothing), "UniqueRequestToken": (NullOrUndefined Nothing) }
+newCreateHITWithHITTypeRequest' :: EntityId -> Number -> ( { "HITTypeId" :: (EntityId) , "MaxAssignments" :: Maybe (Int) , "LifetimeInSeconds" :: (Number) , "Question" :: Maybe (String) , "RequesterAnnotation" :: Maybe (String) , "UniqueRequestToken" :: Maybe (IdempotencyToken) , "AssignmentReviewPolicy" :: Maybe (ReviewPolicy) , "HITReviewPolicy" :: Maybe (ReviewPolicy) , "HITLayoutId" :: Maybe (EntityId) , "HITLayoutParameters" :: Maybe (HITLayoutParameterList) } -> {"HITTypeId" :: (EntityId) , "MaxAssignments" :: Maybe (Int) , "LifetimeInSeconds" :: (Number) , "Question" :: Maybe (String) , "RequesterAnnotation" :: Maybe (String) , "UniqueRequestToken" :: Maybe (IdempotencyToken) , "AssignmentReviewPolicy" :: Maybe (ReviewPolicy) , "HITReviewPolicy" :: Maybe (ReviewPolicy) , "HITLayoutId" :: Maybe (EntityId) , "HITLayoutParameters" :: Maybe (HITLayoutParameterList) } ) -> CreateHITWithHITTypeRequest
+newCreateHITWithHITTypeRequest' _HITTypeId _LifetimeInSeconds customize = (CreateHITWithHITTypeRequest <<< customize) { "HITTypeId": _HITTypeId, "LifetimeInSeconds": _LifetimeInSeconds, "AssignmentReviewPolicy": Nothing, "HITLayoutId": Nothing, "HITLayoutParameters": Nothing, "HITReviewPolicy": Nothing, "MaxAssignments": Nothing, "Question": Nothing, "RequesterAnnotation": Nothing, "UniqueRequestToken": Nothing }
 
 
 
 newtype CreateHITWithHITTypeResponse = CreateHITWithHITTypeResponse 
-  { "HIT" :: NullOrUndefined (HIT)
+  { "HIT" :: Maybe (HIT)
   }
 derive instance newtypeCreateHITWithHITTypeResponse :: Newtype CreateHITWithHITTypeResponse _
 derive instance repGenericCreateHITWithHITTypeResponse :: Generic CreateHITWithHITTypeResponse _
@@ -394,26 +393,26 @@ instance encodeCreateHITWithHITTypeResponse :: Encode CreateHITWithHITTypeRespon
 
 -- | Constructs CreateHITWithHITTypeResponse from required parameters
 newCreateHITWithHITTypeResponse :: CreateHITWithHITTypeResponse
-newCreateHITWithHITTypeResponse  = CreateHITWithHITTypeResponse { "HIT": (NullOrUndefined Nothing) }
+newCreateHITWithHITTypeResponse  = CreateHITWithHITTypeResponse { "HIT": Nothing }
 
 -- | Constructs CreateHITWithHITTypeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateHITWithHITTypeResponse' :: ( { "HIT" :: NullOrUndefined (HIT) } -> {"HIT" :: NullOrUndefined (HIT) } ) -> CreateHITWithHITTypeResponse
-newCreateHITWithHITTypeResponse'  customize = (CreateHITWithHITTypeResponse <<< customize) { "HIT": (NullOrUndefined Nothing) }
+newCreateHITWithHITTypeResponse' :: ( { "HIT" :: Maybe (HIT) } -> {"HIT" :: Maybe (HIT) } ) -> CreateHITWithHITTypeResponse
+newCreateHITWithHITTypeResponse'  customize = (CreateHITWithHITTypeResponse <<< customize) { "HIT": Nothing }
 
 
 
 newtype CreateQualificationTypeRequest = CreateQualificationTypeRequest 
   { "Name" :: (String)
-  , "Keywords" :: NullOrUndefined (String)
+  , "Keywords" :: Maybe (String)
   , "Description" :: (String)
   , "QualificationTypeStatus" :: (QualificationTypeStatus)
-  , "RetryDelayInSeconds" :: NullOrUndefined (Number)
-  , "Test" :: NullOrUndefined (String)
-  , "AnswerKey" :: NullOrUndefined (String)
-  , "TestDurationInSeconds" :: NullOrUndefined (Number)
-  , "AutoGranted" :: NullOrUndefined (Boolean)
-  , "AutoGrantedValue" :: NullOrUndefined (Int)
+  , "RetryDelayInSeconds" :: Maybe (Number)
+  , "Test" :: Maybe (String)
+  , "AnswerKey" :: Maybe (String)
+  , "TestDurationInSeconds" :: Maybe (Number)
+  , "AutoGranted" :: Maybe (Boolean)
+  , "AutoGrantedValue" :: Maybe (Int)
   }
 derive instance newtypeCreateQualificationTypeRequest :: Newtype CreateQualificationTypeRequest _
 derive instance repGenericCreateQualificationTypeRequest :: Generic CreateQualificationTypeRequest _
@@ -423,17 +422,17 @@ instance encodeCreateQualificationTypeRequest :: Encode CreateQualificationTypeR
 
 -- | Constructs CreateQualificationTypeRequest from required parameters
 newCreateQualificationTypeRequest :: String -> String -> QualificationTypeStatus -> CreateQualificationTypeRequest
-newCreateQualificationTypeRequest _Description _Name _QualificationTypeStatus = CreateQualificationTypeRequest { "Description": _Description, "Name": _Name, "QualificationTypeStatus": _QualificationTypeStatus, "AnswerKey": (NullOrUndefined Nothing), "AutoGranted": (NullOrUndefined Nothing), "AutoGrantedValue": (NullOrUndefined Nothing), "Keywords": (NullOrUndefined Nothing), "RetryDelayInSeconds": (NullOrUndefined Nothing), "Test": (NullOrUndefined Nothing), "TestDurationInSeconds": (NullOrUndefined Nothing) }
+newCreateQualificationTypeRequest _Description _Name _QualificationTypeStatus = CreateQualificationTypeRequest { "Description": _Description, "Name": _Name, "QualificationTypeStatus": _QualificationTypeStatus, "AnswerKey": Nothing, "AutoGranted": Nothing, "AutoGrantedValue": Nothing, "Keywords": Nothing, "RetryDelayInSeconds": Nothing, "Test": Nothing, "TestDurationInSeconds": Nothing }
 
 -- | Constructs CreateQualificationTypeRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateQualificationTypeRequest' :: String -> String -> QualificationTypeStatus -> ( { "Name" :: (String) , "Keywords" :: NullOrUndefined (String) , "Description" :: (String) , "QualificationTypeStatus" :: (QualificationTypeStatus) , "RetryDelayInSeconds" :: NullOrUndefined (Number) , "Test" :: NullOrUndefined (String) , "AnswerKey" :: NullOrUndefined (String) , "TestDurationInSeconds" :: NullOrUndefined (Number) , "AutoGranted" :: NullOrUndefined (Boolean) , "AutoGrantedValue" :: NullOrUndefined (Int) } -> {"Name" :: (String) , "Keywords" :: NullOrUndefined (String) , "Description" :: (String) , "QualificationTypeStatus" :: (QualificationTypeStatus) , "RetryDelayInSeconds" :: NullOrUndefined (Number) , "Test" :: NullOrUndefined (String) , "AnswerKey" :: NullOrUndefined (String) , "TestDurationInSeconds" :: NullOrUndefined (Number) , "AutoGranted" :: NullOrUndefined (Boolean) , "AutoGrantedValue" :: NullOrUndefined (Int) } ) -> CreateQualificationTypeRequest
-newCreateQualificationTypeRequest' _Description _Name _QualificationTypeStatus customize = (CreateQualificationTypeRequest <<< customize) { "Description": _Description, "Name": _Name, "QualificationTypeStatus": _QualificationTypeStatus, "AnswerKey": (NullOrUndefined Nothing), "AutoGranted": (NullOrUndefined Nothing), "AutoGrantedValue": (NullOrUndefined Nothing), "Keywords": (NullOrUndefined Nothing), "RetryDelayInSeconds": (NullOrUndefined Nothing), "Test": (NullOrUndefined Nothing), "TestDurationInSeconds": (NullOrUndefined Nothing) }
+newCreateQualificationTypeRequest' :: String -> String -> QualificationTypeStatus -> ( { "Name" :: (String) , "Keywords" :: Maybe (String) , "Description" :: (String) , "QualificationTypeStatus" :: (QualificationTypeStatus) , "RetryDelayInSeconds" :: Maybe (Number) , "Test" :: Maybe (String) , "AnswerKey" :: Maybe (String) , "TestDurationInSeconds" :: Maybe (Number) , "AutoGranted" :: Maybe (Boolean) , "AutoGrantedValue" :: Maybe (Int) } -> {"Name" :: (String) , "Keywords" :: Maybe (String) , "Description" :: (String) , "QualificationTypeStatus" :: (QualificationTypeStatus) , "RetryDelayInSeconds" :: Maybe (Number) , "Test" :: Maybe (String) , "AnswerKey" :: Maybe (String) , "TestDurationInSeconds" :: Maybe (Number) , "AutoGranted" :: Maybe (Boolean) , "AutoGrantedValue" :: Maybe (Int) } ) -> CreateQualificationTypeRequest
+newCreateQualificationTypeRequest' _Description _Name _QualificationTypeStatus customize = (CreateQualificationTypeRequest <<< customize) { "Description": _Description, "Name": _Name, "QualificationTypeStatus": _QualificationTypeStatus, "AnswerKey": Nothing, "AutoGranted": Nothing, "AutoGrantedValue": Nothing, "Keywords": Nothing, "RetryDelayInSeconds": Nothing, "Test": Nothing, "TestDurationInSeconds": Nothing }
 
 
 
 newtype CreateQualificationTypeResponse = CreateQualificationTypeResponse 
-  { "QualificationType" :: NullOrUndefined (QualificationType)
+  { "QualificationType" :: Maybe (QualificationType)
   }
 derive instance newtypeCreateQualificationTypeResponse :: Newtype CreateQualificationTypeResponse _
 derive instance repGenericCreateQualificationTypeResponse :: Generic CreateQualificationTypeResponse _
@@ -443,12 +442,12 @@ instance encodeCreateQualificationTypeResponse :: Encode CreateQualificationType
 
 -- | Constructs CreateQualificationTypeResponse from required parameters
 newCreateQualificationTypeResponse :: CreateQualificationTypeResponse
-newCreateQualificationTypeResponse  = CreateQualificationTypeResponse { "QualificationType": (NullOrUndefined Nothing) }
+newCreateQualificationTypeResponse  = CreateQualificationTypeResponse { "QualificationType": Nothing }
 
 -- | Constructs CreateQualificationTypeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateQualificationTypeResponse' :: ( { "QualificationType" :: NullOrUndefined (QualificationType) } -> {"QualificationType" :: NullOrUndefined (QualificationType) } ) -> CreateQualificationTypeResponse
-newCreateQualificationTypeResponse'  customize = (CreateQualificationTypeResponse <<< customize) { "QualificationType": (NullOrUndefined Nothing) }
+newCreateQualificationTypeResponse' :: ( { "QualificationType" :: Maybe (QualificationType) } -> {"QualificationType" :: Maybe (QualificationType) } ) -> CreateQualificationTypeResponse
+newCreateQualificationTypeResponse'  customize = (CreateQualificationTypeResponse <<< customize) { "QualificationType": Nothing }
 
 
 
@@ -570,7 +569,7 @@ instance encodeDeleteQualificationTypeResponse :: Encode DeleteQualificationType
 
 newtype DeleteWorkerBlockRequest = DeleteWorkerBlockRequest 
   { "WorkerId" :: (CustomerId)
-  , "Reason" :: NullOrUndefined (String)
+  , "Reason" :: Maybe (String)
   }
 derive instance newtypeDeleteWorkerBlockRequest :: Newtype DeleteWorkerBlockRequest _
 derive instance repGenericDeleteWorkerBlockRequest :: Generic DeleteWorkerBlockRequest _
@@ -580,12 +579,12 @@ instance encodeDeleteWorkerBlockRequest :: Encode DeleteWorkerBlockRequest where
 
 -- | Constructs DeleteWorkerBlockRequest from required parameters
 newDeleteWorkerBlockRequest :: CustomerId -> DeleteWorkerBlockRequest
-newDeleteWorkerBlockRequest _WorkerId = DeleteWorkerBlockRequest { "WorkerId": _WorkerId, "Reason": (NullOrUndefined Nothing) }
+newDeleteWorkerBlockRequest _WorkerId = DeleteWorkerBlockRequest { "WorkerId": _WorkerId, "Reason": Nothing }
 
 -- | Constructs DeleteWorkerBlockRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteWorkerBlockRequest' :: CustomerId -> ( { "WorkerId" :: (CustomerId) , "Reason" :: NullOrUndefined (String) } -> {"WorkerId" :: (CustomerId) , "Reason" :: NullOrUndefined (String) } ) -> DeleteWorkerBlockRequest
-newDeleteWorkerBlockRequest' _WorkerId customize = (DeleteWorkerBlockRequest <<< customize) { "WorkerId": _WorkerId, "Reason": (NullOrUndefined Nothing) }
+newDeleteWorkerBlockRequest' :: CustomerId -> ( { "WorkerId" :: (CustomerId) , "Reason" :: Maybe (String) } -> {"WorkerId" :: (CustomerId) , "Reason" :: Maybe (String) } ) -> DeleteWorkerBlockRequest
+newDeleteWorkerBlockRequest' _WorkerId customize = (DeleteWorkerBlockRequest <<< customize) { "WorkerId": _WorkerId, "Reason": Nothing }
 
 
 
@@ -601,7 +600,7 @@ instance encodeDeleteWorkerBlockResponse :: Encode DeleteWorkerBlockResponse whe
 newtype DisassociateQualificationFromWorkerRequest = DisassociateQualificationFromWorkerRequest 
   { "WorkerId" :: (CustomerId)
   , "QualificationTypeId" :: (EntityId)
-  , "Reason" :: NullOrUndefined (String)
+  , "Reason" :: Maybe (String)
   }
 derive instance newtypeDisassociateQualificationFromWorkerRequest :: Newtype DisassociateQualificationFromWorkerRequest _
 derive instance repGenericDisassociateQualificationFromWorkerRequest :: Generic DisassociateQualificationFromWorkerRequest _
@@ -611,12 +610,12 @@ instance encodeDisassociateQualificationFromWorkerRequest :: Encode Disassociate
 
 -- | Constructs DisassociateQualificationFromWorkerRequest from required parameters
 newDisassociateQualificationFromWorkerRequest :: EntityId -> CustomerId -> DisassociateQualificationFromWorkerRequest
-newDisassociateQualificationFromWorkerRequest _QualificationTypeId _WorkerId = DisassociateQualificationFromWorkerRequest { "QualificationTypeId": _QualificationTypeId, "WorkerId": _WorkerId, "Reason": (NullOrUndefined Nothing) }
+newDisassociateQualificationFromWorkerRequest _QualificationTypeId _WorkerId = DisassociateQualificationFromWorkerRequest { "QualificationTypeId": _QualificationTypeId, "WorkerId": _WorkerId, "Reason": Nothing }
 
 -- | Constructs DisassociateQualificationFromWorkerRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDisassociateQualificationFromWorkerRequest' :: EntityId -> CustomerId -> ( { "WorkerId" :: (CustomerId) , "QualificationTypeId" :: (EntityId) , "Reason" :: NullOrUndefined (String) } -> {"WorkerId" :: (CustomerId) , "QualificationTypeId" :: (EntityId) , "Reason" :: NullOrUndefined (String) } ) -> DisassociateQualificationFromWorkerRequest
-newDisassociateQualificationFromWorkerRequest' _QualificationTypeId _WorkerId customize = (DisassociateQualificationFromWorkerRequest <<< customize) { "QualificationTypeId": _QualificationTypeId, "WorkerId": _WorkerId, "Reason": (NullOrUndefined Nothing) }
+newDisassociateQualificationFromWorkerRequest' :: EntityId -> CustomerId -> ( { "WorkerId" :: (CustomerId) , "QualificationTypeId" :: (EntityId) , "Reason" :: Maybe (String) } -> {"WorkerId" :: (CustomerId) , "QualificationTypeId" :: (EntityId) , "Reason" :: Maybe (String) } ) -> DisassociateQualificationFromWorkerRequest
+newDisassociateQualificationFromWorkerRequest' _QualificationTypeId _WorkerId customize = (DisassociateQualificationFromWorkerRequest <<< customize) { "QualificationTypeId": _QualificationTypeId, "WorkerId": _WorkerId, "Reason": Nothing }
 
 
 
@@ -675,8 +674,8 @@ instance encodeGetAccountBalanceRequest :: Encode GetAccountBalanceRequest where
 
 
 newtype GetAccountBalanceResponse = GetAccountBalanceResponse 
-  { "AvailableBalance" :: NullOrUndefined (CurrencyAmount)
-  , "OnHoldBalance" :: NullOrUndefined (CurrencyAmount)
+  { "AvailableBalance" :: Maybe (CurrencyAmount)
+  , "OnHoldBalance" :: Maybe (CurrencyAmount)
   }
 derive instance newtypeGetAccountBalanceResponse :: Newtype GetAccountBalanceResponse _
 derive instance repGenericGetAccountBalanceResponse :: Generic GetAccountBalanceResponse _
@@ -686,12 +685,12 @@ instance encodeGetAccountBalanceResponse :: Encode GetAccountBalanceResponse whe
 
 -- | Constructs GetAccountBalanceResponse from required parameters
 newGetAccountBalanceResponse :: GetAccountBalanceResponse
-newGetAccountBalanceResponse  = GetAccountBalanceResponse { "AvailableBalance": (NullOrUndefined Nothing), "OnHoldBalance": (NullOrUndefined Nothing) }
+newGetAccountBalanceResponse  = GetAccountBalanceResponse { "AvailableBalance": Nothing, "OnHoldBalance": Nothing }
 
 -- | Constructs GetAccountBalanceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetAccountBalanceResponse' :: ( { "AvailableBalance" :: NullOrUndefined (CurrencyAmount) , "OnHoldBalance" :: NullOrUndefined (CurrencyAmount) } -> {"AvailableBalance" :: NullOrUndefined (CurrencyAmount) , "OnHoldBalance" :: NullOrUndefined (CurrencyAmount) } ) -> GetAccountBalanceResponse
-newGetAccountBalanceResponse'  customize = (GetAccountBalanceResponse <<< customize) { "AvailableBalance": (NullOrUndefined Nothing), "OnHoldBalance": (NullOrUndefined Nothing) }
+newGetAccountBalanceResponse' :: ( { "AvailableBalance" :: Maybe (CurrencyAmount) , "OnHoldBalance" :: Maybe (CurrencyAmount) } -> {"AvailableBalance" :: Maybe (CurrencyAmount) , "OnHoldBalance" :: Maybe (CurrencyAmount) } ) -> GetAccountBalanceResponse
+newGetAccountBalanceResponse'  customize = (GetAccountBalanceResponse <<< customize) { "AvailableBalance": Nothing, "OnHoldBalance": Nothing }
 
 
 
@@ -716,8 +715,8 @@ newGetAssignmentRequest' _AssignmentId customize = (GetAssignmentRequest <<< cus
 
 
 newtype GetAssignmentResponse = GetAssignmentResponse 
-  { "Assignment" :: NullOrUndefined (Assignment)
-  , "HIT" :: NullOrUndefined (HIT)
+  { "Assignment" :: Maybe (Assignment)
+  , "HIT" :: Maybe (HIT)
   }
 derive instance newtypeGetAssignmentResponse :: Newtype GetAssignmentResponse _
 derive instance repGenericGetAssignmentResponse :: Generic GetAssignmentResponse _
@@ -727,12 +726,12 @@ instance encodeGetAssignmentResponse :: Encode GetAssignmentResponse where encod
 
 -- | Constructs GetAssignmentResponse from required parameters
 newGetAssignmentResponse :: GetAssignmentResponse
-newGetAssignmentResponse  = GetAssignmentResponse { "Assignment": (NullOrUndefined Nothing), "HIT": (NullOrUndefined Nothing) }
+newGetAssignmentResponse  = GetAssignmentResponse { "Assignment": Nothing, "HIT": Nothing }
 
 -- | Constructs GetAssignmentResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetAssignmentResponse' :: ( { "Assignment" :: NullOrUndefined (Assignment) , "HIT" :: NullOrUndefined (HIT) } -> {"Assignment" :: NullOrUndefined (Assignment) , "HIT" :: NullOrUndefined (HIT) } ) -> GetAssignmentResponse
-newGetAssignmentResponse'  customize = (GetAssignmentResponse <<< customize) { "Assignment": (NullOrUndefined Nothing), "HIT": (NullOrUndefined Nothing) }
+newGetAssignmentResponse' :: ( { "Assignment" :: Maybe (Assignment) , "HIT" :: Maybe (HIT) } -> {"Assignment" :: Maybe (Assignment) , "HIT" :: Maybe (HIT) } ) -> GetAssignmentResponse
+newGetAssignmentResponse'  customize = (GetAssignmentResponse <<< customize) { "Assignment": Nothing, "HIT": Nothing }
 
 
 
@@ -758,7 +757,7 @@ newGetFileUploadURLRequest' _AssignmentId _QuestionIdentifier customize = (GetFi
 
 
 newtype GetFileUploadURLResponse = GetFileUploadURLResponse 
-  { "FileUploadURL" :: NullOrUndefined (String)
+  { "FileUploadURL" :: Maybe (String)
   }
 derive instance newtypeGetFileUploadURLResponse :: Newtype GetFileUploadURLResponse _
 derive instance repGenericGetFileUploadURLResponse :: Generic GetFileUploadURLResponse _
@@ -768,12 +767,12 @@ instance encodeGetFileUploadURLResponse :: Encode GetFileUploadURLResponse where
 
 -- | Constructs GetFileUploadURLResponse from required parameters
 newGetFileUploadURLResponse :: GetFileUploadURLResponse
-newGetFileUploadURLResponse  = GetFileUploadURLResponse { "FileUploadURL": (NullOrUndefined Nothing) }
+newGetFileUploadURLResponse  = GetFileUploadURLResponse { "FileUploadURL": Nothing }
 
 -- | Constructs GetFileUploadURLResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetFileUploadURLResponse' :: ( { "FileUploadURL" :: NullOrUndefined (String) } -> {"FileUploadURL" :: NullOrUndefined (String) } ) -> GetFileUploadURLResponse
-newGetFileUploadURLResponse'  customize = (GetFileUploadURLResponse <<< customize) { "FileUploadURL": (NullOrUndefined Nothing) }
+newGetFileUploadURLResponse' :: ( { "FileUploadURL" :: Maybe (String) } -> {"FileUploadURL" :: Maybe (String) } ) -> GetFileUploadURLResponse
+newGetFileUploadURLResponse'  customize = (GetFileUploadURLResponse <<< customize) { "FileUploadURL": Nothing }
 
 
 
@@ -798,7 +797,7 @@ newGetHITRequest' _HITId customize = (GetHITRequest <<< customize) { "HITId": _H
 
 
 newtype GetHITResponse = GetHITResponse 
-  { "HIT" :: NullOrUndefined (HIT)
+  { "HIT" :: Maybe (HIT)
   }
 derive instance newtypeGetHITResponse :: Newtype GetHITResponse _
 derive instance repGenericGetHITResponse :: Generic GetHITResponse _
@@ -808,12 +807,12 @@ instance encodeGetHITResponse :: Encode GetHITResponse where encode = genericEnc
 
 -- | Constructs GetHITResponse from required parameters
 newGetHITResponse :: GetHITResponse
-newGetHITResponse  = GetHITResponse { "HIT": (NullOrUndefined Nothing) }
+newGetHITResponse  = GetHITResponse { "HIT": Nothing }
 
 -- | Constructs GetHITResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetHITResponse' :: ( { "HIT" :: NullOrUndefined (HIT) } -> {"HIT" :: NullOrUndefined (HIT) } ) -> GetHITResponse
-newGetHITResponse'  customize = (GetHITResponse <<< customize) { "HIT": (NullOrUndefined Nothing) }
+newGetHITResponse' :: ( { "HIT" :: Maybe (HIT) } -> {"HIT" :: Maybe (HIT) } ) -> GetHITResponse
+newGetHITResponse'  customize = (GetHITResponse <<< customize) { "HIT": Nothing }
 
 
 
@@ -839,7 +838,7 @@ newGetQualificationScoreRequest' _QualificationTypeId _WorkerId customize = (Get
 
 
 newtype GetQualificationScoreResponse = GetQualificationScoreResponse 
-  { "Qualification" :: NullOrUndefined (Qualification)
+  { "Qualification" :: Maybe (Qualification)
   }
 derive instance newtypeGetQualificationScoreResponse :: Newtype GetQualificationScoreResponse _
 derive instance repGenericGetQualificationScoreResponse :: Generic GetQualificationScoreResponse _
@@ -849,12 +848,12 @@ instance encodeGetQualificationScoreResponse :: Encode GetQualificationScoreResp
 
 -- | Constructs GetQualificationScoreResponse from required parameters
 newGetQualificationScoreResponse :: GetQualificationScoreResponse
-newGetQualificationScoreResponse  = GetQualificationScoreResponse { "Qualification": (NullOrUndefined Nothing) }
+newGetQualificationScoreResponse  = GetQualificationScoreResponse { "Qualification": Nothing }
 
 -- | Constructs GetQualificationScoreResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetQualificationScoreResponse' :: ( { "Qualification" :: NullOrUndefined (Qualification) } -> {"Qualification" :: NullOrUndefined (Qualification) } ) -> GetQualificationScoreResponse
-newGetQualificationScoreResponse'  customize = (GetQualificationScoreResponse <<< customize) { "Qualification": (NullOrUndefined Nothing) }
+newGetQualificationScoreResponse' :: ( { "Qualification" :: Maybe (Qualification) } -> {"Qualification" :: Maybe (Qualification) } ) -> GetQualificationScoreResponse
+newGetQualificationScoreResponse'  customize = (GetQualificationScoreResponse <<< customize) { "Qualification": Nothing }
 
 
 
@@ -879,7 +878,7 @@ newGetQualificationTypeRequest' _QualificationTypeId customize = (GetQualificati
 
 
 newtype GetQualificationTypeResponse = GetQualificationTypeResponse 
-  { "QualificationType" :: NullOrUndefined (QualificationType)
+  { "QualificationType" :: Maybe (QualificationType)
   }
 derive instance newtypeGetQualificationTypeResponse :: Newtype GetQualificationTypeResponse _
 derive instance repGenericGetQualificationTypeResponse :: Generic GetQualificationTypeResponse _
@@ -889,38 +888,38 @@ instance encodeGetQualificationTypeResponse :: Encode GetQualificationTypeRespon
 
 -- | Constructs GetQualificationTypeResponse from required parameters
 newGetQualificationTypeResponse :: GetQualificationTypeResponse
-newGetQualificationTypeResponse  = GetQualificationTypeResponse { "QualificationType": (NullOrUndefined Nothing) }
+newGetQualificationTypeResponse  = GetQualificationTypeResponse { "QualificationType": Nothing }
 
 -- | Constructs GetQualificationTypeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetQualificationTypeResponse' :: ( { "QualificationType" :: NullOrUndefined (QualificationType) } -> {"QualificationType" :: NullOrUndefined (QualificationType) } ) -> GetQualificationTypeResponse
-newGetQualificationTypeResponse'  customize = (GetQualificationTypeResponse <<< customize) { "QualificationType": (NullOrUndefined Nothing) }
+newGetQualificationTypeResponse' :: ( { "QualificationType" :: Maybe (QualificationType) } -> {"QualificationType" :: Maybe (QualificationType) } ) -> GetQualificationTypeResponse
+newGetQualificationTypeResponse'  customize = (GetQualificationTypeResponse <<< customize) { "QualificationType": Nothing }
 
 
 
 -- | <p> The HIT data structure represents a single HIT, including all the information necessary for a Worker to accept and complete the HIT.</p>
 newtype HIT = HIT 
-  { "HITId" :: NullOrUndefined (EntityId)
-  , "HITTypeId" :: NullOrUndefined (EntityId)
-  , "HITGroupId" :: NullOrUndefined (EntityId)
-  , "HITLayoutId" :: NullOrUndefined (EntityId)
-  , "CreationTime" :: NullOrUndefined (Types.Timestamp)
-  , "Title" :: NullOrUndefined (String)
-  , "Description" :: NullOrUndefined (String)
-  , "Question" :: NullOrUndefined (String)
-  , "Keywords" :: NullOrUndefined (String)
-  , "HITStatus" :: NullOrUndefined (HITStatus)
-  , "MaxAssignments" :: NullOrUndefined (Int)
-  , "Reward" :: NullOrUndefined (CurrencyAmount)
-  , "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number)
-  , "Expiration" :: NullOrUndefined (Types.Timestamp)
-  , "AssignmentDurationInSeconds" :: NullOrUndefined (Number)
-  , "RequesterAnnotation" :: NullOrUndefined (String)
-  , "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList)
-  , "HITReviewStatus" :: NullOrUndefined (HITReviewStatus)
-  , "NumberOfAssignmentsPending" :: NullOrUndefined (Int)
-  , "NumberOfAssignmentsAvailable" :: NullOrUndefined (Int)
-  , "NumberOfAssignmentsCompleted" :: NullOrUndefined (Int)
+  { "HITId" :: Maybe (EntityId)
+  , "HITTypeId" :: Maybe (EntityId)
+  , "HITGroupId" :: Maybe (EntityId)
+  , "HITLayoutId" :: Maybe (EntityId)
+  , "CreationTime" :: Maybe (Types.Timestamp)
+  , "Title" :: Maybe (String)
+  , "Description" :: Maybe (String)
+  , "Question" :: Maybe (String)
+  , "Keywords" :: Maybe (String)
+  , "HITStatus" :: Maybe (HITStatus)
+  , "MaxAssignments" :: Maybe (Int)
+  , "Reward" :: Maybe (CurrencyAmount)
+  , "AutoApprovalDelayInSeconds" :: Maybe (Number)
+  , "Expiration" :: Maybe (Types.Timestamp)
+  , "AssignmentDurationInSeconds" :: Maybe (Number)
+  , "RequesterAnnotation" :: Maybe (String)
+  , "QualificationRequirements" :: Maybe (QualificationRequirementList)
+  , "HITReviewStatus" :: Maybe (HITReviewStatus)
+  , "NumberOfAssignmentsPending" :: Maybe (Int)
+  , "NumberOfAssignmentsAvailable" :: Maybe (Int)
+  , "NumberOfAssignmentsCompleted" :: Maybe (Int)
   }
 derive instance newtypeHIT :: Newtype HIT _
 derive instance repGenericHIT :: Generic HIT _
@@ -930,12 +929,12 @@ instance encodeHIT :: Encode HIT where encode = genericEncode options
 
 -- | Constructs HIT from required parameters
 newHIT :: HIT
-newHIT  = HIT { "AssignmentDurationInSeconds": (NullOrUndefined Nothing), "AutoApprovalDelayInSeconds": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Expiration": (NullOrUndefined Nothing), "HITGroupId": (NullOrUndefined Nothing), "HITId": (NullOrUndefined Nothing), "HITLayoutId": (NullOrUndefined Nothing), "HITReviewStatus": (NullOrUndefined Nothing), "HITStatus": (NullOrUndefined Nothing), "HITTypeId": (NullOrUndefined Nothing), "Keywords": (NullOrUndefined Nothing), "MaxAssignments": (NullOrUndefined Nothing), "NumberOfAssignmentsAvailable": (NullOrUndefined Nothing), "NumberOfAssignmentsCompleted": (NullOrUndefined Nothing), "NumberOfAssignmentsPending": (NullOrUndefined Nothing), "QualificationRequirements": (NullOrUndefined Nothing), "Question": (NullOrUndefined Nothing), "RequesterAnnotation": (NullOrUndefined Nothing), "Reward": (NullOrUndefined Nothing), "Title": (NullOrUndefined Nothing) }
+newHIT  = HIT { "AssignmentDurationInSeconds": Nothing, "AutoApprovalDelayInSeconds": Nothing, "CreationTime": Nothing, "Description": Nothing, "Expiration": Nothing, "HITGroupId": Nothing, "HITId": Nothing, "HITLayoutId": Nothing, "HITReviewStatus": Nothing, "HITStatus": Nothing, "HITTypeId": Nothing, "Keywords": Nothing, "MaxAssignments": Nothing, "NumberOfAssignmentsAvailable": Nothing, "NumberOfAssignmentsCompleted": Nothing, "NumberOfAssignmentsPending": Nothing, "QualificationRequirements": Nothing, "Question": Nothing, "RequesterAnnotation": Nothing, "Reward": Nothing, "Title": Nothing }
 
 -- | Constructs HIT's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHIT' :: ( { "HITId" :: NullOrUndefined (EntityId) , "HITTypeId" :: NullOrUndefined (EntityId) , "HITGroupId" :: NullOrUndefined (EntityId) , "HITLayoutId" :: NullOrUndefined (EntityId) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "Title" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "Question" :: NullOrUndefined (String) , "Keywords" :: NullOrUndefined (String) , "HITStatus" :: NullOrUndefined (HITStatus) , "MaxAssignments" :: NullOrUndefined (Int) , "Reward" :: NullOrUndefined (CurrencyAmount) , "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number) , "Expiration" :: NullOrUndefined (Types.Timestamp) , "AssignmentDurationInSeconds" :: NullOrUndefined (Number) , "RequesterAnnotation" :: NullOrUndefined (String) , "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList) , "HITReviewStatus" :: NullOrUndefined (HITReviewStatus) , "NumberOfAssignmentsPending" :: NullOrUndefined (Int) , "NumberOfAssignmentsAvailable" :: NullOrUndefined (Int) , "NumberOfAssignmentsCompleted" :: NullOrUndefined (Int) } -> {"HITId" :: NullOrUndefined (EntityId) , "HITTypeId" :: NullOrUndefined (EntityId) , "HITGroupId" :: NullOrUndefined (EntityId) , "HITLayoutId" :: NullOrUndefined (EntityId) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "Title" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "Question" :: NullOrUndefined (String) , "Keywords" :: NullOrUndefined (String) , "HITStatus" :: NullOrUndefined (HITStatus) , "MaxAssignments" :: NullOrUndefined (Int) , "Reward" :: NullOrUndefined (CurrencyAmount) , "AutoApprovalDelayInSeconds" :: NullOrUndefined (Number) , "Expiration" :: NullOrUndefined (Types.Timestamp) , "AssignmentDurationInSeconds" :: NullOrUndefined (Number) , "RequesterAnnotation" :: NullOrUndefined (String) , "QualificationRequirements" :: NullOrUndefined (QualificationRequirementList) , "HITReviewStatus" :: NullOrUndefined (HITReviewStatus) , "NumberOfAssignmentsPending" :: NullOrUndefined (Int) , "NumberOfAssignmentsAvailable" :: NullOrUndefined (Int) , "NumberOfAssignmentsCompleted" :: NullOrUndefined (Int) } ) -> HIT
-newHIT'  customize = (HIT <<< customize) { "AssignmentDurationInSeconds": (NullOrUndefined Nothing), "AutoApprovalDelayInSeconds": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Expiration": (NullOrUndefined Nothing), "HITGroupId": (NullOrUndefined Nothing), "HITId": (NullOrUndefined Nothing), "HITLayoutId": (NullOrUndefined Nothing), "HITReviewStatus": (NullOrUndefined Nothing), "HITStatus": (NullOrUndefined Nothing), "HITTypeId": (NullOrUndefined Nothing), "Keywords": (NullOrUndefined Nothing), "MaxAssignments": (NullOrUndefined Nothing), "NumberOfAssignmentsAvailable": (NullOrUndefined Nothing), "NumberOfAssignmentsCompleted": (NullOrUndefined Nothing), "NumberOfAssignmentsPending": (NullOrUndefined Nothing), "QualificationRequirements": (NullOrUndefined Nothing), "Question": (NullOrUndefined Nothing), "RequesterAnnotation": (NullOrUndefined Nothing), "Reward": (NullOrUndefined Nothing), "Title": (NullOrUndefined Nothing) }
+newHIT' :: ( { "HITId" :: Maybe (EntityId) , "HITTypeId" :: Maybe (EntityId) , "HITGroupId" :: Maybe (EntityId) , "HITLayoutId" :: Maybe (EntityId) , "CreationTime" :: Maybe (Types.Timestamp) , "Title" :: Maybe (String) , "Description" :: Maybe (String) , "Question" :: Maybe (String) , "Keywords" :: Maybe (String) , "HITStatus" :: Maybe (HITStatus) , "MaxAssignments" :: Maybe (Int) , "Reward" :: Maybe (CurrencyAmount) , "AutoApprovalDelayInSeconds" :: Maybe (Number) , "Expiration" :: Maybe (Types.Timestamp) , "AssignmentDurationInSeconds" :: Maybe (Number) , "RequesterAnnotation" :: Maybe (String) , "QualificationRequirements" :: Maybe (QualificationRequirementList) , "HITReviewStatus" :: Maybe (HITReviewStatus) , "NumberOfAssignmentsPending" :: Maybe (Int) , "NumberOfAssignmentsAvailable" :: Maybe (Int) , "NumberOfAssignmentsCompleted" :: Maybe (Int) } -> {"HITId" :: Maybe (EntityId) , "HITTypeId" :: Maybe (EntityId) , "HITGroupId" :: Maybe (EntityId) , "HITLayoutId" :: Maybe (EntityId) , "CreationTime" :: Maybe (Types.Timestamp) , "Title" :: Maybe (String) , "Description" :: Maybe (String) , "Question" :: Maybe (String) , "Keywords" :: Maybe (String) , "HITStatus" :: Maybe (HITStatus) , "MaxAssignments" :: Maybe (Int) , "Reward" :: Maybe (CurrencyAmount) , "AutoApprovalDelayInSeconds" :: Maybe (Number) , "Expiration" :: Maybe (Types.Timestamp) , "AssignmentDurationInSeconds" :: Maybe (Number) , "RequesterAnnotation" :: Maybe (String) , "QualificationRequirements" :: Maybe (QualificationRequirementList) , "HITReviewStatus" :: Maybe (HITReviewStatus) , "NumberOfAssignmentsPending" :: Maybe (Int) , "NumberOfAssignmentsAvailable" :: Maybe (Int) , "NumberOfAssignmentsCompleted" :: Maybe (Int) } ) -> HIT
+newHIT'  customize = (HIT <<< customize) { "AssignmentDurationInSeconds": Nothing, "AutoApprovalDelayInSeconds": Nothing, "CreationTime": Nothing, "Description": Nothing, "Expiration": Nothing, "HITGroupId": Nothing, "HITId": Nothing, "HITLayoutId": Nothing, "HITReviewStatus": Nothing, "HITStatus": Nothing, "HITTypeId": Nothing, "Keywords": Nothing, "MaxAssignments": Nothing, "NumberOfAssignmentsAvailable": Nothing, "NumberOfAssignmentsCompleted": Nothing, "NumberOfAssignmentsPending": Nothing, "QualificationRequirements": Nothing, "Question": Nothing, "RequesterAnnotation": Nothing, "Reward": Nothing, "Title": Nothing }
 
 
 
@@ -1017,9 +1016,9 @@ instance encodeIntegerList :: Encode IntegerList where encode = genericEncode op
 
 newtype ListAssignmentsForHITRequest = ListAssignmentsForHITRequest 
   { "HITId" :: (EntityId)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
-  , "MaxResults" :: NullOrUndefined (ResultSize)
-  , "AssignmentStatuses" :: NullOrUndefined (AssignmentStatusList)
+  , "NextToken" :: Maybe (PaginationToken)
+  , "MaxResults" :: Maybe (ResultSize)
+  , "AssignmentStatuses" :: Maybe (AssignmentStatusList)
   }
 derive instance newtypeListAssignmentsForHITRequest :: Newtype ListAssignmentsForHITRequest _
 derive instance repGenericListAssignmentsForHITRequest :: Generic ListAssignmentsForHITRequest _
@@ -1029,19 +1028,19 @@ instance encodeListAssignmentsForHITRequest :: Encode ListAssignmentsForHITReque
 
 -- | Constructs ListAssignmentsForHITRequest from required parameters
 newListAssignmentsForHITRequest :: EntityId -> ListAssignmentsForHITRequest
-newListAssignmentsForHITRequest _HITId = ListAssignmentsForHITRequest { "HITId": _HITId, "AssignmentStatuses": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListAssignmentsForHITRequest _HITId = ListAssignmentsForHITRequest { "HITId": _HITId, "AssignmentStatuses": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListAssignmentsForHITRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListAssignmentsForHITRequest' :: EntityId -> ( { "HITId" :: (EntityId) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) , "AssignmentStatuses" :: NullOrUndefined (AssignmentStatusList) } -> {"HITId" :: (EntityId) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) , "AssignmentStatuses" :: NullOrUndefined (AssignmentStatusList) } ) -> ListAssignmentsForHITRequest
-newListAssignmentsForHITRequest' _HITId customize = (ListAssignmentsForHITRequest <<< customize) { "HITId": _HITId, "AssignmentStatuses": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListAssignmentsForHITRequest' :: EntityId -> ( { "HITId" :: (EntityId) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) , "AssignmentStatuses" :: Maybe (AssignmentStatusList) } -> {"HITId" :: (EntityId) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) , "AssignmentStatuses" :: Maybe (AssignmentStatusList) } ) -> ListAssignmentsForHITRequest
+newListAssignmentsForHITRequest' _HITId customize = (ListAssignmentsForHITRequest <<< customize) { "HITId": _HITId, "AssignmentStatuses": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListAssignmentsForHITResponse = ListAssignmentsForHITResponse 
-  { "NextToken" :: NullOrUndefined (PaginationToken)
-  , "NumResults" :: NullOrUndefined (Int)
-  , "Assignments" :: NullOrUndefined (AssignmentList)
+  { "NextToken" :: Maybe (PaginationToken)
+  , "NumResults" :: Maybe (Int)
+  , "Assignments" :: Maybe (AssignmentList)
   }
 derive instance newtypeListAssignmentsForHITResponse :: Newtype ListAssignmentsForHITResponse _
 derive instance repGenericListAssignmentsForHITResponse :: Generic ListAssignmentsForHITResponse _
@@ -1051,20 +1050,20 @@ instance encodeListAssignmentsForHITResponse :: Encode ListAssignmentsForHITResp
 
 -- | Constructs ListAssignmentsForHITResponse from required parameters
 newListAssignmentsForHITResponse :: ListAssignmentsForHITResponse
-newListAssignmentsForHITResponse  = ListAssignmentsForHITResponse { "Assignments": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing) }
+newListAssignmentsForHITResponse  = ListAssignmentsForHITResponse { "Assignments": Nothing, "NextToken": Nothing, "NumResults": Nothing }
 
 -- | Constructs ListAssignmentsForHITResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListAssignmentsForHITResponse' :: ( { "NextToken" :: NullOrUndefined (PaginationToken) , "NumResults" :: NullOrUndefined (Int) , "Assignments" :: NullOrUndefined (AssignmentList) } -> {"NextToken" :: NullOrUndefined (PaginationToken) , "NumResults" :: NullOrUndefined (Int) , "Assignments" :: NullOrUndefined (AssignmentList) } ) -> ListAssignmentsForHITResponse
-newListAssignmentsForHITResponse'  customize = (ListAssignmentsForHITResponse <<< customize) { "Assignments": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing) }
+newListAssignmentsForHITResponse' :: ( { "NextToken" :: Maybe (PaginationToken) , "NumResults" :: Maybe (Int) , "Assignments" :: Maybe (AssignmentList) } -> {"NextToken" :: Maybe (PaginationToken) , "NumResults" :: Maybe (Int) , "Assignments" :: Maybe (AssignmentList) } ) -> ListAssignmentsForHITResponse
+newListAssignmentsForHITResponse'  customize = (ListAssignmentsForHITResponse <<< customize) { "Assignments": Nothing, "NextToken": Nothing, "NumResults": Nothing }
 
 
 
 newtype ListBonusPaymentsRequest = ListBonusPaymentsRequest 
-  { "HITId" :: NullOrUndefined (EntityId)
-  , "AssignmentId" :: NullOrUndefined (EntityId)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
-  , "MaxResults" :: NullOrUndefined (ResultSize)
+  { "HITId" :: Maybe (EntityId)
+  , "AssignmentId" :: Maybe (EntityId)
+  , "NextToken" :: Maybe (PaginationToken)
+  , "MaxResults" :: Maybe (ResultSize)
   }
 derive instance newtypeListBonusPaymentsRequest :: Newtype ListBonusPaymentsRequest _
 derive instance repGenericListBonusPaymentsRequest :: Generic ListBonusPaymentsRequest _
@@ -1074,19 +1073,19 @@ instance encodeListBonusPaymentsRequest :: Encode ListBonusPaymentsRequest where
 
 -- | Constructs ListBonusPaymentsRequest from required parameters
 newListBonusPaymentsRequest :: ListBonusPaymentsRequest
-newListBonusPaymentsRequest  = ListBonusPaymentsRequest { "AssignmentId": (NullOrUndefined Nothing), "HITId": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListBonusPaymentsRequest  = ListBonusPaymentsRequest { "AssignmentId": Nothing, "HITId": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListBonusPaymentsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListBonusPaymentsRequest' :: ( { "HITId" :: NullOrUndefined (EntityId) , "AssignmentId" :: NullOrUndefined (EntityId) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } -> {"HITId" :: NullOrUndefined (EntityId) , "AssignmentId" :: NullOrUndefined (EntityId) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } ) -> ListBonusPaymentsRequest
-newListBonusPaymentsRequest'  customize = (ListBonusPaymentsRequest <<< customize) { "AssignmentId": (NullOrUndefined Nothing), "HITId": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListBonusPaymentsRequest' :: ( { "HITId" :: Maybe (EntityId) , "AssignmentId" :: Maybe (EntityId) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } -> {"HITId" :: Maybe (EntityId) , "AssignmentId" :: Maybe (EntityId) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } ) -> ListBonusPaymentsRequest
+newListBonusPaymentsRequest'  customize = (ListBonusPaymentsRequest <<< customize) { "AssignmentId": Nothing, "HITId": Nothing, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListBonusPaymentsResponse = ListBonusPaymentsResponse 
-  { "NumResults" :: NullOrUndefined (Int)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
-  , "BonusPayments" :: NullOrUndefined (BonusPaymentList)
+  { "NumResults" :: Maybe (Int)
+  , "NextToken" :: Maybe (PaginationToken)
+  , "BonusPayments" :: Maybe (BonusPaymentList)
   }
 derive instance newtypeListBonusPaymentsResponse :: Newtype ListBonusPaymentsResponse _
 derive instance repGenericListBonusPaymentsResponse :: Generic ListBonusPaymentsResponse _
@@ -1096,19 +1095,19 @@ instance encodeListBonusPaymentsResponse :: Encode ListBonusPaymentsResponse whe
 
 -- | Constructs ListBonusPaymentsResponse from required parameters
 newListBonusPaymentsResponse :: ListBonusPaymentsResponse
-newListBonusPaymentsResponse  = ListBonusPaymentsResponse { "BonusPayments": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing) }
+newListBonusPaymentsResponse  = ListBonusPaymentsResponse { "BonusPayments": Nothing, "NextToken": Nothing, "NumResults": Nothing }
 
 -- | Constructs ListBonusPaymentsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListBonusPaymentsResponse' :: ( { "NumResults" :: NullOrUndefined (Int) , "NextToken" :: NullOrUndefined (PaginationToken) , "BonusPayments" :: NullOrUndefined (BonusPaymentList) } -> {"NumResults" :: NullOrUndefined (Int) , "NextToken" :: NullOrUndefined (PaginationToken) , "BonusPayments" :: NullOrUndefined (BonusPaymentList) } ) -> ListBonusPaymentsResponse
-newListBonusPaymentsResponse'  customize = (ListBonusPaymentsResponse <<< customize) { "BonusPayments": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing) }
+newListBonusPaymentsResponse' :: ( { "NumResults" :: Maybe (Int) , "NextToken" :: Maybe (PaginationToken) , "BonusPayments" :: Maybe (BonusPaymentList) } -> {"NumResults" :: Maybe (Int) , "NextToken" :: Maybe (PaginationToken) , "BonusPayments" :: Maybe (BonusPaymentList) } ) -> ListBonusPaymentsResponse
+newListBonusPaymentsResponse'  customize = (ListBonusPaymentsResponse <<< customize) { "BonusPayments": Nothing, "NextToken": Nothing, "NumResults": Nothing }
 
 
 
 newtype ListHITsForQualificationTypeRequest = ListHITsForQualificationTypeRequest 
   { "QualificationTypeId" :: (EntityId)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
-  , "MaxResults" :: NullOrUndefined (ResultSize)
+  , "NextToken" :: Maybe (PaginationToken)
+  , "MaxResults" :: Maybe (ResultSize)
   }
 derive instance newtypeListHITsForQualificationTypeRequest :: Newtype ListHITsForQualificationTypeRequest _
 derive instance repGenericListHITsForQualificationTypeRequest :: Generic ListHITsForQualificationTypeRequest _
@@ -1118,19 +1117,19 @@ instance encodeListHITsForQualificationTypeRequest :: Encode ListHITsForQualific
 
 -- | Constructs ListHITsForQualificationTypeRequest from required parameters
 newListHITsForQualificationTypeRequest :: EntityId -> ListHITsForQualificationTypeRequest
-newListHITsForQualificationTypeRequest _QualificationTypeId = ListHITsForQualificationTypeRequest { "QualificationTypeId": _QualificationTypeId, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListHITsForQualificationTypeRequest _QualificationTypeId = ListHITsForQualificationTypeRequest { "QualificationTypeId": _QualificationTypeId, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListHITsForQualificationTypeRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListHITsForQualificationTypeRequest' :: EntityId -> ( { "QualificationTypeId" :: (EntityId) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } -> {"QualificationTypeId" :: (EntityId) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } ) -> ListHITsForQualificationTypeRequest
-newListHITsForQualificationTypeRequest' _QualificationTypeId customize = (ListHITsForQualificationTypeRequest <<< customize) { "QualificationTypeId": _QualificationTypeId, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListHITsForQualificationTypeRequest' :: EntityId -> ( { "QualificationTypeId" :: (EntityId) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } -> {"QualificationTypeId" :: (EntityId) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } ) -> ListHITsForQualificationTypeRequest
+newListHITsForQualificationTypeRequest' _QualificationTypeId customize = (ListHITsForQualificationTypeRequest <<< customize) { "QualificationTypeId": _QualificationTypeId, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListHITsForQualificationTypeResponse = ListHITsForQualificationTypeResponse 
-  { "NextToken" :: NullOrUndefined (PaginationToken)
-  , "NumResults" :: NullOrUndefined (Int)
-  , "HITs" :: NullOrUndefined (HITList)
+  { "NextToken" :: Maybe (PaginationToken)
+  , "NumResults" :: Maybe (Int)
+  , "HITs" :: Maybe (HITList)
   }
 derive instance newtypeListHITsForQualificationTypeResponse :: Newtype ListHITsForQualificationTypeResponse _
 derive instance repGenericListHITsForQualificationTypeResponse :: Generic ListHITsForQualificationTypeResponse _
@@ -1140,18 +1139,18 @@ instance encodeListHITsForQualificationTypeResponse :: Encode ListHITsForQualifi
 
 -- | Constructs ListHITsForQualificationTypeResponse from required parameters
 newListHITsForQualificationTypeResponse :: ListHITsForQualificationTypeResponse
-newListHITsForQualificationTypeResponse  = ListHITsForQualificationTypeResponse { "HITs": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing) }
+newListHITsForQualificationTypeResponse  = ListHITsForQualificationTypeResponse { "HITs": Nothing, "NextToken": Nothing, "NumResults": Nothing }
 
 -- | Constructs ListHITsForQualificationTypeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListHITsForQualificationTypeResponse' :: ( { "NextToken" :: NullOrUndefined (PaginationToken) , "NumResults" :: NullOrUndefined (Int) , "HITs" :: NullOrUndefined (HITList) } -> {"NextToken" :: NullOrUndefined (PaginationToken) , "NumResults" :: NullOrUndefined (Int) , "HITs" :: NullOrUndefined (HITList) } ) -> ListHITsForQualificationTypeResponse
-newListHITsForQualificationTypeResponse'  customize = (ListHITsForQualificationTypeResponse <<< customize) { "HITs": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing) }
+newListHITsForQualificationTypeResponse' :: ( { "NextToken" :: Maybe (PaginationToken) , "NumResults" :: Maybe (Int) , "HITs" :: Maybe (HITList) } -> {"NextToken" :: Maybe (PaginationToken) , "NumResults" :: Maybe (Int) , "HITs" :: Maybe (HITList) } ) -> ListHITsForQualificationTypeResponse
+newListHITsForQualificationTypeResponse'  customize = (ListHITsForQualificationTypeResponse <<< customize) { "HITs": Nothing, "NextToken": Nothing, "NumResults": Nothing }
 
 
 
 newtype ListHITsRequest = ListHITsRequest 
-  { "NextToken" :: NullOrUndefined (PaginationToken)
-  , "MaxResults" :: NullOrUndefined (ResultSize)
+  { "NextToken" :: Maybe (PaginationToken)
+  , "MaxResults" :: Maybe (ResultSize)
   }
 derive instance newtypeListHITsRequest :: Newtype ListHITsRequest _
 derive instance repGenericListHITsRequest :: Generic ListHITsRequest _
@@ -1161,19 +1160,19 @@ instance encodeListHITsRequest :: Encode ListHITsRequest where encode = genericE
 
 -- | Constructs ListHITsRequest from required parameters
 newListHITsRequest :: ListHITsRequest
-newListHITsRequest  = ListHITsRequest { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListHITsRequest  = ListHITsRequest { "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListHITsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListHITsRequest' :: ( { "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } -> {"NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } ) -> ListHITsRequest
-newListHITsRequest'  customize = (ListHITsRequest <<< customize) { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListHITsRequest' :: ( { "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } -> {"NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } ) -> ListHITsRequest
+newListHITsRequest'  customize = (ListHITsRequest <<< customize) { "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListHITsResponse = ListHITsResponse 
-  { "NextToken" :: NullOrUndefined (PaginationToken)
-  , "NumResults" :: NullOrUndefined (Int)
-  , "HITs" :: NullOrUndefined (HITList)
+  { "NextToken" :: Maybe (PaginationToken)
+  , "NumResults" :: Maybe (Int)
+  , "HITs" :: Maybe (HITList)
   }
 derive instance newtypeListHITsResponse :: Newtype ListHITsResponse _
 derive instance repGenericListHITsResponse :: Generic ListHITsResponse _
@@ -1183,19 +1182,19 @@ instance encodeListHITsResponse :: Encode ListHITsResponse where encode = generi
 
 -- | Constructs ListHITsResponse from required parameters
 newListHITsResponse :: ListHITsResponse
-newListHITsResponse  = ListHITsResponse { "HITs": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing) }
+newListHITsResponse  = ListHITsResponse { "HITs": Nothing, "NextToken": Nothing, "NumResults": Nothing }
 
 -- | Constructs ListHITsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListHITsResponse' :: ( { "NextToken" :: NullOrUndefined (PaginationToken) , "NumResults" :: NullOrUndefined (Int) , "HITs" :: NullOrUndefined (HITList) } -> {"NextToken" :: NullOrUndefined (PaginationToken) , "NumResults" :: NullOrUndefined (Int) , "HITs" :: NullOrUndefined (HITList) } ) -> ListHITsResponse
-newListHITsResponse'  customize = (ListHITsResponse <<< customize) { "HITs": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing) }
+newListHITsResponse' :: ( { "NextToken" :: Maybe (PaginationToken) , "NumResults" :: Maybe (Int) , "HITs" :: Maybe (HITList) } -> {"NextToken" :: Maybe (PaginationToken) , "NumResults" :: Maybe (Int) , "HITs" :: Maybe (HITList) } ) -> ListHITsResponse
+newListHITsResponse'  customize = (ListHITsResponse <<< customize) { "HITs": Nothing, "NextToken": Nothing, "NumResults": Nothing }
 
 
 
 newtype ListQualificationRequestsRequest = ListQualificationRequestsRequest 
-  { "QualificationTypeId" :: NullOrUndefined (EntityId)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
-  , "MaxResults" :: NullOrUndefined (ResultSize)
+  { "QualificationTypeId" :: Maybe (EntityId)
+  , "NextToken" :: Maybe (PaginationToken)
+  , "MaxResults" :: Maybe (ResultSize)
   }
 derive instance newtypeListQualificationRequestsRequest :: Newtype ListQualificationRequestsRequest _
 derive instance repGenericListQualificationRequestsRequest :: Generic ListQualificationRequestsRequest _
@@ -1205,19 +1204,19 @@ instance encodeListQualificationRequestsRequest :: Encode ListQualificationReque
 
 -- | Constructs ListQualificationRequestsRequest from required parameters
 newListQualificationRequestsRequest :: ListQualificationRequestsRequest
-newListQualificationRequestsRequest  = ListQualificationRequestsRequest { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "QualificationTypeId": (NullOrUndefined Nothing) }
+newListQualificationRequestsRequest  = ListQualificationRequestsRequest { "MaxResults": Nothing, "NextToken": Nothing, "QualificationTypeId": Nothing }
 
 -- | Constructs ListQualificationRequestsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListQualificationRequestsRequest' :: ( { "QualificationTypeId" :: NullOrUndefined (EntityId) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } -> {"QualificationTypeId" :: NullOrUndefined (EntityId) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } ) -> ListQualificationRequestsRequest
-newListQualificationRequestsRequest'  customize = (ListQualificationRequestsRequest <<< customize) { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "QualificationTypeId": (NullOrUndefined Nothing) }
+newListQualificationRequestsRequest' :: ( { "QualificationTypeId" :: Maybe (EntityId) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } -> {"QualificationTypeId" :: Maybe (EntityId) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } ) -> ListQualificationRequestsRequest
+newListQualificationRequestsRequest'  customize = (ListQualificationRequestsRequest <<< customize) { "MaxResults": Nothing, "NextToken": Nothing, "QualificationTypeId": Nothing }
 
 
 
 newtype ListQualificationRequestsResponse = ListQualificationRequestsResponse 
-  { "NumResults" :: NullOrUndefined (Int)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
-  , "QualificationRequests" :: NullOrUndefined (QualificationRequestList)
+  { "NumResults" :: Maybe (Int)
+  , "NextToken" :: Maybe (PaginationToken)
+  , "QualificationRequests" :: Maybe (QualificationRequestList)
   }
 derive instance newtypeListQualificationRequestsResponse :: Newtype ListQualificationRequestsResponse _
 derive instance repGenericListQualificationRequestsResponse :: Generic ListQualificationRequestsResponse _
@@ -1227,21 +1226,21 @@ instance encodeListQualificationRequestsResponse :: Encode ListQualificationRequ
 
 -- | Constructs ListQualificationRequestsResponse from required parameters
 newListQualificationRequestsResponse :: ListQualificationRequestsResponse
-newListQualificationRequestsResponse  = ListQualificationRequestsResponse { "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing), "QualificationRequests": (NullOrUndefined Nothing) }
+newListQualificationRequestsResponse  = ListQualificationRequestsResponse { "NextToken": Nothing, "NumResults": Nothing, "QualificationRequests": Nothing }
 
 -- | Constructs ListQualificationRequestsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListQualificationRequestsResponse' :: ( { "NumResults" :: NullOrUndefined (Int) , "NextToken" :: NullOrUndefined (PaginationToken) , "QualificationRequests" :: NullOrUndefined (QualificationRequestList) } -> {"NumResults" :: NullOrUndefined (Int) , "NextToken" :: NullOrUndefined (PaginationToken) , "QualificationRequests" :: NullOrUndefined (QualificationRequestList) } ) -> ListQualificationRequestsResponse
-newListQualificationRequestsResponse'  customize = (ListQualificationRequestsResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing), "QualificationRequests": (NullOrUndefined Nothing) }
+newListQualificationRequestsResponse' :: ( { "NumResults" :: Maybe (Int) , "NextToken" :: Maybe (PaginationToken) , "QualificationRequests" :: Maybe (QualificationRequestList) } -> {"NumResults" :: Maybe (Int) , "NextToken" :: Maybe (PaginationToken) , "QualificationRequests" :: Maybe (QualificationRequestList) } ) -> ListQualificationRequestsResponse
+newListQualificationRequestsResponse'  customize = (ListQualificationRequestsResponse <<< customize) { "NextToken": Nothing, "NumResults": Nothing, "QualificationRequests": Nothing }
 
 
 
 newtype ListQualificationTypesRequest = ListQualificationTypesRequest 
-  { "Query" :: NullOrUndefined (String)
+  { "Query" :: Maybe (String)
   , "MustBeRequestable" :: (Boolean)
-  , "MustBeOwnedByCaller" :: NullOrUndefined (Boolean)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
-  , "MaxResults" :: NullOrUndefined (ResultSize)
+  , "MustBeOwnedByCaller" :: Maybe (Boolean)
+  , "NextToken" :: Maybe (PaginationToken)
+  , "MaxResults" :: Maybe (ResultSize)
   }
 derive instance newtypeListQualificationTypesRequest :: Newtype ListQualificationTypesRequest _
 derive instance repGenericListQualificationTypesRequest :: Generic ListQualificationTypesRequest _
@@ -1251,19 +1250,19 @@ instance encodeListQualificationTypesRequest :: Encode ListQualificationTypesReq
 
 -- | Constructs ListQualificationTypesRequest from required parameters
 newListQualificationTypesRequest :: Boolean -> ListQualificationTypesRequest
-newListQualificationTypesRequest _MustBeRequestable = ListQualificationTypesRequest { "MustBeRequestable": _MustBeRequestable, "MaxResults": (NullOrUndefined Nothing), "MustBeOwnedByCaller": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Query": (NullOrUndefined Nothing) }
+newListQualificationTypesRequest _MustBeRequestable = ListQualificationTypesRequest { "MustBeRequestable": _MustBeRequestable, "MaxResults": Nothing, "MustBeOwnedByCaller": Nothing, "NextToken": Nothing, "Query": Nothing }
 
 -- | Constructs ListQualificationTypesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListQualificationTypesRequest' :: Boolean -> ( { "Query" :: NullOrUndefined (String) , "MustBeRequestable" :: (Boolean) , "MustBeOwnedByCaller" :: NullOrUndefined (Boolean) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } -> {"Query" :: NullOrUndefined (String) , "MustBeRequestable" :: (Boolean) , "MustBeOwnedByCaller" :: NullOrUndefined (Boolean) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } ) -> ListQualificationTypesRequest
-newListQualificationTypesRequest' _MustBeRequestable customize = (ListQualificationTypesRequest <<< customize) { "MustBeRequestable": _MustBeRequestable, "MaxResults": (NullOrUndefined Nothing), "MustBeOwnedByCaller": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Query": (NullOrUndefined Nothing) }
+newListQualificationTypesRequest' :: Boolean -> ( { "Query" :: Maybe (String) , "MustBeRequestable" :: (Boolean) , "MustBeOwnedByCaller" :: Maybe (Boolean) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } -> {"Query" :: Maybe (String) , "MustBeRequestable" :: (Boolean) , "MustBeOwnedByCaller" :: Maybe (Boolean) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } ) -> ListQualificationTypesRequest
+newListQualificationTypesRequest' _MustBeRequestable customize = (ListQualificationTypesRequest <<< customize) { "MustBeRequestable": _MustBeRequestable, "MaxResults": Nothing, "MustBeOwnedByCaller": Nothing, "NextToken": Nothing, "Query": Nothing }
 
 
 
 newtype ListQualificationTypesResponse = ListQualificationTypesResponse 
-  { "NumResults" :: NullOrUndefined (Int)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
-  , "QualificationTypes" :: NullOrUndefined (QualificationTypeList)
+  { "NumResults" :: Maybe (Int)
+  , "NextToken" :: Maybe (PaginationToken)
+  , "QualificationTypes" :: Maybe (QualificationTypeList)
   }
 derive instance newtypeListQualificationTypesResponse :: Newtype ListQualificationTypesResponse _
 derive instance repGenericListQualificationTypesResponse :: Generic ListQualificationTypesResponse _
@@ -1273,22 +1272,22 @@ instance encodeListQualificationTypesResponse :: Encode ListQualificationTypesRe
 
 -- | Constructs ListQualificationTypesResponse from required parameters
 newListQualificationTypesResponse :: ListQualificationTypesResponse
-newListQualificationTypesResponse  = ListQualificationTypesResponse { "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing), "QualificationTypes": (NullOrUndefined Nothing) }
+newListQualificationTypesResponse  = ListQualificationTypesResponse { "NextToken": Nothing, "NumResults": Nothing, "QualificationTypes": Nothing }
 
 -- | Constructs ListQualificationTypesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListQualificationTypesResponse' :: ( { "NumResults" :: NullOrUndefined (Int) , "NextToken" :: NullOrUndefined (PaginationToken) , "QualificationTypes" :: NullOrUndefined (QualificationTypeList) } -> {"NumResults" :: NullOrUndefined (Int) , "NextToken" :: NullOrUndefined (PaginationToken) , "QualificationTypes" :: NullOrUndefined (QualificationTypeList) } ) -> ListQualificationTypesResponse
-newListQualificationTypesResponse'  customize = (ListQualificationTypesResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing), "QualificationTypes": (NullOrUndefined Nothing) }
+newListQualificationTypesResponse' :: ( { "NumResults" :: Maybe (Int) , "NextToken" :: Maybe (PaginationToken) , "QualificationTypes" :: Maybe (QualificationTypeList) } -> {"NumResults" :: Maybe (Int) , "NextToken" :: Maybe (PaginationToken) , "QualificationTypes" :: Maybe (QualificationTypeList) } ) -> ListQualificationTypesResponse
+newListQualificationTypesResponse'  customize = (ListQualificationTypesResponse <<< customize) { "NextToken": Nothing, "NumResults": Nothing, "QualificationTypes": Nothing }
 
 
 
 newtype ListReviewPolicyResultsForHITRequest = ListReviewPolicyResultsForHITRequest 
   { "HITId" :: (EntityId)
-  , "PolicyLevels" :: NullOrUndefined (ReviewPolicyLevelList)
-  , "RetrieveActions" :: NullOrUndefined (Boolean)
-  , "RetrieveResults" :: NullOrUndefined (Boolean)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
-  , "MaxResults" :: NullOrUndefined (ResultSize)
+  , "PolicyLevels" :: Maybe (ReviewPolicyLevelList)
+  , "RetrieveActions" :: Maybe (Boolean)
+  , "RetrieveResults" :: Maybe (Boolean)
+  , "NextToken" :: Maybe (PaginationToken)
+  , "MaxResults" :: Maybe (ResultSize)
   }
 derive instance newtypeListReviewPolicyResultsForHITRequest :: Newtype ListReviewPolicyResultsForHITRequest _
 derive instance repGenericListReviewPolicyResultsForHITRequest :: Generic ListReviewPolicyResultsForHITRequest _
@@ -1298,22 +1297,22 @@ instance encodeListReviewPolicyResultsForHITRequest :: Encode ListReviewPolicyRe
 
 -- | Constructs ListReviewPolicyResultsForHITRequest from required parameters
 newListReviewPolicyResultsForHITRequest :: EntityId -> ListReviewPolicyResultsForHITRequest
-newListReviewPolicyResultsForHITRequest _HITId = ListReviewPolicyResultsForHITRequest { "HITId": _HITId, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "PolicyLevels": (NullOrUndefined Nothing), "RetrieveActions": (NullOrUndefined Nothing), "RetrieveResults": (NullOrUndefined Nothing) }
+newListReviewPolicyResultsForHITRequest _HITId = ListReviewPolicyResultsForHITRequest { "HITId": _HITId, "MaxResults": Nothing, "NextToken": Nothing, "PolicyLevels": Nothing, "RetrieveActions": Nothing, "RetrieveResults": Nothing }
 
 -- | Constructs ListReviewPolicyResultsForHITRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListReviewPolicyResultsForHITRequest' :: EntityId -> ( { "HITId" :: (EntityId) , "PolicyLevels" :: NullOrUndefined (ReviewPolicyLevelList) , "RetrieveActions" :: NullOrUndefined (Boolean) , "RetrieveResults" :: NullOrUndefined (Boolean) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } -> {"HITId" :: (EntityId) , "PolicyLevels" :: NullOrUndefined (ReviewPolicyLevelList) , "RetrieveActions" :: NullOrUndefined (Boolean) , "RetrieveResults" :: NullOrUndefined (Boolean) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } ) -> ListReviewPolicyResultsForHITRequest
-newListReviewPolicyResultsForHITRequest' _HITId customize = (ListReviewPolicyResultsForHITRequest <<< customize) { "HITId": _HITId, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "PolicyLevels": (NullOrUndefined Nothing), "RetrieveActions": (NullOrUndefined Nothing), "RetrieveResults": (NullOrUndefined Nothing) }
+newListReviewPolicyResultsForHITRequest' :: EntityId -> ( { "HITId" :: (EntityId) , "PolicyLevels" :: Maybe (ReviewPolicyLevelList) , "RetrieveActions" :: Maybe (Boolean) , "RetrieveResults" :: Maybe (Boolean) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } -> {"HITId" :: (EntityId) , "PolicyLevels" :: Maybe (ReviewPolicyLevelList) , "RetrieveActions" :: Maybe (Boolean) , "RetrieveResults" :: Maybe (Boolean) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } ) -> ListReviewPolicyResultsForHITRequest
+newListReviewPolicyResultsForHITRequest' _HITId customize = (ListReviewPolicyResultsForHITRequest <<< customize) { "HITId": _HITId, "MaxResults": Nothing, "NextToken": Nothing, "PolicyLevels": Nothing, "RetrieveActions": Nothing, "RetrieveResults": Nothing }
 
 
 
 newtype ListReviewPolicyResultsForHITResponse = ListReviewPolicyResultsForHITResponse 
-  { "HITId" :: NullOrUndefined (EntityId)
-  , "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy)
-  , "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy)
-  , "AssignmentReviewReport" :: NullOrUndefined (ReviewReport)
-  , "HITReviewReport" :: NullOrUndefined (ReviewReport)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
+  { "HITId" :: Maybe (EntityId)
+  , "AssignmentReviewPolicy" :: Maybe (ReviewPolicy)
+  , "HITReviewPolicy" :: Maybe (ReviewPolicy)
+  , "AssignmentReviewReport" :: Maybe (ReviewReport)
+  , "HITReviewReport" :: Maybe (ReviewReport)
+  , "NextToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeListReviewPolicyResultsForHITResponse :: Newtype ListReviewPolicyResultsForHITResponse _
 derive instance repGenericListReviewPolicyResultsForHITResponse :: Generic ListReviewPolicyResultsForHITResponse _
@@ -1323,20 +1322,20 @@ instance encodeListReviewPolicyResultsForHITResponse :: Encode ListReviewPolicyR
 
 -- | Constructs ListReviewPolicyResultsForHITResponse from required parameters
 newListReviewPolicyResultsForHITResponse :: ListReviewPolicyResultsForHITResponse
-newListReviewPolicyResultsForHITResponse  = ListReviewPolicyResultsForHITResponse { "AssignmentReviewPolicy": (NullOrUndefined Nothing), "AssignmentReviewReport": (NullOrUndefined Nothing), "HITId": (NullOrUndefined Nothing), "HITReviewPolicy": (NullOrUndefined Nothing), "HITReviewReport": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListReviewPolicyResultsForHITResponse  = ListReviewPolicyResultsForHITResponse { "AssignmentReviewPolicy": Nothing, "AssignmentReviewReport": Nothing, "HITId": Nothing, "HITReviewPolicy": Nothing, "HITReviewReport": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListReviewPolicyResultsForHITResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListReviewPolicyResultsForHITResponse' :: ( { "HITId" :: NullOrUndefined (EntityId) , "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy) , "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy) , "AssignmentReviewReport" :: NullOrUndefined (ReviewReport) , "HITReviewReport" :: NullOrUndefined (ReviewReport) , "NextToken" :: NullOrUndefined (PaginationToken) } -> {"HITId" :: NullOrUndefined (EntityId) , "AssignmentReviewPolicy" :: NullOrUndefined (ReviewPolicy) , "HITReviewPolicy" :: NullOrUndefined (ReviewPolicy) , "AssignmentReviewReport" :: NullOrUndefined (ReviewReport) , "HITReviewReport" :: NullOrUndefined (ReviewReport) , "NextToken" :: NullOrUndefined (PaginationToken) } ) -> ListReviewPolicyResultsForHITResponse
-newListReviewPolicyResultsForHITResponse'  customize = (ListReviewPolicyResultsForHITResponse <<< customize) { "AssignmentReviewPolicy": (NullOrUndefined Nothing), "AssignmentReviewReport": (NullOrUndefined Nothing), "HITId": (NullOrUndefined Nothing), "HITReviewPolicy": (NullOrUndefined Nothing), "HITReviewReport": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListReviewPolicyResultsForHITResponse' :: ( { "HITId" :: Maybe (EntityId) , "AssignmentReviewPolicy" :: Maybe (ReviewPolicy) , "HITReviewPolicy" :: Maybe (ReviewPolicy) , "AssignmentReviewReport" :: Maybe (ReviewReport) , "HITReviewReport" :: Maybe (ReviewReport) , "NextToken" :: Maybe (PaginationToken) } -> {"HITId" :: Maybe (EntityId) , "AssignmentReviewPolicy" :: Maybe (ReviewPolicy) , "HITReviewPolicy" :: Maybe (ReviewPolicy) , "AssignmentReviewReport" :: Maybe (ReviewReport) , "HITReviewReport" :: Maybe (ReviewReport) , "NextToken" :: Maybe (PaginationToken) } ) -> ListReviewPolicyResultsForHITResponse
+newListReviewPolicyResultsForHITResponse'  customize = (ListReviewPolicyResultsForHITResponse <<< customize) { "AssignmentReviewPolicy": Nothing, "AssignmentReviewReport": Nothing, "HITId": Nothing, "HITReviewPolicy": Nothing, "HITReviewReport": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListReviewableHITsRequest = ListReviewableHITsRequest 
-  { "HITTypeId" :: NullOrUndefined (EntityId)
-  , "Status" :: NullOrUndefined (ReviewableHITStatus)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
-  , "MaxResults" :: NullOrUndefined (ResultSize)
+  { "HITTypeId" :: Maybe (EntityId)
+  , "Status" :: Maybe (ReviewableHITStatus)
+  , "NextToken" :: Maybe (PaginationToken)
+  , "MaxResults" :: Maybe (ResultSize)
   }
 derive instance newtypeListReviewableHITsRequest :: Newtype ListReviewableHITsRequest _
 derive instance repGenericListReviewableHITsRequest :: Generic ListReviewableHITsRequest _
@@ -1346,19 +1345,19 @@ instance encodeListReviewableHITsRequest :: Encode ListReviewableHITsRequest whe
 
 -- | Constructs ListReviewableHITsRequest from required parameters
 newListReviewableHITsRequest :: ListReviewableHITsRequest
-newListReviewableHITsRequest  = ListReviewableHITsRequest { "HITTypeId": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newListReviewableHITsRequest  = ListReviewableHITsRequest { "HITTypeId": Nothing, "MaxResults": Nothing, "NextToken": Nothing, "Status": Nothing }
 
 -- | Constructs ListReviewableHITsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListReviewableHITsRequest' :: ( { "HITTypeId" :: NullOrUndefined (EntityId) , "Status" :: NullOrUndefined (ReviewableHITStatus) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } -> {"HITTypeId" :: NullOrUndefined (EntityId) , "Status" :: NullOrUndefined (ReviewableHITStatus) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } ) -> ListReviewableHITsRequest
-newListReviewableHITsRequest'  customize = (ListReviewableHITsRequest <<< customize) { "HITTypeId": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newListReviewableHITsRequest' :: ( { "HITTypeId" :: Maybe (EntityId) , "Status" :: Maybe (ReviewableHITStatus) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } -> {"HITTypeId" :: Maybe (EntityId) , "Status" :: Maybe (ReviewableHITStatus) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } ) -> ListReviewableHITsRequest
+newListReviewableHITsRequest'  customize = (ListReviewableHITsRequest <<< customize) { "HITTypeId": Nothing, "MaxResults": Nothing, "NextToken": Nothing, "Status": Nothing }
 
 
 
 newtype ListReviewableHITsResponse = ListReviewableHITsResponse 
-  { "NextToken" :: NullOrUndefined (PaginationToken)
-  , "NumResults" :: NullOrUndefined (Int)
-  , "HITs" :: NullOrUndefined (HITList)
+  { "NextToken" :: Maybe (PaginationToken)
+  , "NumResults" :: Maybe (Int)
+  , "HITs" :: Maybe (HITList)
   }
 derive instance newtypeListReviewableHITsResponse :: Newtype ListReviewableHITsResponse _
 derive instance repGenericListReviewableHITsResponse :: Generic ListReviewableHITsResponse _
@@ -1368,18 +1367,18 @@ instance encodeListReviewableHITsResponse :: Encode ListReviewableHITsResponse w
 
 -- | Constructs ListReviewableHITsResponse from required parameters
 newListReviewableHITsResponse :: ListReviewableHITsResponse
-newListReviewableHITsResponse  = ListReviewableHITsResponse { "HITs": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing) }
+newListReviewableHITsResponse  = ListReviewableHITsResponse { "HITs": Nothing, "NextToken": Nothing, "NumResults": Nothing }
 
 -- | Constructs ListReviewableHITsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListReviewableHITsResponse' :: ( { "NextToken" :: NullOrUndefined (PaginationToken) , "NumResults" :: NullOrUndefined (Int) , "HITs" :: NullOrUndefined (HITList) } -> {"NextToken" :: NullOrUndefined (PaginationToken) , "NumResults" :: NullOrUndefined (Int) , "HITs" :: NullOrUndefined (HITList) } ) -> ListReviewableHITsResponse
-newListReviewableHITsResponse'  customize = (ListReviewableHITsResponse <<< customize) { "HITs": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing) }
+newListReviewableHITsResponse' :: ( { "NextToken" :: Maybe (PaginationToken) , "NumResults" :: Maybe (Int) , "HITs" :: Maybe (HITList) } -> {"NextToken" :: Maybe (PaginationToken) , "NumResults" :: Maybe (Int) , "HITs" :: Maybe (HITList) } ) -> ListReviewableHITsResponse
+newListReviewableHITsResponse'  customize = (ListReviewableHITsResponse <<< customize) { "HITs": Nothing, "NextToken": Nothing, "NumResults": Nothing }
 
 
 
 newtype ListWorkerBlocksRequest = ListWorkerBlocksRequest 
-  { "NextToken" :: NullOrUndefined (PaginationToken)
-  , "MaxResults" :: NullOrUndefined (ResultSize)
+  { "NextToken" :: Maybe (PaginationToken)
+  , "MaxResults" :: Maybe (ResultSize)
   }
 derive instance newtypeListWorkerBlocksRequest :: Newtype ListWorkerBlocksRequest _
 derive instance repGenericListWorkerBlocksRequest :: Generic ListWorkerBlocksRequest _
@@ -1389,19 +1388,19 @@ instance encodeListWorkerBlocksRequest :: Encode ListWorkerBlocksRequest where e
 
 -- | Constructs ListWorkerBlocksRequest from required parameters
 newListWorkerBlocksRequest :: ListWorkerBlocksRequest
-newListWorkerBlocksRequest  = ListWorkerBlocksRequest { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListWorkerBlocksRequest  = ListWorkerBlocksRequest { "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListWorkerBlocksRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListWorkerBlocksRequest' :: ( { "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } -> {"NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } ) -> ListWorkerBlocksRequest
-newListWorkerBlocksRequest'  customize = (ListWorkerBlocksRequest <<< customize) { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListWorkerBlocksRequest' :: ( { "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } -> {"NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } ) -> ListWorkerBlocksRequest
+newListWorkerBlocksRequest'  customize = (ListWorkerBlocksRequest <<< customize) { "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListWorkerBlocksResponse = ListWorkerBlocksResponse 
-  { "NextToken" :: NullOrUndefined (PaginationToken)
-  , "NumResults" :: NullOrUndefined (Int)
-  , "WorkerBlocks" :: NullOrUndefined (WorkerBlockList)
+  { "NextToken" :: Maybe (PaginationToken)
+  , "NumResults" :: Maybe (Int)
+  , "WorkerBlocks" :: Maybe (WorkerBlockList)
   }
 derive instance newtypeListWorkerBlocksResponse :: Newtype ListWorkerBlocksResponse _
 derive instance repGenericListWorkerBlocksResponse :: Generic ListWorkerBlocksResponse _
@@ -1411,20 +1410,20 @@ instance encodeListWorkerBlocksResponse :: Encode ListWorkerBlocksResponse where
 
 -- | Constructs ListWorkerBlocksResponse from required parameters
 newListWorkerBlocksResponse :: ListWorkerBlocksResponse
-newListWorkerBlocksResponse  = ListWorkerBlocksResponse { "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing), "WorkerBlocks": (NullOrUndefined Nothing) }
+newListWorkerBlocksResponse  = ListWorkerBlocksResponse { "NextToken": Nothing, "NumResults": Nothing, "WorkerBlocks": Nothing }
 
 -- | Constructs ListWorkerBlocksResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListWorkerBlocksResponse' :: ( { "NextToken" :: NullOrUndefined (PaginationToken) , "NumResults" :: NullOrUndefined (Int) , "WorkerBlocks" :: NullOrUndefined (WorkerBlockList) } -> {"NextToken" :: NullOrUndefined (PaginationToken) , "NumResults" :: NullOrUndefined (Int) , "WorkerBlocks" :: NullOrUndefined (WorkerBlockList) } ) -> ListWorkerBlocksResponse
-newListWorkerBlocksResponse'  customize = (ListWorkerBlocksResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing), "WorkerBlocks": (NullOrUndefined Nothing) }
+newListWorkerBlocksResponse' :: ( { "NextToken" :: Maybe (PaginationToken) , "NumResults" :: Maybe (Int) , "WorkerBlocks" :: Maybe (WorkerBlockList) } -> {"NextToken" :: Maybe (PaginationToken) , "NumResults" :: Maybe (Int) , "WorkerBlocks" :: Maybe (WorkerBlockList) } ) -> ListWorkerBlocksResponse
+newListWorkerBlocksResponse'  customize = (ListWorkerBlocksResponse <<< customize) { "NextToken": Nothing, "NumResults": Nothing, "WorkerBlocks": Nothing }
 
 
 
 newtype ListWorkersWithQualificationTypeRequest = ListWorkersWithQualificationTypeRequest 
   { "QualificationTypeId" :: (EntityId)
-  , "Status" :: NullOrUndefined (QualificationStatus)
-  , "NextToken" :: NullOrUndefined (PaginationToken)
-  , "MaxResults" :: NullOrUndefined (ResultSize)
+  , "Status" :: Maybe (QualificationStatus)
+  , "NextToken" :: Maybe (PaginationToken)
+  , "MaxResults" :: Maybe (ResultSize)
   }
 derive instance newtypeListWorkersWithQualificationTypeRequest :: Newtype ListWorkersWithQualificationTypeRequest _
 derive instance repGenericListWorkersWithQualificationTypeRequest :: Generic ListWorkersWithQualificationTypeRequest _
@@ -1434,19 +1433,19 @@ instance encodeListWorkersWithQualificationTypeRequest :: Encode ListWorkersWith
 
 -- | Constructs ListWorkersWithQualificationTypeRequest from required parameters
 newListWorkersWithQualificationTypeRequest :: EntityId -> ListWorkersWithQualificationTypeRequest
-newListWorkersWithQualificationTypeRequest _QualificationTypeId = ListWorkersWithQualificationTypeRequest { "QualificationTypeId": _QualificationTypeId, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newListWorkersWithQualificationTypeRequest _QualificationTypeId = ListWorkersWithQualificationTypeRequest { "QualificationTypeId": _QualificationTypeId, "MaxResults": Nothing, "NextToken": Nothing, "Status": Nothing }
 
 -- | Constructs ListWorkersWithQualificationTypeRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListWorkersWithQualificationTypeRequest' :: EntityId -> ( { "QualificationTypeId" :: (EntityId) , "Status" :: NullOrUndefined (QualificationStatus) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } -> {"QualificationTypeId" :: (EntityId) , "Status" :: NullOrUndefined (QualificationStatus) , "NextToken" :: NullOrUndefined (PaginationToken) , "MaxResults" :: NullOrUndefined (ResultSize) } ) -> ListWorkersWithQualificationTypeRequest
-newListWorkersWithQualificationTypeRequest' _QualificationTypeId customize = (ListWorkersWithQualificationTypeRequest <<< customize) { "QualificationTypeId": _QualificationTypeId, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newListWorkersWithQualificationTypeRequest' :: EntityId -> ( { "QualificationTypeId" :: (EntityId) , "Status" :: Maybe (QualificationStatus) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } -> {"QualificationTypeId" :: (EntityId) , "Status" :: Maybe (QualificationStatus) , "NextToken" :: Maybe (PaginationToken) , "MaxResults" :: Maybe (ResultSize) } ) -> ListWorkersWithQualificationTypeRequest
+newListWorkersWithQualificationTypeRequest' _QualificationTypeId customize = (ListWorkersWithQualificationTypeRequest <<< customize) { "QualificationTypeId": _QualificationTypeId, "MaxResults": Nothing, "NextToken": Nothing, "Status": Nothing }
 
 
 
 newtype ListWorkersWithQualificationTypeResponse = ListWorkersWithQualificationTypeResponse 
-  { "NextToken" :: NullOrUndefined (PaginationToken)
-  , "NumResults" :: NullOrUndefined (Int)
-  , "Qualifications" :: NullOrUndefined (QualificationList)
+  { "NextToken" :: Maybe (PaginationToken)
+  , "NumResults" :: Maybe (Int)
+  , "Qualifications" :: Maybe (QualificationList)
   }
 derive instance newtypeListWorkersWithQualificationTypeResponse :: Newtype ListWorkersWithQualificationTypeResponse _
 derive instance repGenericListWorkersWithQualificationTypeResponse :: Generic ListWorkersWithQualificationTypeResponse _
@@ -1456,19 +1455,19 @@ instance encodeListWorkersWithQualificationTypeResponse :: Encode ListWorkersWit
 
 -- | Constructs ListWorkersWithQualificationTypeResponse from required parameters
 newListWorkersWithQualificationTypeResponse :: ListWorkersWithQualificationTypeResponse
-newListWorkersWithQualificationTypeResponse  = ListWorkersWithQualificationTypeResponse { "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing), "Qualifications": (NullOrUndefined Nothing) }
+newListWorkersWithQualificationTypeResponse  = ListWorkersWithQualificationTypeResponse { "NextToken": Nothing, "NumResults": Nothing, "Qualifications": Nothing }
 
 -- | Constructs ListWorkersWithQualificationTypeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListWorkersWithQualificationTypeResponse' :: ( { "NextToken" :: NullOrUndefined (PaginationToken) , "NumResults" :: NullOrUndefined (Int) , "Qualifications" :: NullOrUndefined (QualificationList) } -> {"NextToken" :: NullOrUndefined (PaginationToken) , "NumResults" :: NullOrUndefined (Int) , "Qualifications" :: NullOrUndefined (QualificationList) } ) -> ListWorkersWithQualificationTypeResponse
-newListWorkersWithQualificationTypeResponse'  customize = (ListWorkersWithQualificationTypeResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "NumResults": (NullOrUndefined Nothing), "Qualifications": (NullOrUndefined Nothing) }
+newListWorkersWithQualificationTypeResponse' :: ( { "NextToken" :: Maybe (PaginationToken) , "NumResults" :: Maybe (Int) , "Qualifications" :: Maybe (QualificationList) } -> {"NextToken" :: Maybe (PaginationToken) , "NumResults" :: Maybe (Int) , "Qualifications" :: Maybe (QualificationList) } ) -> ListWorkersWithQualificationTypeResponse
+newListWorkersWithQualificationTypeResponse'  customize = (ListWorkersWithQualificationTypeResponse <<< customize) { "NextToken": Nothing, "NumResults": Nothing, "Qualifications": Nothing }
 
 
 
 -- | <p>The Locale data structure represents a geographical region or location.</p>
 newtype Locale = Locale 
   { "Country" :: (CountryParameters)
-  , "Subdivision" :: NullOrUndefined (CountryParameters)
+  , "Subdivision" :: Maybe (CountryParameters)
   }
 derive instance newtypeLocale :: Newtype Locale _
 derive instance repGenericLocale :: Generic Locale _
@@ -1478,12 +1477,12 @@ instance encodeLocale :: Encode Locale where encode = genericEncode options
 
 -- | Constructs Locale from required parameters
 newLocale :: CountryParameters -> Locale
-newLocale _Country = Locale { "Country": _Country, "Subdivision": (NullOrUndefined Nothing) }
+newLocale _Country = Locale { "Country": _Country, "Subdivision": Nothing }
 
 -- | Constructs Locale's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLocale' :: CountryParameters -> ( { "Country" :: (CountryParameters) , "Subdivision" :: NullOrUndefined (CountryParameters) } -> {"Country" :: (CountryParameters) , "Subdivision" :: NullOrUndefined (CountryParameters) } ) -> Locale
-newLocale' _Country customize = (Locale <<< customize) { "Country": _Country, "Subdivision": (NullOrUndefined Nothing) }
+newLocale' :: CountryParameters -> ( { "Country" :: (CountryParameters) , "Subdivision" :: Maybe (CountryParameters) } -> {"Country" :: (CountryParameters) , "Subdivision" :: Maybe (CountryParameters) } ) -> Locale
+newLocale' _Country customize = (Locale <<< customize) { "Country": _Country, "Subdivision": Nothing }
 
 
 
@@ -1540,9 +1539,9 @@ instance encodeNotifyWorkersFailureCode :: Encode NotifyWorkersFailureCode where
 
 -- | <p> When MTurk encounters an issue with notifying the Workers you specified, it returns back this object with failure details. </p>
 newtype NotifyWorkersFailureStatus = NotifyWorkersFailureStatus 
-  { "NotifyWorkersFailureCode" :: NullOrUndefined (NotifyWorkersFailureCode)
-  , "NotifyWorkersFailureMessage" :: NullOrUndefined (String)
-  , "WorkerId" :: NullOrUndefined (CustomerId)
+  { "NotifyWorkersFailureCode" :: Maybe (NotifyWorkersFailureCode)
+  , "NotifyWorkersFailureMessage" :: Maybe (String)
+  , "WorkerId" :: Maybe (CustomerId)
   }
 derive instance newtypeNotifyWorkersFailureStatus :: Newtype NotifyWorkersFailureStatus _
 derive instance repGenericNotifyWorkersFailureStatus :: Generic NotifyWorkersFailureStatus _
@@ -1552,12 +1551,12 @@ instance encodeNotifyWorkersFailureStatus :: Encode NotifyWorkersFailureStatus w
 
 -- | Constructs NotifyWorkersFailureStatus from required parameters
 newNotifyWorkersFailureStatus :: NotifyWorkersFailureStatus
-newNotifyWorkersFailureStatus  = NotifyWorkersFailureStatus { "NotifyWorkersFailureCode": (NullOrUndefined Nothing), "NotifyWorkersFailureMessage": (NullOrUndefined Nothing), "WorkerId": (NullOrUndefined Nothing) }
+newNotifyWorkersFailureStatus  = NotifyWorkersFailureStatus { "NotifyWorkersFailureCode": Nothing, "NotifyWorkersFailureMessage": Nothing, "WorkerId": Nothing }
 
 -- | Constructs NotifyWorkersFailureStatus's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotifyWorkersFailureStatus' :: ( { "NotifyWorkersFailureCode" :: NullOrUndefined (NotifyWorkersFailureCode) , "NotifyWorkersFailureMessage" :: NullOrUndefined (String) , "WorkerId" :: NullOrUndefined (CustomerId) } -> {"NotifyWorkersFailureCode" :: NullOrUndefined (NotifyWorkersFailureCode) , "NotifyWorkersFailureMessage" :: NullOrUndefined (String) , "WorkerId" :: NullOrUndefined (CustomerId) } ) -> NotifyWorkersFailureStatus
-newNotifyWorkersFailureStatus'  customize = (NotifyWorkersFailureStatus <<< customize) { "NotifyWorkersFailureCode": (NullOrUndefined Nothing), "NotifyWorkersFailureMessage": (NullOrUndefined Nothing), "WorkerId": (NullOrUndefined Nothing) }
+newNotifyWorkersFailureStatus' :: ( { "NotifyWorkersFailureCode" :: Maybe (NotifyWorkersFailureCode) , "NotifyWorkersFailureMessage" :: Maybe (String) , "WorkerId" :: Maybe (CustomerId) } -> {"NotifyWorkersFailureCode" :: Maybe (NotifyWorkersFailureCode) , "NotifyWorkersFailureMessage" :: Maybe (String) , "WorkerId" :: Maybe (CustomerId) } ) -> NotifyWorkersFailureStatus
+newNotifyWorkersFailureStatus'  customize = (NotifyWorkersFailureStatus <<< customize) { "NotifyWorkersFailureCode": Nothing, "NotifyWorkersFailureMessage": Nothing, "WorkerId": Nothing }
 
 
 
@@ -1593,7 +1592,7 @@ newNotifyWorkersRequest' _MessageText _Subject _WorkerIds customize = (NotifyWor
 
 
 newtype NotifyWorkersResponse = NotifyWorkersResponse 
-  { "NotifyWorkersFailureStatuses" :: NullOrUndefined (NotifyWorkersFailureStatusList)
+  { "NotifyWorkersFailureStatuses" :: Maybe (NotifyWorkersFailureStatusList)
   }
 derive instance newtypeNotifyWorkersResponse :: Newtype NotifyWorkersResponse _
 derive instance repGenericNotifyWorkersResponse :: Generic NotifyWorkersResponse _
@@ -1603,12 +1602,12 @@ instance encodeNotifyWorkersResponse :: Encode NotifyWorkersResponse where encod
 
 -- | Constructs NotifyWorkersResponse from required parameters
 newNotifyWorkersResponse :: NotifyWorkersResponse
-newNotifyWorkersResponse  = NotifyWorkersResponse { "NotifyWorkersFailureStatuses": (NullOrUndefined Nothing) }
+newNotifyWorkersResponse  = NotifyWorkersResponse { "NotifyWorkersFailureStatuses": Nothing }
 
 -- | Constructs NotifyWorkersResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotifyWorkersResponse' :: ( { "NotifyWorkersFailureStatuses" :: NullOrUndefined (NotifyWorkersFailureStatusList) } -> {"NotifyWorkersFailureStatuses" :: NullOrUndefined (NotifyWorkersFailureStatusList) } ) -> NotifyWorkersResponse
-newNotifyWorkersResponse'  customize = (NotifyWorkersResponse <<< customize) { "NotifyWorkersFailureStatuses": (NullOrUndefined Nothing) }
+newNotifyWorkersResponse' :: ( { "NotifyWorkersFailureStatuses" :: Maybe (NotifyWorkersFailureStatusList) } -> {"NotifyWorkersFailureStatuses" :: Maybe (NotifyWorkersFailureStatusList) } ) -> NotifyWorkersResponse
+newNotifyWorkersResponse'  customize = (NotifyWorkersResponse <<< customize) { "NotifyWorkersFailureStatuses": Nothing }
 
 
 
@@ -1624,8 +1623,8 @@ instance encodePaginationToken :: Encode PaginationToken where encode = genericE
 
 -- | <p> This data structure is the data type for the AnswerKey parameter of the ScoreMyKnownAnswers/2011-09-01 Review Policy. </p>
 newtype ParameterMapEntry = ParameterMapEntry 
-  { "Key" :: NullOrUndefined (String)
-  , "Values" :: NullOrUndefined (StringList)
+  { "Key" :: Maybe (String)
+  , "Values" :: Maybe (StringList)
   }
 derive instance newtypeParameterMapEntry :: Newtype ParameterMapEntry _
 derive instance repGenericParameterMapEntry :: Generic ParameterMapEntry _
@@ -1635,12 +1634,12 @@ instance encodeParameterMapEntry :: Encode ParameterMapEntry where encode = gene
 
 -- | Constructs ParameterMapEntry from required parameters
 newParameterMapEntry :: ParameterMapEntry
-newParameterMapEntry  = ParameterMapEntry { "Key": (NullOrUndefined Nothing), "Values": (NullOrUndefined Nothing) }
+newParameterMapEntry  = ParameterMapEntry { "Key": Nothing, "Values": Nothing }
 
 -- | Constructs ParameterMapEntry's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newParameterMapEntry' :: ( { "Key" :: NullOrUndefined (String) , "Values" :: NullOrUndefined (StringList) } -> {"Key" :: NullOrUndefined (String) , "Values" :: NullOrUndefined (StringList) } ) -> ParameterMapEntry
-newParameterMapEntry'  customize = (ParameterMapEntry <<< customize) { "Key": (NullOrUndefined Nothing), "Values": (NullOrUndefined Nothing) }
+newParameterMapEntry' :: ( { "Key" :: Maybe (String) , "Values" :: Maybe (StringList) } -> {"Key" :: Maybe (String) , "Values" :: Maybe (StringList) } ) -> ParameterMapEntry
+newParameterMapEntry'  customize = (ParameterMapEntry <<< customize) { "Key": Nothing, "Values": Nothing }
 
 
 
@@ -1655,9 +1654,9 @@ instance encodeParameterMapEntryList :: Encode ParameterMapEntryList where encod
 
 -- | <p> Name of the parameter from the Review policy. </p>
 newtype PolicyParameter = PolicyParameter 
-  { "Key" :: NullOrUndefined (String)
-  , "Values" :: NullOrUndefined (StringList)
-  , "MapEntries" :: NullOrUndefined (ParameterMapEntryList)
+  { "Key" :: Maybe (String)
+  , "Values" :: Maybe (StringList)
+  , "MapEntries" :: Maybe (ParameterMapEntryList)
   }
 derive instance newtypePolicyParameter :: Newtype PolicyParameter _
 derive instance repGenericPolicyParameter :: Generic PolicyParameter _
@@ -1667,12 +1666,12 @@ instance encodePolicyParameter :: Encode PolicyParameter where encode = genericE
 
 -- | Constructs PolicyParameter from required parameters
 newPolicyParameter :: PolicyParameter
-newPolicyParameter  = PolicyParameter { "Key": (NullOrUndefined Nothing), "MapEntries": (NullOrUndefined Nothing), "Values": (NullOrUndefined Nothing) }
+newPolicyParameter  = PolicyParameter { "Key": Nothing, "MapEntries": Nothing, "Values": Nothing }
 
 -- | Constructs PolicyParameter's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPolicyParameter' :: ( { "Key" :: NullOrUndefined (String) , "Values" :: NullOrUndefined (StringList) , "MapEntries" :: NullOrUndefined (ParameterMapEntryList) } -> {"Key" :: NullOrUndefined (String) , "Values" :: NullOrUndefined (StringList) , "MapEntries" :: NullOrUndefined (ParameterMapEntryList) } ) -> PolicyParameter
-newPolicyParameter'  customize = (PolicyParameter <<< customize) { "Key": (NullOrUndefined Nothing), "MapEntries": (NullOrUndefined Nothing), "Values": (NullOrUndefined Nothing) }
+newPolicyParameter' :: ( { "Key" :: Maybe (String) , "Values" :: Maybe (StringList) , "MapEntries" :: Maybe (ParameterMapEntryList) } -> {"Key" :: Maybe (String) , "Values" :: Maybe (StringList) , "MapEntries" :: Maybe (ParameterMapEntryList) } ) -> PolicyParameter
+newPolicyParameter'  customize = (PolicyParameter <<< customize) { "Key": Nothing, "MapEntries": Nothing, "Values": Nothing }
 
 
 
@@ -1687,12 +1686,12 @@ instance encodePolicyParameterList :: Encode PolicyParameterList where encode = 
 
 -- | <p>The Qualification data structure represents a Qualification assigned to a user, including the Qualification type and the value (score).</p>
 newtype Qualification = Qualification 
-  { "QualificationTypeId" :: NullOrUndefined (EntityId)
-  , "WorkerId" :: NullOrUndefined (CustomerId)
-  , "GrantTime" :: NullOrUndefined (Types.Timestamp)
-  , "IntegerValue" :: NullOrUndefined (Int)
-  , "LocaleValue" :: NullOrUndefined (Locale)
-  , "Status" :: NullOrUndefined (QualificationStatus)
+  { "QualificationTypeId" :: Maybe (EntityId)
+  , "WorkerId" :: Maybe (CustomerId)
+  , "GrantTime" :: Maybe (Types.Timestamp)
+  , "IntegerValue" :: Maybe (Int)
+  , "LocaleValue" :: Maybe (Locale)
+  , "Status" :: Maybe (QualificationStatus)
   }
 derive instance newtypeQualification :: Newtype Qualification _
 derive instance repGenericQualification :: Generic Qualification _
@@ -1702,12 +1701,12 @@ instance encodeQualification :: Encode Qualification where encode = genericEncod
 
 -- | Constructs Qualification from required parameters
 newQualification :: Qualification
-newQualification  = Qualification { "GrantTime": (NullOrUndefined Nothing), "IntegerValue": (NullOrUndefined Nothing), "LocaleValue": (NullOrUndefined Nothing), "QualificationTypeId": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "WorkerId": (NullOrUndefined Nothing) }
+newQualification  = Qualification { "GrantTime": Nothing, "IntegerValue": Nothing, "LocaleValue": Nothing, "QualificationTypeId": Nothing, "Status": Nothing, "WorkerId": Nothing }
 
 -- | Constructs Qualification's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQualification' :: ( { "QualificationTypeId" :: NullOrUndefined (EntityId) , "WorkerId" :: NullOrUndefined (CustomerId) , "GrantTime" :: NullOrUndefined (Types.Timestamp) , "IntegerValue" :: NullOrUndefined (Int) , "LocaleValue" :: NullOrUndefined (Locale) , "Status" :: NullOrUndefined (QualificationStatus) } -> {"QualificationTypeId" :: NullOrUndefined (EntityId) , "WorkerId" :: NullOrUndefined (CustomerId) , "GrantTime" :: NullOrUndefined (Types.Timestamp) , "IntegerValue" :: NullOrUndefined (Int) , "LocaleValue" :: NullOrUndefined (Locale) , "Status" :: NullOrUndefined (QualificationStatus) } ) -> Qualification
-newQualification'  customize = (Qualification <<< customize) { "GrantTime": (NullOrUndefined Nothing), "IntegerValue": (NullOrUndefined Nothing), "LocaleValue": (NullOrUndefined Nothing), "QualificationTypeId": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "WorkerId": (NullOrUndefined Nothing) }
+newQualification' :: ( { "QualificationTypeId" :: Maybe (EntityId) , "WorkerId" :: Maybe (CustomerId) , "GrantTime" :: Maybe (Types.Timestamp) , "IntegerValue" :: Maybe (Int) , "LocaleValue" :: Maybe (Locale) , "Status" :: Maybe (QualificationStatus) } -> {"QualificationTypeId" :: Maybe (EntityId) , "WorkerId" :: Maybe (CustomerId) , "GrantTime" :: Maybe (Types.Timestamp) , "IntegerValue" :: Maybe (Int) , "LocaleValue" :: Maybe (Locale) , "Status" :: Maybe (QualificationStatus) } ) -> Qualification
+newQualification'  customize = (Qualification <<< customize) { "GrantTime": Nothing, "IntegerValue": Nothing, "LocaleValue": Nothing, "QualificationTypeId": Nothing, "Status": Nothing, "WorkerId": Nothing }
 
 
 
@@ -1722,12 +1721,12 @@ instance encodeQualificationList :: Encode QualificationList where encode = gene
 
 -- | <p> The QualificationRequest data structure represents a request a Worker has made for a Qualification. </p>
 newtype QualificationRequest = QualificationRequest 
-  { "QualificationRequestId" :: NullOrUndefined (String)
-  , "QualificationTypeId" :: NullOrUndefined (EntityId)
-  , "WorkerId" :: NullOrUndefined (CustomerId)
-  , "Test" :: NullOrUndefined (String)
-  , "Answer" :: NullOrUndefined (String)
-  , "SubmitTime" :: NullOrUndefined (Types.Timestamp)
+  { "QualificationRequestId" :: Maybe (String)
+  , "QualificationTypeId" :: Maybe (EntityId)
+  , "WorkerId" :: Maybe (CustomerId)
+  , "Test" :: Maybe (String)
+  , "Answer" :: Maybe (String)
+  , "SubmitTime" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeQualificationRequest :: Newtype QualificationRequest _
 derive instance repGenericQualificationRequest :: Generic QualificationRequest _
@@ -1737,12 +1736,12 @@ instance encodeQualificationRequest :: Encode QualificationRequest where encode 
 
 -- | Constructs QualificationRequest from required parameters
 newQualificationRequest :: QualificationRequest
-newQualificationRequest  = QualificationRequest { "Answer": (NullOrUndefined Nothing), "QualificationRequestId": (NullOrUndefined Nothing), "QualificationTypeId": (NullOrUndefined Nothing), "SubmitTime": (NullOrUndefined Nothing), "Test": (NullOrUndefined Nothing), "WorkerId": (NullOrUndefined Nothing) }
+newQualificationRequest  = QualificationRequest { "Answer": Nothing, "QualificationRequestId": Nothing, "QualificationTypeId": Nothing, "SubmitTime": Nothing, "Test": Nothing, "WorkerId": Nothing }
 
 -- | Constructs QualificationRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQualificationRequest' :: ( { "QualificationRequestId" :: NullOrUndefined (String) , "QualificationTypeId" :: NullOrUndefined (EntityId) , "WorkerId" :: NullOrUndefined (CustomerId) , "Test" :: NullOrUndefined (String) , "Answer" :: NullOrUndefined (String) , "SubmitTime" :: NullOrUndefined (Types.Timestamp) } -> {"QualificationRequestId" :: NullOrUndefined (String) , "QualificationTypeId" :: NullOrUndefined (EntityId) , "WorkerId" :: NullOrUndefined (CustomerId) , "Test" :: NullOrUndefined (String) , "Answer" :: NullOrUndefined (String) , "SubmitTime" :: NullOrUndefined (Types.Timestamp) } ) -> QualificationRequest
-newQualificationRequest'  customize = (QualificationRequest <<< customize) { "Answer": (NullOrUndefined Nothing), "QualificationRequestId": (NullOrUndefined Nothing), "QualificationTypeId": (NullOrUndefined Nothing), "SubmitTime": (NullOrUndefined Nothing), "Test": (NullOrUndefined Nothing), "WorkerId": (NullOrUndefined Nothing) }
+newQualificationRequest' :: ( { "QualificationRequestId" :: Maybe (String) , "QualificationTypeId" :: Maybe (EntityId) , "WorkerId" :: Maybe (CustomerId) , "Test" :: Maybe (String) , "Answer" :: Maybe (String) , "SubmitTime" :: Maybe (Types.Timestamp) } -> {"QualificationRequestId" :: Maybe (String) , "QualificationTypeId" :: Maybe (EntityId) , "WorkerId" :: Maybe (CustomerId) , "Test" :: Maybe (String) , "Answer" :: Maybe (String) , "SubmitTime" :: Maybe (Types.Timestamp) } ) -> QualificationRequest
+newQualificationRequest'  customize = (QualificationRequest <<< customize) { "Answer": Nothing, "QualificationRequestId": Nothing, "QualificationTypeId": Nothing, "SubmitTime": Nothing, "Test": Nothing, "WorkerId": Nothing }
 
 
 
@@ -1759,9 +1758,9 @@ instance encodeQualificationRequestList :: Encode QualificationRequestList where
 newtype QualificationRequirement = QualificationRequirement 
   { "QualificationTypeId" :: (String)
   , "Comparator" :: (Comparator)
-  , "IntegerValues" :: NullOrUndefined (IntegerList)
-  , "LocaleValues" :: NullOrUndefined (LocaleList)
-  , "RequiredToPreview" :: NullOrUndefined (Boolean)
+  , "IntegerValues" :: Maybe (IntegerList)
+  , "LocaleValues" :: Maybe (LocaleList)
+  , "RequiredToPreview" :: Maybe (Boolean)
   }
 derive instance newtypeQualificationRequirement :: Newtype QualificationRequirement _
 derive instance repGenericQualificationRequirement :: Generic QualificationRequirement _
@@ -1771,12 +1770,12 @@ instance encodeQualificationRequirement :: Encode QualificationRequirement where
 
 -- | Constructs QualificationRequirement from required parameters
 newQualificationRequirement :: Comparator -> String -> QualificationRequirement
-newQualificationRequirement _Comparator _QualificationTypeId = QualificationRequirement { "Comparator": _Comparator, "QualificationTypeId": _QualificationTypeId, "IntegerValues": (NullOrUndefined Nothing), "LocaleValues": (NullOrUndefined Nothing), "RequiredToPreview": (NullOrUndefined Nothing) }
+newQualificationRequirement _Comparator _QualificationTypeId = QualificationRequirement { "Comparator": _Comparator, "QualificationTypeId": _QualificationTypeId, "IntegerValues": Nothing, "LocaleValues": Nothing, "RequiredToPreview": Nothing }
 
 -- | Constructs QualificationRequirement's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQualificationRequirement' :: Comparator -> String -> ( { "QualificationTypeId" :: (String) , "Comparator" :: (Comparator) , "IntegerValues" :: NullOrUndefined (IntegerList) , "LocaleValues" :: NullOrUndefined (LocaleList) , "RequiredToPreview" :: NullOrUndefined (Boolean) } -> {"QualificationTypeId" :: (String) , "Comparator" :: (Comparator) , "IntegerValues" :: NullOrUndefined (IntegerList) , "LocaleValues" :: NullOrUndefined (LocaleList) , "RequiredToPreview" :: NullOrUndefined (Boolean) } ) -> QualificationRequirement
-newQualificationRequirement' _Comparator _QualificationTypeId customize = (QualificationRequirement <<< customize) { "Comparator": _Comparator, "QualificationTypeId": _QualificationTypeId, "IntegerValues": (NullOrUndefined Nothing), "LocaleValues": (NullOrUndefined Nothing), "RequiredToPreview": (NullOrUndefined Nothing) }
+newQualificationRequirement' :: Comparator -> String -> ( { "QualificationTypeId" :: (String) , "Comparator" :: (Comparator) , "IntegerValues" :: Maybe (IntegerList) , "LocaleValues" :: Maybe (LocaleList) , "RequiredToPreview" :: Maybe (Boolean) } -> {"QualificationTypeId" :: (String) , "Comparator" :: (Comparator) , "IntegerValues" :: Maybe (IntegerList) , "LocaleValues" :: Maybe (LocaleList) , "RequiredToPreview" :: Maybe (Boolean) } ) -> QualificationRequirement
+newQualificationRequirement' _Comparator _QualificationTypeId customize = (QualificationRequirement <<< customize) { "Comparator": _Comparator, "QualificationTypeId": _QualificationTypeId, "IntegerValues": Nothing, "LocaleValues": Nothing, "RequiredToPreview": Nothing }
 
 
 
@@ -1800,19 +1799,19 @@ instance encodeQualificationStatus :: Encode QualificationStatus where encode = 
 
 -- | <p> The QualificationType data structure represents a Qualification type, a description of a property of a Worker that must match the requirements of a HIT for the Worker to be able to accept the HIT. The type also describes how a Worker can obtain a Qualification of that type, such as through a Qualification test. </p>
 newtype QualificationType = QualificationType 
-  { "QualificationTypeId" :: NullOrUndefined (EntityId)
-  , "CreationTime" :: NullOrUndefined (Types.Timestamp)
-  , "Name" :: NullOrUndefined (String)
-  , "Description" :: NullOrUndefined (String)
-  , "Keywords" :: NullOrUndefined (String)
-  , "QualificationTypeStatus" :: NullOrUndefined (QualificationTypeStatus)
-  , "Test" :: NullOrUndefined (String)
-  , "TestDurationInSeconds" :: NullOrUndefined (Number)
-  , "AnswerKey" :: NullOrUndefined (String)
-  , "RetryDelayInSeconds" :: NullOrUndefined (Number)
-  , "IsRequestable" :: NullOrUndefined (Boolean)
-  , "AutoGranted" :: NullOrUndefined (Boolean)
-  , "AutoGrantedValue" :: NullOrUndefined (Int)
+  { "QualificationTypeId" :: Maybe (EntityId)
+  , "CreationTime" :: Maybe (Types.Timestamp)
+  , "Name" :: Maybe (String)
+  , "Description" :: Maybe (String)
+  , "Keywords" :: Maybe (String)
+  , "QualificationTypeStatus" :: Maybe (QualificationTypeStatus)
+  , "Test" :: Maybe (String)
+  , "TestDurationInSeconds" :: Maybe (Number)
+  , "AnswerKey" :: Maybe (String)
+  , "RetryDelayInSeconds" :: Maybe (Number)
+  , "IsRequestable" :: Maybe (Boolean)
+  , "AutoGranted" :: Maybe (Boolean)
+  , "AutoGrantedValue" :: Maybe (Int)
   }
 derive instance newtypeQualificationType :: Newtype QualificationType _
 derive instance repGenericQualificationType :: Generic QualificationType _
@@ -1822,12 +1821,12 @@ instance encodeQualificationType :: Encode QualificationType where encode = gene
 
 -- | Constructs QualificationType from required parameters
 newQualificationType :: QualificationType
-newQualificationType  = QualificationType { "AnswerKey": (NullOrUndefined Nothing), "AutoGranted": (NullOrUndefined Nothing), "AutoGrantedValue": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "IsRequestable": (NullOrUndefined Nothing), "Keywords": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "QualificationTypeId": (NullOrUndefined Nothing), "QualificationTypeStatus": (NullOrUndefined Nothing), "RetryDelayInSeconds": (NullOrUndefined Nothing), "Test": (NullOrUndefined Nothing), "TestDurationInSeconds": (NullOrUndefined Nothing) }
+newQualificationType  = QualificationType { "AnswerKey": Nothing, "AutoGranted": Nothing, "AutoGrantedValue": Nothing, "CreationTime": Nothing, "Description": Nothing, "IsRequestable": Nothing, "Keywords": Nothing, "Name": Nothing, "QualificationTypeId": Nothing, "QualificationTypeStatus": Nothing, "RetryDelayInSeconds": Nothing, "Test": Nothing, "TestDurationInSeconds": Nothing }
 
 -- | Constructs QualificationType's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQualificationType' :: ( { "QualificationTypeId" :: NullOrUndefined (EntityId) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "Name" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "Keywords" :: NullOrUndefined (String) , "QualificationTypeStatus" :: NullOrUndefined (QualificationTypeStatus) , "Test" :: NullOrUndefined (String) , "TestDurationInSeconds" :: NullOrUndefined (Number) , "AnswerKey" :: NullOrUndefined (String) , "RetryDelayInSeconds" :: NullOrUndefined (Number) , "IsRequestable" :: NullOrUndefined (Boolean) , "AutoGranted" :: NullOrUndefined (Boolean) , "AutoGrantedValue" :: NullOrUndefined (Int) } -> {"QualificationTypeId" :: NullOrUndefined (EntityId) , "CreationTime" :: NullOrUndefined (Types.Timestamp) , "Name" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "Keywords" :: NullOrUndefined (String) , "QualificationTypeStatus" :: NullOrUndefined (QualificationTypeStatus) , "Test" :: NullOrUndefined (String) , "TestDurationInSeconds" :: NullOrUndefined (Number) , "AnswerKey" :: NullOrUndefined (String) , "RetryDelayInSeconds" :: NullOrUndefined (Number) , "IsRequestable" :: NullOrUndefined (Boolean) , "AutoGranted" :: NullOrUndefined (Boolean) , "AutoGrantedValue" :: NullOrUndefined (Int) } ) -> QualificationType
-newQualificationType'  customize = (QualificationType <<< customize) { "AnswerKey": (NullOrUndefined Nothing), "AutoGranted": (NullOrUndefined Nothing), "AutoGrantedValue": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "IsRequestable": (NullOrUndefined Nothing), "Keywords": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "QualificationTypeId": (NullOrUndefined Nothing), "QualificationTypeStatus": (NullOrUndefined Nothing), "RetryDelayInSeconds": (NullOrUndefined Nothing), "Test": (NullOrUndefined Nothing), "TestDurationInSeconds": (NullOrUndefined Nothing) }
+newQualificationType' :: ( { "QualificationTypeId" :: Maybe (EntityId) , "CreationTime" :: Maybe (Types.Timestamp) , "Name" :: Maybe (String) , "Description" :: Maybe (String) , "Keywords" :: Maybe (String) , "QualificationTypeStatus" :: Maybe (QualificationTypeStatus) , "Test" :: Maybe (String) , "TestDurationInSeconds" :: Maybe (Number) , "AnswerKey" :: Maybe (String) , "RetryDelayInSeconds" :: Maybe (Number) , "IsRequestable" :: Maybe (Boolean) , "AutoGranted" :: Maybe (Boolean) , "AutoGrantedValue" :: Maybe (Int) } -> {"QualificationTypeId" :: Maybe (EntityId) , "CreationTime" :: Maybe (Types.Timestamp) , "Name" :: Maybe (String) , "Description" :: Maybe (String) , "Keywords" :: Maybe (String) , "QualificationTypeStatus" :: Maybe (QualificationTypeStatus) , "Test" :: Maybe (String) , "TestDurationInSeconds" :: Maybe (Number) , "AnswerKey" :: Maybe (String) , "RetryDelayInSeconds" :: Maybe (Number) , "IsRequestable" :: Maybe (Boolean) , "AutoGranted" :: Maybe (Boolean) , "AutoGrantedValue" :: Maybe (Int) } ) -> QualificationType
+newQualificationType'  customize = (QualificationType <<< customize) { "AnswerKey": Nothing, "AutoGranted": Nothing, "AutoGrantedValue": Nothing, "CreationTime": Nothing, "Description": Nothing, "IsRequestable": Nothing, "Keywords": Nothing, "Name": Nothing, "QualificationTypeId": Nothing, "QualificationTypeStatus": Nothing, "RetryDelayInSeconds": Nothing, "Test": Nothing, "TestDurationInSeconds": Nothing }
 
 
 
@@ -1881,7 +1880,7 @@ instance encodeRejectAssignmentResponse :: Encode RejectAssignmentResponse where
 
 newtype RejectQualificationRequestRequest = RejectQualificationRequestRequest 
   { "QualificationRequestId" :: (String)
-  , "Reason" :: NullOrUndefined (String)
+  , "Reason" :: Maybe (String)
   }
 derive instance newtypeRejectQualificationRequestRequest :: Newtype RejectQualificationRequestRequest _
 derive instance repGenericRejectQualificationRequestRequest :: Generic RejectQualificationRequestRequest _
@@ -1891,12 +1890,12 @@ instance encodeRejectQualificationRequestRequest :: Encode RejectQualificationRe
 
 -- | Constructs RejectQualificationRequestRequest from required parameters
 newRejectQualificationRequestRequest :: String -> RejectQualificationRequestRequest
-newRejectQualificationRequestRequest _QualificationRequestId = RejectQualificationRequestRequest { "QualificationRequestId": _QualificationRequestId, "Reason": (NullOrUndefined Nothing) }
+newRejectQualificationRequestRequest _QualificationRequestId = RejectQualificationRequestRequest { "QualificationRequestId": _QualificationRequestId, "Reason": Nothing }
 
 -- | Constructs RejectQualificationRequestRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRejectQualificationRequestRequest' :: String -> ( { "QualificationRequestId" :: (String) , "Reason" :: NullOrUndefined (String) } -> {"QualificationRequestId" :: (String) , "Reason" :: NullOrUndefined (String) } ) -> RejectQualificationRequestRequest
-newRejectQualificationRequestRequest' _QualificationRequestId customize = (RejectQualificationRequestRequest <<< customize) { "QualificationRequestId": _QualificationRequestId, "Reason": (NullOrUndefined Nothing) }
+newRejectQualificationRequestRequest' :: String -> ( { "QualificationRequestId" :: (String) , "Reason" :: Maybe (String) } -> {"QualificationRequestId" :: (String) , "Reason" :: Maybe (String) } ) -> RejectQualificationRequestRequest
+newRejectQualificationRequestRequest' _QualificationRequestId customize = (RejectQualificationRequestRequest <<< customize) { "QualificationRequestId": _QualificationRequestId, "Reason": Nothing }
 
 
 
@@ -1911,8 +1910,8 @@ instance encodeRejectQualificationRequestResponse :: Encode RejectQualificationR
 
 -- | <p>Your request is invalid.</p>
 newtype RequestError = RequestError 
-  { "Message" :: NullOrUndefined (ExceptionMessage)
-  , "TurkErrorCode" :: NullOrUndefined (TurkErrorCode)
+  { "Message" :: Maybe (ExceptionMessage)
+  , "TurkErrorCode" :: Maybe (TurkErrorCode)
   }
 derive instance newtypeRequestError :: Newtype RequestError _
 derive instance repGenericRequestError :: Generic RequestError _
@@ -1922,12 +1921,12 @@ instance encodeRequestError :: Encode RequestError where encode = genericEncode 
 
 -- | Constructs RequestError from required parameters
 newRequestError :: RequestError
-newRequestError  = RequestError { "Message": (NullOrUndefined Nothing), "TurkErrorCode": (NullOrUndefined Nothing) }
+newRequestError  = RequestError { "Message": Nothing, "TurkErrorCode": Nothing }
 
 -- | Constructs RequestError's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRequestError' :: ( { "Message" :: NullOrUndefined (ExceptionMessage) , "TurkErrorCode" :: NullOrUndefined (TurkErrorCode) } -> {"Message" :: NullOrUndefined (ExceptionMessage) , "TurkErrorCode" :: NullOrUndefined (TurkErrorCode) } ) -> RequestError
-newRequestError'  customize = (RequestError <<< customize) { "Message": (NullOrUndefined Nothing), "TurkErrorCode": (NullOrUndefined Nothing) }
+newRequestError' :: ( { "Message" :: Maybe (ExceptionMessage) , "TurkErrorCode" :: Maybe (TurkErrorCode) } -> {"Message" :: Maybe (ExceptionMessage) , "TurkErrorCode" :: Maybe (TurkErrorCode) } ) -> RequestError
+newRequestError'  customize = (RequestError <<< customize) { "Message": Nothing, "TurkErrorCode": Nothing }
 
 
 
@@ -1942,14 +1941,14 @@ instance encodeResultSize :: Encode ResultSize where encode = genericEncode opti
 
 -- | <p> Both the AssignmentReviewReport and the HITReviewReport elements contains the ReviewActionDetail data structure. This structure is returned multiple times for each action specified in the Review Policy. </p>
 newtype ReviewActionDetail = ReviewActionDetail 
-  { "ActionId" :: NullOrUndefined (EntityId)
-  , "ActionName" :: NullOrUndefined (String)
-  , "TargetId" :: NullOrUndefined (EntityId)
-  , "TargetType" :: NullOrUndefined (String)
-  , "Status" :: NullOrUndefined (ReviewActionStatus)
-  , "CompleteTime" :: NullOrUndefined (Types.Timestamp)
-  , "Result" :: NullOrUndefined (String)
-  , "ErrorCode" :: NullOrUndefined (String)
+  { "ActionId" :: Maybe (EntityId)
+  , "ActionName" :: Maybe (String)
+  , "TargetId" :: Maybe (EntityId)
+  , "TargetType" :: Maybe (String)
+  , "Status" :: Maybe (ReviewActionStatus)
+  , "CompleteTime" :: Maybe (Types.Timestamp)
+  , "Result" :: Maybe (String)
+  , "ErrorCode" :: Maybe (String)
   }
 derive instance newtypeReviewActionDetail :: Newtype ReviewActionDetail _
 derive instance repGenericReviewActionDetail :: Generic ReviewActionDetail _
@@ -1959,12 +1958,12 @@ instance encodeReviewActionDetail :: Encode ReviewActionDetail where encode = ge
 
 -- | Constructs ReviewActionDetail from required parameters
 newReviewActionDetail :: ReviewActionDetail
-newReviewActionDetail  = ReviewActionDetail { "ActionId": (NullOrUndefined Nothing), "ActionName": (NullOrUndefined Nothing), "CompleteTime": (NullOrUndefined Nothing), "ErrorCode": (NullOrUndefined Nothing), "Result": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "TargetId": (NullOrUndefined Nothing), "TargetType": (NullOrUndefined Nothing) }
+newReviewActionDetail  = ReviewActionDetail { "ActionId": Nothing, "ActionName": Nothing, "CompleteTime": Nothing, "ErrorCode": Nothing, "Result": Nothing, "Status": Nothing, "TargetId": Nothing, "TargetType": Nothing }
 
 -- | Constructs ReviewActionDetail's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReviewActionDetail' :: ( { "ActionId" :: NullOrUndefined (EntityId) , "ActionName" :: NullOrUndefined (String) , "TargetId" :: NullOrUndefined (EntityId) , "TargetType" :: NullOrUndefined (String) , "Status" :: NullOrUndefined (ReviewActionStatus) , "CompleteTime" :: NullOrUndefined (Types.Timestamp) , "Result" :: NullOrUndefined (String) , "ErrorCode" :: NullOrUndefined (String) } -> {"ActionId" :: NullOrUndefined (EntityId) , "ActionName" :: NullOrUndefined (String) , "TargetId" :: NullOrUndefined (EntityId) , "TargetType" :: NullOrUndefined (String) , "Status" :: NullOrUndefined (ReviewActionStatus) , "CompleteTime" :: NullOrUndefined (Types.Timestamp) , "Result" :: NullOrUndefined (String) , "ErrorCode" :: NullOrUndefined (String) } ) -> ReviewActionDetail
-newReviewActionDetail'  customize = (ReviewActionDetail <<< customize) { "ActionId": (NullOrUndefined Nothing), "ActionName": (NullOrUndefined Nothing), "CompleteTime": (NullOrUndefined Nothing), "ErrorCode": (NullOrUndefined Nothing), "Result": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "TargetId": (NullOrUndefined Nothing), "TargetType": (NullOrUndefined Nothing) }
+newReviewActionDetail' :: ( { "ActionId" :: Maybe (EntityId) , "ActionName" :: Maybe (String) , "TargetId" :: Maybe (EntityId) , "TargetType" :: Maybe (String) , "Status" :: Maybe (ReviewActionStatus) , "CompleteTime" :: Maybe (Types.Timestamp) , "Result" :: Maybe (String) , "ErrorCode" :: Maybe (String) } -> {"ActionId" :: Maybe (EntityId) , "ActionName" :: Maybe (String) , "TargetId" :: Maybe (EntityId) , "TargetType" :: Maybe (String) , "Status" :: Maybe (ReviewActionStatus) , "CompleteTime" :: Maybe (Types.Timestamp) , "Result" :: Maybe (String) , "ErrorCode" :: Maybe (String) } ) -> ReviewActionDetail
+newReviewActionDetail'  customize = (ReviewActionDetail <<< customize) { "ActionId": Nothing, "ActionName": Nothing, "CompleteTime": Nothing, "ErrorCode": Nothing, "Result": Nothing, "Status": Nothing, "TargetId": Nothing, "TargetType": Nothing }
 
 
 
@@ -1989,7 +1988,7 @@ instance encodeReviewActionStatus :: Encode ReviewActionStatus where encode = ge
 -- | <p> HIT Review Policy data structures represent HIT review policies, which you specify when you create a HIT. </p>
 newtype ReviewPolicy = ReviewPolicy 
   { "PolicyName" :: (String)
-  , "Parameters" :: NullOrUndefined (PolicyParameterList)
+  , "Parameters" :: Maybe (PolicyParameterList)
   }
 derive instance newtypeReviewPolicy :: Newtype ReviewPolicy _
 derive instance repGenericReviewPolicy :: Generic ReviewPolicy _
@@ -1999,12 +1998,12 @@ instance encodeReviewPolicy :: Encode ReviewPolicy where encode = genericEncode 
 
 -- | Constructs ReviewPolicy from required parameters
 newReviewPolicy :: String -> ReviewPolicy
-newReviewPolicy _PolicyName = ReviewPolicy { "PolicyName": _PolicyName, "Parameters": (NullOrUndefined Nothing) }
+newReviewPolicy _PolicyName = ReviewPolicy { "PolicyName": _PolicyName, "Parameters": Nothing }
 
 -- | Constructs ReviewPolicy's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReviewPolicy' :: String -> ( { "PolicyName" :: (String) , "Parameters" :: NullOrUndefined (PolicyParameterList) } -> {"PolicyName" :: (String) , "Parameters" :: NullOrUndefined (PolicyParameterList) } ) -> ReviewPolicy
-newReviewPolicy' _PolicyName customize = (ReviewPolicy <<< customize) { "PolicyName": _PolicyName, "Parameters": (NullOrUndefined Nothing) }
+newReviewPolicy' :: String -> ( { "PolicyName" :: (String) , "Parameters" :: Maybe (PolicyParameterList) } -> {"PolicyName" :: (String) , "Parameters" :: Maybe (PolicyParameterList) } ) -> ReviewPolicy
+newReviewPolicy' _PolicyName customize = (ReviewPolicy <<< customize) { "PolicyName": _PolicyName, "Parameters": Nothing }
 
 
 
@@ -2028,8 +2027,8 @@ instance encodeReviewPolicyLevelList :: Encode ReviewPolicyLevelList where encod
 
 -- | <p> Contains both ReviewResult and ReviewAction elements for a particular HIT. </p>
 newtype ReviewReport = ReviewReport 
-  { "ReviewResults" :: NullOrUndefined (ReviewResultDetailList)
-  , "ReviewActions" :: NullOrUndefined (ReviewActionDetailList)
+  { "ReviewResults" :: Maybe (ReviewResultDetailList)
+  , "ReviewActions" :: Maybe (ReviewActionDetailList)
   }
 derive instance newtypeReviewReport :: Newtype ReviewReport _
 derive instance repGenericReviewReport :: Generic ReviewReport _
@@ -2039,23 +2038,23 @@ instance encodeReviewReport :: Encode ReviewReport where encode = genericEncode 
 
 -- | Constructs ReviewReport from required parameters
 newReviewReport :: ReviewReport
-newReviewReport  = ReviewReport { "ReviewActions": (NullOrUndefined Nothing), "ReviewResults": (NullOrUndefined Nothing) }
+newReviewReport  = ReviewReport { "ReviewActions": Nothing, "ReviewResults": Nothing }
 
 -- | Constructs ReviewReport's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReviewReport' :: ( { "ReviewResults" :: NullOrUndefined (ReviewResultDetailList) , "ReviewActions" :: NullOrUndefined (ReviewActionDetailList) } -> {"ReviewResults" :: NullOrUndefined (ReviewResultDetailList) , "ReviewActions" :: NullOrUndefined (ReviewActionDetailList) } ) -> ReviewReport
-newReviewReport'  customize = (ReviewReport <<< customize) { "ReviewActions": (NullOrUndefined Nothing), "ReviewResults": (NullOrUndefined Nothing) }
+newReviewReport' :: ( { "ReviewResults" :: Maybe (ReviewResultDetailList) , "ReviewActions" :: Maybe (ReviewActionDetailList) } -> {"ReviewResults" :: Maybe (ReviewResultDetailList) , "ReviewActions" :: Maybe (ReviewActionDetailList) } ) -> ReviewReport
+newReviewReport'  customize = (ReviewReport <<< customize) { "ReviewActions": Nothing, "ReviewResults": Nothing }
 
 
 
 -- | <p> This data structure is returned multiple times for each result specified in the Review Policy. </p>
 newtype ReviewResultDetail = ReviewResultDetail 
-  { "ActionId" :: NullOrUndefined (EntityId)
-  , "SubjectId" :: NullOrUndefined (EntityId)
-  , "SubjectType" :: NullOrUndefined (String)
-  , "QuestionId" :: NullOrUndefined (EntityId)
-  , "Key" :: NullOrUndefined (String)
-  , "Value" :: NullOrUndefined (String)
+  { "ActionId" :: Maybe (EntityId)
+  , "SubjectId" :: Maybe (EntityId)
+  , "SubjectType" :: Maybe (String)
+  , "QuestionId" :: Maybe (EntityId)
+  , "Key" :: Maybe (String)
+  , "Value" :: Maybe (String)
   }
 derive instance newtypeReviewResultDetail :: Newtype ReviewResultDetail _
 derive instance repGenericReviewResultDetail :: Generic ReviewResultDetail _
@@ -2065,12 +2064,12 @@ instance encodeReviewResultDetail :: Encode ReviewResultDetail where encode = ge
 
 -- | Constructs ReviewResultDetail from required parameters
 newReviewResultDetail :: ReviewResultDetail
-newReviewResultDetail  = ReviewResultDetail { "ActionId": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "QuestionId": (NullOrUndefined Nothing), "SubjectId": (NullOrUndefined Nothing), "SubjectType": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newReviewResultDetail  = ReviewResultDetail { "ActionId": Nothing, "Key": Nothing, "QuestionId": Nothing, "SubjectId": Nothing, "SubjectType": Nothing, "Value": Nothing }
 
 -- | Constructs ReviewResultDetail's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newReviewResultDetail' :: ( { "ActionId" :: NullOrUndefined (EntityId) , "SubjectId" :: NullOrUndefined (EntityId) , "SubjectType" :: NullOrUndefined (String) , "QuestionId" :: NullOrUndefined (EntityId) , "Key" :: NullOrUndefined (String) , "Value" :: NullOrUndefined (String) } -> {"ActionId" :: NullOrUndefined (EntityId) , "SubjectId" :: NullOrUndefined (EntityId) , "SubjectType" :: NullOrUndefined (String) , "QuestionId" :: NullOrUndefined (EntityId) , "Key" :: NullOrUndefined (String) , "Value" :: NullOrUndefined (String) } ) -> ReviewResultDetail
-newReviewResultDetail'  customize = (ReviewResultDetail <<< customize) { "ActionId": (NullOrUndefined Nothing), "Key": (NullOrUndefined Nothing), "QuestionId": (NullOrUndefined Nothing), "SubjectId": (NullOrUndefined Nothing), "SubjectType": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newReviewResultDetail' :: ( { "ActionId" :: Maybe (EntityId) , "SubjectId" :: Maybe (EntityId) , "SubjectType" :: Maybe (String) , "QuestionId" :: Maybe (EntityId) , "Key" :: Maybe (String) , "Value" :: Maybe (String) } -> {"ActionId" :: Maybe (EntityId) , "SubjectId" :: Maybe (EntityId) , "SubjectType" :: Maybe (String) , "QuestionId" :: Maybe (EntityId) , "Key" :: Maybe (String) , "Value" :: Maybe (String) } ) -> ReviewResultDetail
+newReviewResultDetail'  customize = (ReviewResultDetail <<< customize) { "ActionId": Nothing, "Key": Nothing, "QuestionId": Nothing, "SubjectId": Nothing, "SubjectType": Nothing, "Value": Nothing }
 
 
 
@@ -2097,7 +2096,7 @@ newtype SendBonusRequest = SendBonusRequest
   , "BonusAmount" :: (CurrencyAmount)
   , "AssignmentId" :: (EntityId)
   , "Reason" :: (String)
-  , "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken)
+  , "UniqueRequestToken" :: Maybe (IdempotencyToken)
   }
 derive instance newtypeSendBonusRequest :: Newtype SendBonusRequest _
 derive instance repGenericSendBonusRequest :: Generic SendBonusRequest _
@@ -2107,12 +2106,12 @@ instance encodeSendBonusRequest :: Encode SendBonusRequest where encode = generi
 
 -- | Constructs SendBonusRequest from required parameters
 newSendBonusRequest :: EntityId -> CurrencyAmount -> String -> CustomerId -> SendBonusRequest
-newSendBonusRequest _AssignmentId _BonusAmount _Reason _WorkerId = SendBonusRequest { "AssignmentId": _AssignmentId, "BonusAmount": _BonusAmount, "Reason": _Reason, "WorkerId": _WorkerId, "UniqueRequestToken": (NullOrUndefined Nothing) }
+newSendBonusRequest _AssignmentId _BonusAmount _Reason _WorkerId = SendBonusRequest { "AssignmentId": _AssignmentId, "BonusAmount": _BonusAmount, "Reason": _Reason, "WorkerId": _WorkerId, "UniqueRequestToken": Nothing }
 
 -- | Constructs SendBonusRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSendBonusRequest' :: EntityId -> CurrencyAmount -> String -> CustomerId -> ( { "WorkerId" :: (CustomerId) , "BonusAmount" :: (CurrencyAmount) , "AssignmentId" :: (EntityId) , "Reason" :: (String) , "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) } -> {"WorkerId" :: (CustomerId) , "BonusAmount" :: (CurrencyAmount) , "AssignmentId" :: (EntityId) , "Reason" :: (String) , "UniqueRequestToken" :: NullOrUndefined (IdempotencyToken) } ) -> SendBonusRequest
-newSendBonusRequest' _AssignmentId _BonusAmount _Reason _WorkerId customize = (SendBonusRequest <<< customize) { "AssignmentId": _AssignmentId, "BonusAmount": _BonusAmount, "Reason": _Reason, "WorkerId": _WorkerId, "UniqueRequestToken": (NullOrUndefined Nothing) }
+newSendBonusRequest' :: EntityId -> CurrencyAmount -> String -> CustomerId -> ( { "WorkerId" :: (CustomerId) , "BonusAmount" :: (CurrencyAmount) , "AssignmentId" :: (EntityId) , "Reason" :: (String) , "UniqueRequestToken" :: Maybe (IdempotencyToken) } -> {"WorkerId" :: (CustomerId) , "BonusAmount" :: (CurrencyAmount) , "AssignmentId" :: (EntityId) , "Reason" :: (String) , "UniqueRequestToken" :: Maybe (IdempotencyToken) } ) -> SendBonusRequest
+newSendBonusRequest' _AssignmentId _BonusAmount _Reason _WorkerId customize = (SendBonusRequest <<< customize) { "AssignmentId": _AssignmentId, "BonusAmount": _BonusAmount, "Reason": _Reason, "WorkerId": _WorkerId, "UniqueRequestToken": Nothing }
 
 
 
@@ -2157,8 +2156,8 @@ instance encodeSendTestEventNotificationResponse :: Encode SendTestEventNotifica
 
 -- | <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
 newtype ServiceFault = ServiceFault 
-  { "Message" :: NullOrUndefined (ExceptionMessage)
-  , "TurkErrorCode" :: NullOrUndefined (TurkErrorCode)
+  { "Message" :: Maybe (ExceptionMessage)
+  , "TurkErrorCode" :: Maybe (TurkErrorCode)
   }
 derive instance newtypeServiceFault :: Newtype ServiceFault _
 derive instance repGenericServiceFault :: Generic ServiceFault _
@@ -2168,12 +2167,12 @@ instance encodeServiceFault :: Encode ServiceFault where encode = genericEncode 
 
 -- | Constructs ServiceFault from required parameters
 newServiceFault :: ServiceFault
-newServiceFault  = ServiceFault { "Message": (NullOrUndefined Nothing), "TurkErrorCode": (NullOrUndefined Nothing) }
+newServiceFault  = ServiceFault { "Message": Nothing, "TurkErrorCode": Nothing }
 
 -- | Constructs ServiceFault's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceFault' :: ( { "Message" :: NullOrUndefined (ExceptionMessage) , "TurkErrorCode" :: NullOrUndefined (TurkErrorCode) } -> {"Message" :: NullOrUndefined (ExceptionMessage) , "TurkErrorCode" :: NullOrUndefined (TurkErrorCode) } ) -> ServiceFault
-newServiceFault'  customize = (ServiceFault <<< customize) { "Message": (NullOrUndefined Nothing), "TurkErrorCode": (NullOrUndefined Nothing) }
+newServiceFault' :: ( { "Message" :: Maybe (ExceptionMessage) , "TurkErrorCode" :: Maybe (TurkErrorCode) } -> {"Message" :: Maybe (ExceptionMessage) , "TurkErrorCode" :: Maybe (TurkErrorCode) } ) -> ServiceFault
+newServiceFault'  customize = (ServiceFault <<< customize) { "Message": Nothing, "TurkErrorCode": Nothing }
 
 
 
@@ -2227,7 +2226,7 @@ instance encodeUpdateExpirationForHITResponse :: Encode UpdateExpirationForHITRe
 
 newtype UpdateHITReviewStatusRequest = UpdateHITReviewStatusRequest 
   { "HITId" :: (EntityId)
-  , "Revert" :: NullOrUndefined (Boolean)
+  , "Revert" :: Maybe (Boolean)
   }
 derive instance newtypeUpdateHITReviewStatusRequest :: Newtype UpdateHITReviewStatusRequest _
 derive instance repGenericUpdateHITReviewStatusRequest :: Generic UpdateHITReviewStatusRequest _
@@ -2237,12 +2236,12 @@ instance encodeUpdateHITReviewStatusRequest :: Encode UpdateHITReviewStatusReque
 
 -- | Constructs UpdateHITReviewStatusRequest from required parameters
 newUpdateHITReviewStatusRequest :: EntityId -> UpdateHITReviewStatusRequest
-newUpdateHITReviewStatusRequest _HITId = UpdateHITReviewStatusRequest { "HITId": _HITId, "Revert": (NullOrUndefined Nothing) }
+newUpdateHITReviewStatusRequest _HITId = UpdateHITReviewStatusRequest { "HITId": _HITId, "Revert": Nothing }
 
 -- | Constructs UpdateHITReviewStatusRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateHITReviewStatusRequest' :: EntityId -> ( { "HITId" :: (EntityId) , "Revert" :: NullOrUndefined (Boolean) } -> {"HITId" :: (EntityId) , "Revert" :: NullOrUndefined (Boolean) } ) -> UpdateHITReviewStatusRequest
-newUpdateHITReviewStatusRequest' _HITId customize = (UpdateHITReviewStatusRequest <<< customize) { "HITId": _HITId, "Revert": (NullOrUndefined Nothing) }
+newUpdateHITReviewStatusRequest' :: EntityId -> ( { "HITId" :: (EntityId) , "Revert" :: Maybe (Boolean) } -> {"HITId" :: (EntityId) , "Revert" :: Maybe (Boolean) } ) -> UpdateHITReviewStatusRequest
+newUpdateHITReviewStatusRequest' _HITId customize = (UpdateHITReviewStatusRequest <<< customize) { "HITId": _HITId, "Revert": Nothing }
 
 
 
@@ -2287,8 +2286,8 @@ instance encodeUpdateHITTypeOfHITResponse :: Encode UpdateHITTypeOfHITResponse w
 
 newtype UpdateNotificationSettingsRequest = UpdateNotificationSettingsRequest 
   { "HITTypeId" :: (EntityId)
-  , "Notification" :: NullOrUndefined (NotificationSpecification)
-  , "Active" :: NullOrUndefined (Boolean)
+  , "Notification" :: Maybe (NotificationSpecification)
+  , "Active" :: Maybe (Boolean)
   }
 derive instance newtypeUpdateNotificationSettingsRequest :: Newtype UpdateNotificationSettingsRequest _
 derive instance repGenericUpdateNotificationSettingsRequest :: Generic UpdateNotificationSettingsRequest _
@@ -2298,12 +2297,12 @@ instance encodeUpdateNotificationSettingsRequest :: Encode UpdateNotificationSet
 
 -- | Constructs UpdateNotificationSettingsRequest from required parameters
 newUpdateNotificationSettingsRequest :: EntityId -> UpdateNotificationSettingsRequest
-newUpdateNotificationSettingsRequest _HITTypeId = UpdateNotificationSettingsRequest { "HITTypeId": _HITTypeId, "Active": (NullOrUndefined Nothing), "Notification": (NullOrUndefined Nothing) }
+newUpdateNotificationSettingsRequest _HITTypeId = UpdateNotificationSettingsRequest { "HITTypeId": _HITTypeId, "Active": Nothing, "Notification": Nothing }
 
 -- | Constructs UpdateNotificationSettingsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateNotificationSettingsRequest' :: EntityId -> ( { "HITTypeId" :: (EntityId) , "Notification" :: NullOrUndefined (NotificationSpecification) , "Active" :: NullOrUndefined (Boolean) } -> {"HITTypeId" :: (EntityId) , "Notification" :: NullOrUndefined (NotificationSpecification) , "Active" :: NullOrUndefined (Boolean) } ) -> UpdateNotificationSettingsRequest
-newUpdateNotificationSettingsRequest' _HITTypeId customize = (UpdateNotificationSettingsRequest <<< customize) { "HITTypeId": _HITTypeId, "Active": (NullOrUndefined Nothing), "Notification": (NullOrUndefined Nothing) }
+newUpdateNotificationSettingsRequest' :: EntityId -> ( { "HITTypeId" :: (EntityId) , "Notification" :: Maybe (NotificationSpecification) , "Active" :: Maybe (Boolean) } -> {"HITTypeId" :: (EntityId) , "Notification" :: Maybe (NotificationSpecification) , "Active" :: Maybe (Boolean) } ) -> UpdateNotificationSettingsRequest
+newUpdateNotificationSettingsRequest' _HITTypeId customize = (UpdateNotificationSettingsRequest <<< customize) { "HITTypeId": _HITTypeId, "Active": Nothing, "Notification": Nothing }
 
 
 
@@ -2318,14 +2317,14 @@ instance encodeUpdateNotificationSettingsResponse :: Encode UpdateNotificationSe
 
 newtype UpdateQualificationTypeRequest = UpdateQualificationTypeRequest 
   { "QualificationTypeId" :: (EntityId)
-  , "Description" :: NullOrUndefined (String)
-  , "QualificationTypeStatus" :: NullOrUndefined (QualificationTypeStatus)
-  , "Test" :: NullOrUndefined (String)
-  , "AnswerKey" :: NullOrUndefined (String)
-  , "TestDurationInSeconds" :: NullOrUndefined (Number)
-  , "RetryDelayInSeconds" :: NullOrUndefined (Number)
-  , "AutoGranted" :: NullOrUndefined (Boolean)
-  , "AutoGrantedValue" :: NullOrUndefined (Int)
+  , "Description" :: Maybe (String)
+  , "QualificationTypeStatus" :: Maybe (QualificationTypeStatus)
+  , "Test" :: Maybe (String)
+  , "AnswerKey" :: Maybe (String)
+  , "TestDurationInSeconds" :: Maybe (Number)
+  , "RetryDelayInSeconds" :: Maybe (Number)
+  , "AutoGranted" :: Maybe (Boolean)
+  , "AutoGrantedValue" :: Maybe (Int)
   }
 derive instance newtypeUpdateQualificationTypeRequest :: Newtype UpdateQualificationTypeRequest _
 derive instance repGenericUpdateQualificationTypeRequest :: Generic UpdateQualificationTypeRequest _
@@ -2335,17 +2334,17 @@ instance encodeUpdateQualificationTypeRequest :: Encode UpdateQualificationTypeR
 
 -- | Constructs UpdateQualificationTypeRequest from required parameters
 newUpdateQualificationTypeRequest :: EntityId -> UpdateQualificationTypeRequest
-newUpdateQualificationTypeRequest _QualificationTypeId = UpdateQualificationTypeRequest { "QualificationTypeId": _QualificationTypeId, "AnswerKey": (NullOrUndefined Nothing), "AutoGranted": (NullOrUndefined Nothing), "AutoGrantedValue": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "QualificationTypeStatus": (NullOrUndefined Nothing), "RetryDelayInSeconds": (NullOrUndefined Nothing), "Test": (NullOrUndefined Nothing), "TestDurationInSeconds": (NullOrUndefined Nothing) }
+newUpdateQualificationTypeRequest _QualificationTypeId = UpdateQualificationTypeRequest { "QualificationTypeId": _QualificationTypeId, "AnswerKey": Nothing, "AutoGranted": Nothing, "AutoGrantedValue": Nothing, "Description": Nothing, "QualificationTypeStatus": Nothing, "RetryDelayInSeconds": Nothing, "Test": Nothing, "TestDurationInSeconds": Nothing }
 
 -- | Constructs UpdateQualificationTypeRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateQualificationTypeRequest' :: EntityId -> ( { "QualificationTypeId" :: (EntityId) , "Description" :: NullOrUndefined (String) , "QualificationTypeStatus" :: NullOrUndefined (QualificationTypeStatus) , "Test" :: NullOrUndefined (String) , "AnswerKey" :: NullOrUndefined (String) , "TestDurationInSeconds" :: NullOrUndefined (Number) , "RetryDelayInSeconds" :: NullOrUndefined (Number) , "AutoGranted" :: NullOrUndefined (Boolean) , "AutoGrantedValue" :: NullOrUndefined (Int) } -> {"QualificationTypeId" :: (EntityId) , "Description" :: NullOrUndefined (String) , "QualificationTypeStatus" :: NullOrUndefined (QualificationTypeStatus) , "Test" :: NullOrUndefined (String) , "AnswerKey" :: NullOrUndefined (String) , "TestDurationInSeconds" :: NullOrUndefined (Number) , "RetryDelayInSeconds" :: NullOrUndefined (Number) , "AutoGranted" :: NullOrUndefined (Boolean) , "AutoGrantedValue" :: NullOrUndefined (Int) } ) -> UpdateQualificationTypeRequest
-newUpdateQualificationTypeRequest' _QualificationTypeId customize = (UpdateQualificationTypeRequest <<< customize) { "QualificationTypeId": _QualificationTypeId, "AnswerKey": (NullOrUndefined Nothing), "AutoGranted": (NullOrUndefined Nothing), "AutoGrantedValue": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "QualificationTypeStatus": (NullOrUndefined Nothing), "RetryDelayInSeconds": (NullOrUndefined Nothing), "Test": (NullOrUndefined Nothing), "TestDurationInSeconds": (NullOrUndefined Nothing) }
+newUpdateQualificationTypeRequest' :: EntityId -> ( { "QualificationTypeId" :: (EntityId) , "Description" :: Maybe (String) , "QualificationTypeStatus" :: Maybe (QualificationTypeStatus) , "Test" :: Maybe (String) , "AnswerKey" :: Maybe (String) , "TestDurationInSeconds" :: Maybe (Number) , "RetryDelayInSeconds" :: Maybe (Number) , "AutoGranted" :: Maybe (Boolean) , "AutoGrantedValue" :: Maybe (Int) } -> {"QualificationTypeId" :: (EntityId) , "Description" :: Maybe (String) , "QualificationTypeStatus" :: Maybe (QualificationTypeStatus) , "Test" :: Maybe (String) , "AnswerKey" :: Maybe (String) , "TestDurationInSeconds" :: Maybe (Number) , "RetryDelayInSeconds" :: Maybe (Number) , "AutoGranted" :: Maybe (Boolean) , "AutoGrantedValue" :: Maybe (Int) } ) -> UpdateQualificationTypeRequest
+newUpdateQualificationTypeRequest' _QualificationTypeId customize = (UpdateQualificationTypeRequest <<< customize) { "QualificationTypeId": _QualificationTypeId, "AnswerKey": Nothing, "AutoGranted": Nothing, "AutoGrantedValue": Nothing, "Description": Nothing, "QualificationTypeStatus": Nothing, "RetryDelayInSeconds": Nothing, "Test": Nothing, "TestDurationInSeconds": Nothing }
 
 
 
 newtype UpdateQualificationTypeResponse = UpdateQualificationTypeResponse 
-  { "QualificationType" :: NullOrUndefined (QualificationType)
+  { "QualificationType" :: Maybe (QualificationType)
   }
 derive instance newtypeUpdateQualificationTypeResponse :: Newtype UpdateQualificationTypeResponse _
 derive instance repGenericUpdateQualificationTypeResponse :: Generic UpdateQualificationTypeResponse _
@@ -2355,19 +2354,19 @@ instance encodeUpdateQualificationTypeResponse :: Encode UpdateQualificationType
 
 -- | Constructs UpdateQualificationTypeResponse from required parameters
 newUpdateQualificationTypeResponse :: UpdateQualificationTypeResponse
-newUpdateQualificationTypeResponse  = UpdateQualificationTypeResponse { "QualificationType": (NullOrUndefined Nothing) }
+newUpdateQualificationTypeResponse  = UpdateQualificationTypeResponse { "QualificationType": Nothing }
 
 -- | Constructs UpdateQualificationTypeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateQualificationTypeResponse' :: ( { "QualificationType" :: NullOrUndefined (QualificationType) } -> {"QualificationType" :: NullOrUndefined (QualificationType) } ) -> UpdateQualificationTypeResponse
-newUpdateQualificationTypeResponse'  customize = (UpdateQualificationTypeResponse <<< customize) { "QualificationType": (NullOrUndefined Nothing) }
+newUpdateQualificationTypeResponse' :: ( { "QualificationType" :: Maybe (QualificationType) } -> {"QualificationType" :: Maybe (QualificationType) } ) -> UpdateQualificationTypeResponse
+newUpdateQualificationTypeResponse'  customize = (UpdateQualificationTypeResponse <<< customize) { "QualificationType": Nothing }
 
 
 
 -- | <p> The WorkerBlock data structure represents a Worker who has been blocked. It has two elements: the WorkerId and the Reason for the block. </p>
 newtype WorkerBlock = WorkerBlock 
-  { "WorkerId" :: NullOrUndefined (CustomerId)
-  , "Reason" :: NullOrUndefined (String)
+  { "WorkerId" :: Maybe (CustomerId)
+  , "Reason" :: Maybe (String)
   }
 derive instance newtypeWorkerBlock :: Newtype WorkerBlock _
 derive instance repGenericWorkerBlock :: Generic WorkerBlock _
@@ -2377,12 +2376,12 @@ instance encodeWorkerBlock :: Encode WorkerBlock where encode = genericEncode op
 
 -- | Constructs WorkerBlock from required parameters
 newWorkerBlock :: WorkerBlock
-newWorkerBlock  = WorkerBlock { "Reason": (NullOrUndefined Nothing), "WorkerId": (NullOrUndefined Nothing) }
+newWorkerBlock  = WorkerBlock { "Reason": Nothing, "WorkerId": Nothing }
 
 -- | Constructs WorkerBlock's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newWorkerBlock' :: ( { "WorkerId" :: NullOrUndefined (CustomerId) , "Reason" :: NullOrUndefined (String) } -> {"WorkerId" :: NullOrUndefined (CustomerId) , "Reason" :: NullOrUndefined (String) } ) -> WorkerBlock
-newWorkerBlock'  customize = (WorkerBlock <<< customize) { "Reason": (NullOrUndefined Nothing), "WorkerId": (NullOrUndefined Nothing) }
+newWorkerBlock' :: ( { "WorkerId" :: Maybe (CustomerId) , "Reason" :: Maybe (String) } -> {"WorkerId" :: Maybe (CustomerId) , "Reason" :: Maybe (String) } ) -> WorkerBlock
+newWorkerBlock'  customize = (WorkerBlock <<< customize) { "Reason": Nothing, "WorkerId": Nothing }
 
 
 
